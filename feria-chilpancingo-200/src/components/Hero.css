@@ -1,0 +1,391 @@
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #1a4d7c 0%, #2d6a9f 50%, #4a8fc4 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+/* Fuegos artificiales */
+.fireworks-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.firework {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.firework-1 {
+  top: 15%;
+  left: 15%;
+  background: radial-gradient(circle, #e91e63 0%, transparent 70%);
+}
+
+.firework-2 {
+  top: 20%;
+  right: 20%;
+  background: radial-gradient(circle, #7cb342 0%, transparent 70%);
+}
+
+.firework-3 {
+  top: 25%;
+  left: 50%;
+  background: radial-gradient(circle, #d4af37 0%, transparent 70%);
+}
+
+.firework-4 {
+  top: 18%;
+  right: 35%;
+  background: radial-gradient(circle, #6a1b9a 0%, transparent 70%);
+}
+
+/* Logos institucionales */
+.institutional-logos {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logos-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Contenido principal */
+.hero-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  max-width: 900px;
+  padding: 0 2rem;
+  margin-top: 6rem;
+}
+
+.year-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--dorado);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem;
+}
+
+.year-separator {
+  color: var(--dorado-claro);
+}
+
+.hero-title {
+  font-family: var(--font-elegant);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 1rem 0;
+  color: white;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.title-highlight {
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+  display: inline-block;
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+.hero-subtitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: white;
+  margin: 1.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.subtitle-separator {
+  color: var(--dorado);
+  font-size: 1.5rem;
+}
+
+.edition-badge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  background: rgba(212, 175, 55, 0.2);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  border: 3px solid var(--dorado);
+  margin: 2rem 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+.edition-number {
+  background: linear-gradient(135deg, #e91e63 0%, #c2185b 25%, #6a1b9a 50%, #ff6f00 75%, #7cb342 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.2rem;
+  font-weight: 900;
+  animation: rainbow-shift 5s infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes rainbow-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-slogan {
+  font-family: var(--font-elegant);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--dorado-claro);
+  margin: 1rem 0 2rem;
+}
+
+.cta-button {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--azul-oscuro);
+  background: linear-gradient(135deg, var(--dorado) 0%, var(--dorado-claro) 100%);
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.4);
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.cta-button:hover {
+  box-shadow: 0 12px 40px rgba(212, 175, 55, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Decoración inferior */
+.hero-bottom-decoration {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.churches-skyline {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.churches {
+  height: 180px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+}
+
+.churches-left {
+  animation: float 6s ease-in-out infinite;
+}
+
+.churches-right {
+  animation: float 6s ease-in-out infinite 3s;
+}
+
+.characters-group {
+  position: absolute;
+  bottom: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  justify-content: center;
+  width: 90%;
+  max-width: 800px;
+}
+
+.character {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.character:hover {
+  transform: scale(1.1) translateY(-10px);
+}
+
+.character-1 { animation: float 5s ease-in-out infinite; }
+.character-2 { animation: float 5s ease-in-out infinite 1s; }
+.character-3 { animation: float 5s ease-in-out infinite 2s; }
+.character-4 { animation: float 5s ease-in-out infinite 3s; }
+.character-5 { animation: float 5s ease-in-out infinite 4s; }
+
+.bottom-logos {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+}
+
+.bottom-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Ola divisoria */
+.wave-divider {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.wave-divider svg {
+  width: 100%;
+  height: 120px;
+  display: block;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content {
+    margin-top: 8rem;
+    padding: 0 1rem;
+  }
+
+  .year-badge {
+    font-size: 1.8rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .subtitle-separator {
+    display: none;
+  }
+
+  .edition-badge {
+    font-size: 1.3rem;
+    padding: 0.6rem 1.5rem;
+  }
+
+  .edition-number {
+    font-size: 1.8rem;
+  }
+
+  .cta-button {
+    font-size: 0.9rem;
+    padding: 1rem 2rem;
+  }
+
+  .churches {
+    height: 120px;
+  }
+
+  .character {
+    height: 80px;
+  }
+
+  .characters-group {
+    bottom: 120px;
+    gap: 0.5rem;
+  }
+
+  .institutional-logos {
+    top: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .logos-container {
+    gap: 1rem;
+  }
+
+  .logo {
+    height: 35px;
+  }
+}
