@@ -34,7 +34,7 @@ export default function PosterSection() {
                     >
                         <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-feria-gold/30 group-hover:border-feria-gold transition-colors duration-500">
                             <img
-                                src="/POSTER_VERTICAL.png"
+                                src={`${import.meta.env.BASE_URL}POSTER_VERTICAL.png`}
                                 alt="Poster Oficial 200 Años"
                                 className="w-full h-auto object-contain bg-white transform group-hover:scale-105 transition-transform duration-700"
                             />
