@@ -134,36 +134,36 @@ export default function Hero() {
 
                         {/* LEFT SIDE CHURCHES */}
                         <div className="relative w-1/2 h-full">
-                            {/* 1. Catedral (Biggest, Outermost) - Wider to fill space */}
-                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/CATEDRAL_Mesa de trabajo 1.webp`} className="absolute left-[-15%] bottom-[8vh] md:bottom-[13vh] w-[40%] md:w-[22%] max-w-[300px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="Catedral L" />
+                            {/* 1. Catedral (Biggest, Outermost) - Brought inside */}
+                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/CATEDRAL_Mesa de trabajo 1.webp`} className="absolute left-[0%] bottom-[8vh] md:bottom-[13vh] w-[35%] md:w-[22%] max-w-[300px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="Catedral L" />
                             {/* 2. San Mateo */}
-                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`} className="absolute left-[12%] bottom-[7vh] md:bottom-[12vh] w-[26%] md:w-[18%] max-w-[200px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="San Mateo L" />
+                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`} className="absolute left-[13%] bottom-[7vh] md:bottom-[12vh] w-[26%] md:w-[18%] max-w-[200px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="San Mateo L" />
                             {/* 3. San Francisco */}
-                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA SAN FRANCISCO_Mesa de trabajo 1.webp`} className="absolute left-[30%] bottom-[6vh] md:bottom-[10vh] w-[22%] md:w-[16%] max-w-[170px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="San Francisco L" />
+                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA SAN FRANCISCO_Mesa de trabajo 1.webp`} className="absolute left-[25%] bottom-[6vh] md:bottom-[10vh] w-[22%] md:w-[16%] max-w-[170px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="San Francisco L" />
 
-                            {/* 4. Tequicorral */}
-                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE TEQUICORRAL_Mesa de trabajo 1.webp`} className="absolute left-[45%] bottom-[5vh] md:bottom-[11vh] w-[20%] md:w-[14%] max-w-[150px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="Tequicorral L" />
-                            {/* 5. Santa Cruz */}
-                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SANTA CRUZ_Mesa de trabajo 1.webp`} className="absolute left-[58%] bottom-[4vh] md:bottom-[9vh] w-[18%] md:w-[15%] max-w-[160px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="Santa Cruz L" />
-                            {/* 6. San Antonio */}
-                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN ANTONIO_Mesa de trabajo 1.webp`} className="absolute left-[70%] bottom-[3vh] md:bottom-[7vh] w-[16%] md:w-[12%] max-w-[130px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="San Antonio L" />
+                            {/* 4. Tequicorral - ENLARGED */}
+                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE TEQUICORRAL_Mesa de trabajo 1.webp`} className="absolute left-[36%] bottom-[5vh] md:bottom-[11vh] w-[24%] md:w-[14%] max-w-[180px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="Tequicorral L" />
+                            {/* 5. Santa Cruz - ENLARGED */}
+                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SANTA CRUZ_Mesa de trabajo 1.webp`} className="absolute left-[46%] bottom-[4vh] md:bottom-[9vh] w-[22%] md:w-[15%] max-w-[180px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="Santa Cruz L" />
+                            {/* 6. San Antonio (Innermost) - SUPER ENLARGED & ADJUSTED */}
+                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN ANTONIO_Mesa de trabajo 1.webp`} className="absolute left-[58%] bottom-[3vh] md:bottom-[7vh] w-[30%] md:w-[14%] max-w-[200px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="San Antonio L" />
                         </div>
 
                         {/* RIGHT SIDE CHURCHES */}
                         <div className="relative w-1/2 h-full">
-                            {/* 6. San Antonio */}
-                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN ANTONIO_Mesa de trabajo 1.webp`} className="absolute right-[70%] bottom-[3vh] md:bottom-[7vh] w-[16%] md:w-[12%] max-w-[130px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="San Antonio R" />
-                            {/* 5. Santa Cruz */}
-                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SANTA CRUZ_Mesa de trabajo 1.webp`} className="absolute right-[58%] bottom-[4vh] md:bottom-[9vh] w-[18%] md:w-[15%] max-w-[160px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="Santa Cruz R" />
-                            {/* 4. Tequicorral */}
-                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE TEQUICORRAL_Mesa de trabajo 1.webp`} className="absolute right-[45%] bottom-[5vh] md:bottom-[11vh] w-[20%] md:w-[14%] max-w-[150px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="Tequicorral R" />
+                            {/* 6. San Antonio - SUPER ENLARGED & MOVED */}
+                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN ANTONIO_Mesa de trabajo 1.webp`} className="absolute right-[60%] bottom-[3vh] md:bottom-[7vh] w-[30%] md:w-[14%] max-w-[200px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="San Antonio R" />
+                            {/* 5. Santa Cruz - ENLARGED */}
+                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SANTA CRUZ_Mesa de trabajo 1.webp`} className="absolute right-[46%] bottom-[4vh] md:bottom-[9vh] w-[22%] md:w-[15%] max-w-[180px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="Santa Cruz R" />
+                            {/* 4. Tequicorral - ENLARGED */}
+                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE TEQUICORRAL_Mesa de trabajo 1.webp`} className="absolute right-[36%] bottom-[5vh] md:bottom-[11vh] w-[24%] md:w-[14%] max-w-[180px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="Tequicorral R" />
 
                             {/* 3. San Francisco */}
-                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA SAN FRANCISCO_Mesa de trabajo 1.webp`} className="absolute right-[30%] bottom-[6vh] md:bottom-[10vh] w-[22%] md:w-[16%] max-w-[170px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="San Francisco R" />
+                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA SAN FRANCISCO_Mesa de trabajo 1.webp`} className="absolute right-[25%] bottom-[6vh] md:bottom-[10vh] w-[22%] md:w-[16%] max-w-[170px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="San Francisco R" />
                             {/* 2. San Mateo */}
-                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`} className="absolute right-[12%] bottom-[7vh] md:bottom-[12vh] w-[26%] md:w-[18%] max-w-[200px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="San Mateo R" />
-                            {/* 1. Catedral (Biggest, Outermost) - Wider to fill space */}
-                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/CATEDRAL_Mesa de trabajo 1.webp`} className="absolute right-[-15%] bottom-[8vh] md:bottom-[13vh] w-[40%] md:w-[22%] max-w-[300px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="Catedral R" />
+                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`} className="absolute right-[13%] bottom-[7vh] md:bottom-[12vh] w-[26%] md:w-[18%] max-w-[200px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="San Mateo R" />
+                            {/* 1. Catedral (Biggest, Outermost) - Brought inside */}
+                            <motion.img variants={subtleVariant} animate="animate" whileHover="hover" src={`${import.meta.env.BASE_URL}ELEMENTOS/CATEDRAL_Mesa de trabajo 1.webp`} className="absolute right-[0%] bottom-[8vh] md:bottom-[13vh] w-[35%] md:w-[22%] max-w-[300px] object-contain translate-y-4 pointer-events-auto cursor-pointer" alt="Catedral R" />
                         </div>
                     </div>
 

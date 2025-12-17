@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
-import PosterSection from '../components/PosterSection';
+import DigitalPoster from '../components/DigitalPoster';
 import ElementsGrid from '../components/ElementsGrid';
 import Timeline from '../components/Timeline';
 import EventCalendar from '../components/EventCalendar';
@@ -17,7 +17,7 @@ export default function Home() {
 
                 {/* Content Wrapper for Sticky Reveal Effect */}
                 <div className="relative z-10 bg-slate-50">
-                    <PosterSection />
+                    <DigitalPoster />
                     <ElementsGrid />
                     <Timeline />
                     <EventCalendar />
