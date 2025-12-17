@@ -16,6 +16,7 @@ export default function ElementCard({ element, onClick }) {
                         layoutId={`image-${element.id}`}
                         src={element.image}
                         alt={element.title}
+                        loading="lazy"
                         className="w-full h-full object-contain drop-shadow-md group-hover:drop-shadow-2xl transition-all duration-300"
                     />
                 </div>
