@@ -83,10 +83,10 @@ export default function Hero() {
             {/* Logos */}
             <motion.div
                 style={{ opacity: opacityFade }}
-                className="relative z-20 mt-16 md:mt-24 flex flex-col items-center gap-1 md:gap-2 px-4 w-full"
+                className="relative z-20 mt-4 md:mt-24 flex flex-col items-center gap-1 md:gap-2 px-4 w-full"
             >
-                <img src={`${import.meta.env.BASE_URL}LOGOS/logo_chilpancingo_bicentenario.webp`} alt="Chilpancingo Logo" className="h-[9vh] md:h-[16vh] object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />
-                <img src={`${import.meta.env.BASE_URL}LOGOS/logo_200_anos.webp`} alt="200 Años Logo" className="h-[6vh] md:h-[10vh] object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />
+                <img src={`${import.meta.env.BASE_URL}LOGOS/logo_chilpancingo_bicentenario.webp`} alt="Chilpancingo Logo" className="h-[15vh] md:h-[16vh] object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />
+                <img src={`${import.meta.env.BASE_URL}LOGOS/logo_200_anos.webp`} alt="200 Años Logo" className="h-[10vh] md:h-[10vh] object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />
             </motion.div>
 
             {/* Main Composition Container */}
@@ -146,7 +146,7 @@ export default function Hero() {
                         {/* Nicolas Bravo (Left Layer) */}
                         <motion.img
                             src={`${import.meta.env.BASE_URL}ELEMENTOS/NICOLAS BRAVO_Mesa de trabajo 1.webp`}
-                            className="h-[24vh] md:h-[42vh] object-contain drop-shadow-2xl z-20 origin-bottom -mr-[12%] md:-mr-[12%] translate-x-4"
+                            className="h-[26vh] md:h-[42vh] object-contain drop-shadow-2xl z-20 origin-bottom -mr-[12%] md:-mr-[12%] translate-x-4"
                             whileHover={{ scale: 1.05 }}
                             alt="Nicolas Bravo"
                         />
@@ -154,7 +154,7 @@ export default function Hero() {
                         {/* Escaramusa (Center Top Layer) */}
                         <motion.img
                             src={`${import.meta.env.BASE_URL}ELEMENTOS/ESCARAMUSA2_Mesa de trabajo 1.webp`}
-                            className="h-[34vh] md:h-[58vh] object-contain drop-shadow-2xl z-30 origin-bottom translate-y-6"
+                            className="h-[36vh] md:h-[58vh] object-contain drop-shadow-2xl z-30 origin-bottom translate-y-6"
                             whileHover={{ scale: 1.05 }}
                             alt="Escaramusa"
                         />
@@ -163,7 +163,7 @@ export default function Hero() {
                         {/* Changed translate-y-12 to translate-y-20 */}
                         <motion.img
                             src={`${import.meta.env.BASE_URL}ELEMENTOS/GUERRERO JAGUAR_Mesa de trabajo 1.webp`}
-                            className="h-[27vh] md:h-[44vh] object-contain drop-shadow-2xl z-20 origin-bottom -ml-[12%] md:-ml-[12%] -translate-x-4 translate-y-16 md:translate-y-20"
+                            className="h-[29vh] md:h-[44vh] object-contain drop-shadow-2xl z-20 origin-bottom -ml-[12%] md:-ml-[12%] -translate-x-4 translate-y-16 md:translate-y-20"
                             whileHover={{ scale: 1.05 }}
                             alt="Jaguar"
                         />
