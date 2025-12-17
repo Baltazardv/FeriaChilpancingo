@@ -178,7 +178,7 @@ export default function Hero() {
                             animate="animate"
                             whileHover="hover"
                             src={`${import.meta.env.BASE_URL}ELEMENTOS/NICOLAS BRAVO_Mesa de trabajo 1.webp`}
-                            className="h-[26vh] md:h-[42vh] object-contain drop-shadow-2xl z-20 origin-bottom -mr-[25%] md:-mr-[12%] translate-x-4"
+                            className="h-[26vh] md:h-[42vh] object-contain drop-shadow-2xl z-20 origin-bottom -mr-[25%] md:-mr-[12%] translate-x-4 translate-y-6 md:translate-y-0"
                             alt="Nicolas Bravo"
                         />
 
