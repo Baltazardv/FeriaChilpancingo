@@ -10,15 +10,19 @@ import MapSection from '../components/MapSection';
 
 export default function Home() {
     return (
-        <div className="min-h-screen flex flex-col relative overflow-hidden bg-slate-50 font-sans">
+        <div className="min-h-screen flex flex-col relative bg-slate-50 font-sans">
             <Header />
             <main className="flex-grow">
                 <Hero />
-                <PosterSection />
-                <ElementsGrid />
-                <Timeline />
-                <EventCalendar />
-                <MapSection />
+
+                {/* Content Wrapper for Sticky Reveal Effect */}
+                <div className="relative z-10 bg-slate-50">
+                    <PosterSection />
+                    <ElementsGrid />
+                    <Timeline />
+                    <EventCalendar />
+                    <MapSection />
+                </div>
             </main>
             <Footer />
         </div>
