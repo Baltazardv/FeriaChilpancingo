@@ -4,20 +4,176 @@ import ElementCard from './ElementCard';
 import InfoModal from './InfoModal';
 
 const elementsData = [
-    { id: 1, title: 'Nicolás Bravo', image: `${import.meta.env.BASE_URL}ELEMENTOS/NICOLAS BRAVO_Mesa de trabajo 1.webp`, category: 'Historia', description: 'El "Héroe del Perdón" y personaje ilustre de Chilpancingo.' },
-    { id: 2, title: 'Catedral de la Asunción', image: `${import.meta.env.BASE_URL}ELEMENTOS/CATEDRAL_Mesa de trabajo 1.webp`, category: 'Arquitectura', description: 'Sede de los Sentimientos de la Nación y joya arquitectónica.' },
-    { id: 3, title: 'Tlacololeros', image: `${import.meta.env.BASE_URL}ELEMENTOS/TLACOLOLERO_Mesa de trabajo 1.webp`, category: 'Danza', description: 'La danza más antigua y representativa de la región centro de Guerrero. Representa la siembra y la caza del tigre.' },
-    { id: 4, title: 'El Tigre', image: `${import.meta.env.BASE_URL}ELEMENTOS/TIGRE_Mesa de trabajo 1.webp`, category: 'Símbolo', description: 'Personaje central de varias danzas y del "Porrazo del Tigre".' },
-    { id: 5, title: 'Barrio de San Mateo', image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`, category: 'Barrio', description: 'El barrio anfitrión de la feria, fundado en tiempos coloniales.' },
-    { id: 6, title: 'Diablos de Teloloapan', image: `${import.meta.env.BASE_URL}ELEMENTOS/DIABLO DE TELOLOAPAN_Mesa de trabajo 1.webp`, category: 'Tradición', description: 'Danza histórica que conmemora la lucha de independencia.' },
-    { id: 7, title: 'Plaza de Toros', image: `${import.meta.env.BASE_URL}ELEMENTOS/PLAZA DE TOROS_Mesa de trabajo 1.webp`, category: 'Lugar', description: 'Sede de los eventos masivos y el tradicional jaripeo.' },
-    { id: 8, title: 'Porrazo del Tigre', image: `${import.meta.env.BASE_URL}ELEMENTOS/PORRAZO_Mesa de trabajo 1.webp`, category: 'Evento', description: 'Tradición prehispánica donde los barrios compiten midiendo fuerza.' },
-    { id: 9, title: 'Flor de Nochebuena', image: `${import.meta.env.BASE_URL}ELEMENTOS/pascua_Mesa de trabajo 1.webp`, category: 'Naturaleza', description: 'Símbolo de la navidad, originaria de Taxco y Guerrero.' },
-    { id: 10, title: 'Señorita Flor de Nochebuena', image: `${import.meta.env.BASE_URL}ELEMENTOS/CORONA.webp`, category: 'Certamen', description: 'Representante de la belleza y cultura de Chilpancingo.' },
-    { id: 11, title: 'Barrio de San Francisco', image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA SAN FRANCISCO_Mesa de trabajo 1.webp`, category: 'Barrio' },
-    { id: 12, title: 'Barrio de Santa Cruz', image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SANTA CRUZ_Mesa de trabajo 1.webp`, category: 'Barrio' },
-    { id: 13, title: 'Barrio de San Antonio', image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN ANTONIO_Mesa de trabajo 1.webp`, category: 'Barrio' },
-    { id: 14, title: 'Barrio de Tequicorral', image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE TEQUICORRAL_Mesa de trabajo 1.webp`, category: 'Barrio' },
+    {
+        id: 1,
+        title: 'Nicolás Bravo Rueda',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/NICOLAS BRAVO_Mesa de trabajo 1.webp`,
+        category: 'Historia',
+        description: `Fue un destacado político y militar guerrerense, presidente de México en tres ocasiones y héroe de la Independencia. Nació el 10 de septiembre de 1786 en la hacienda de Chichihualco, propiedad de su familia, ubicada en la actual región centro del estado de Guerrero. Fue hijo de Leonardo Bravo y Gertrudis Rueda, y falleció el 22 de abril de 1854, en el mismo entorno familiar donde nació.
+
+Se distinguió por su gran generosidad y espíritu humanitario, cualidades que le valieron el reconocimiento como el “Héroe del Perdón”, apelativo que recibió tras indultar a prisioneros realistas durante el movimiento independentista, en un acto que marcó profundamente su legado histórico.
+
+Aunque no era oriundo de Chilpancingo, Nicolás Bravo mantuvo un firme compromiso con la región y con las poblaciones que resultaron gravemente afectadas por la guerra de Independencia. Su actuación pública se caracterizó por una constante preocupación por el bienestar social y por la reconstrucción de los pueblos que padecieron los estragos del conflicto armado.
+
+Nicolás Bravo fue, sin duda, un hombre que defendió la dignidad humana, entendida no solo como el fundamento de los derechos humanos, sino también como el eje central de su pensamiento político y de sus acciones en favor del bien común.
+
+Referencias:
+Enciclopedia Guerrerense. (s. f.). Feria de San Mateo, Navidad y Año Nuevo.
+Comisión Nacional de los Derechos Humanos (CNDH). (s. f.). Nace Nicolás Bravo, se le conoció como “Héroe del Perdón”.`
+    },
+    {
+        id: 2,
+        title: 'Teopancalaquis',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/CATEDRAL_Mesa de trabajo 1.webp`,
+        category: 'Tradición',
+        description: `Una mezcla de fe, danza y una tradición profundamente espiritual ha dado forma a la feria que hoy conocemos. Entre rituales y celebraciones religiosas heredadas, destaca un momento esencial: el Teopancalaquis.
+
+La noche del 24, como dictaba la tradición popular, los vecinos acudían a la Parroquia de la Asunción para dar gracias a Dios por la llegada de la Navidad. A la salida del templo, la gente se reunía en el Jardín Cuéllar para presenciar el Teopancalaquis, nombre de origen náhuatl que designa el acto de “ir a la casa de Dios”. Se entendía como una forma de adoración mediante danzas al Dios que acababa de nacer. Esa noche también se reunían las pastorelas, las cuales con sus dulces cánticos se postraban ante el nacimiento del redentor. Con el Teopancalaquis iniciaba formalmente la feria, donde podían disfrutarse juegos mecánicos, exposiciones artesanales, antojitos y diversos eventos culturales.
+
+Antes de esta celebración existía la Feria de la Asunción, dedicada a la Virgen patrona de la ciudad. Sin embargo, las circunstancias de su origen, desarrollo y desaparición no han podido esclarecerse. ¿Cómo desapareció la Feria de la Asunción? Se desconoce. Tampoco existen registros sobre cómo se desarrollaron las primeras ediciones de la feria actual ni cómo era el primer Pendón. 
+
+Aun con los vacíos históricos, la feria, sus tradiciones y costumbres siguen vivas gracias a la memoria colectiva de su gente, herencia cultural que seguirá trascendiendo de generación en generación.
+
+Referencias:
+Salazar Adame, J. (2008). Chilpancingo Capital: de su origen a la modernidad.`
+    },
+    {
+        id: 3,
+        title: 'El Porrazo de Tigres',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/PORRAZO_Mesa de trabajo 1.webp`,
+        category: 'Evento',
+        description: `Chilpancingo guarda escenas que, aunque transformadas por el tiempo, siguen vivas en su feria. Así lo narra María Luisa Ocampo en su novela Bajo el fuego:
+“…El “encuentro” era entre dos hombre habilitados de tigres, uno de mi pueblo y el otro procedente de Amojileca, una aldea vecina... Se suprimieron los santos y en vez de ellos son dos hombres disfrazados de tigres los que se encuentran en las orillas del río acompañados por sus respectivas danzas y músicos, y emprenden descomunal pelea...”
+
+El Porrazo de Tigres, emblema de nuestra Feria Chilpancingueña, simboliza la antigua competencia entre poblaciones vecinas y, posteriormente, entre los barrios que dieron forma a la ciudad. Se trataba de una pelea a cuerpo limpio en la que perdía quien era derribado. En sus primeros años se realizaba en un playón del río Huacapa y enfrentaba a los tigres de Amojileca y de Chilpancingo. Más tarde, los encuentros se llevaron a cabo entre los representantes de los barrios tradicionales.
+
+El tigre carga “sobre los hombros” la representación del barrio que lo vio nacer; su deber es defender con honor y valentía la presea del ganador, que se obtiene al vencer en dos de las tres caídas programadas. Todo ello ocurre ante un escenario atiborrado de chilpancingueños que, entre porras, gritos, chirrionazos y música de chile frito, expresan un fervor único.
+
+Actualmente, esta tradición llena de algarabía, color y pasión, continúa siendo una de las festividades más importantes de nuestra feria. Se celebra después del Paseo del Pendón y tiene como recinto la plaza de toros “Belisario Domínguez”, donde miles de familias se dan cita cada año.
+
+Referencias:
+Salazar Adame, J. (2008). Chilpancingo Capital: de su origen a la modernidad.
+Ocampo, M. L. (1947). Bajo el fuego.
+Anaya del Carmen, N. (2003). El paseo del Pendón “El Porrazo del Tigre”.`
+    },
+    {
+        id: 4,
+        title: 'Danza de los Tlacololeros',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/TLACOLOLERO_Mesa de trabajo 1.webp`,
+        category: 'Danza',
+        description: `En la ladera, entre tierra y canto, nace una de las danzas más representativas y antiguas de nuestra región: la danza de los Tlacololeros, con antecedentes documentados desde el siglo XIX.
+Su nombre proviene del náhuatl tlacolol, que significa “cultivo del campo” o “terreno de ladera”. Su coreografía y simbolismo remiten directamente al trabajo de la siembra del maíz, el frijol y la calabaza.
+
+El tlacololero representa al dueño del terreno (tlacololo), que se siembra al inicio de la estación de lluvias. Va armado de su chirrión, cuyo sonido, al hacerlo restallar, ahuyenta a los animales dañinos de la fauna silvestre; el más peligroso de ellos es el tigre.
+La danza escenifica la lucha de los tlacololeros contra el tigre, que simboliza todos los peligros que acechan al sembradío hasta la época de la cosecha.
+
+En la representación participan catorce tlacololeros, cada uno con un nombre distintivo: El Maizo, El Salvador, El Tlacololero, El Tepachero, El Tecorralero, El Teyolero, El Jitomatero, El Chile Verde, El Ventarrón, El Rayo Seco, El Colmenero, El Frijolero, El Xocoyotillo y La Perra Maravilla.
+
+El personaje principal es el tigre o jaguar, quien se convierte en el centro de la narrativa de la danza, pues representa una amenaza constante para el ganado y los cultivos, generando tanto tensión como situaciones de carácter cómico.
+
+Más que una danza, los Tlacololeros representan una tradición que honra el trabajo del campo y la resistencia cultural de los pueblos que, generación tras generación, mantienen viva su historia.
+
+Referencias:
+Instituto Nacional de Antropología e Historia (INAH). (s. f.). Danza de los tlacololeros: cazar al jaguar en el corazón de Guerrero.`
+    },
+    {
+        id: 5,
+        title: 'Flor de Nochebuena',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/pascua_Mesa de trabajo 1.webp`,
+        category: 'Naturaleza',
+        description: `Entre los símbolos más representativos de la temporada navideña se encuentra una flor de origen guerrerense cuya historia se remonta a tiempos prehispánicos.
+La flor de Nochebuena es considerada el símbolo floral de la Navidad y, en México, una de las plantas más conocidas, duraderas y apreciadas durante las fiestas decembrinas. Nativa del estado de Guerrero, la Euphorbia pulcherrima, conocida comúnmente como flor de Navidad, nochebuena o flor de Pascua, es originaria de regiones tropicales de México, particularmente de la ciudad de Taxco.
+
+En la época prehispánica, los antiguos mexicanos la llamaban Cuetlaxóchitl, vocablo náhuatl que proviene de la unión de cuetlaxtli, que significa “cuero”, y xóchitl, que significa “flor”. Para los mexicas, su intenso color rojo simbolizaba la sangre de los sacrificios ofrecidos al sol como acto de renovación y fortaleza espiritual.
+
+La flor de Nochebuena continúa floreciendo como símbolo de vida, renovación y herencia cultural mexicana que conecta el pasado prehispánico con las tradiciones navideñas actuales.`
+    },
+    {
+        id: 6,
+        title: 'Señorita Flor de Nochebuena',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/CORONA.webp`,
+        category: 'Certamen',
+        description: `Como parte de las celebraciones previas a la Feria de San Mateo, Navidad y Año Nuevo, surge el certamen “Señorita Flor de Nochebuena”, creado en 1981 por iniciativa del entonces gobernador del estado, Alejandro Cervantes Delgado. Este concurso nació con el propósito de otorgar un espacio protagónico a la mujer chilpancingueña, reconociéndola como portavoz y representante de las tradiciones culturales de la ciudad.
+
+El certamen se consolidó como una actividad anual dentro de los preparativos de la feria, en el que participaban jóvenes representantes de los cinco barrios tradicionales de Chilpancingo: San Mateo, San Antonio, San Francisco, Santa Cruz y Tequicorral. De entre ellas se elegía a quien portaría el título de “Señorita Flor de Nochebuena”, figura que encabezaba diversos eventos y actividades oficiales de la festividad.
+
+A lo largo de los años, este certamen se convirtió en una plataforma de participación y proyección para muchas mujeres, además de fomentar entre las nuevas generaciones el amor, el respeto y el orgullo por la cultura guerrerense.
+
+En la edición 2024, el certamen no se realizó en su formato tradicional; sin embargo, cada uno de los barrios contó con una representante. Para la edición 2025, el certamen Señorita Flor de Nochebuena fue suspendido en su totalidad.
+
+Aun con las transformaciones y pausas que ha enfrentado, el certamen permanece en la memoria colectiva como un símbolo de identidad, participación femenina y orgullo cultural de Chilpancingo.`
+    },
+    {
+        id: 7,
+        title: 'Los Diablos de Teloloapan',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/DIABLO DE TELOLOAPAN_Mesa de trabajo 1.webp`,
+        category: 'Tradición',
+        description: `La danza de Los Diablos de Teloloapan, originaria de la región de la Tierra Caliente de Guerrero, tiene su raíz en una leyenda costumbrista que los habitantes de la antigua ciudad de Tecampana han preservado como parte de su identidad cultural.
+
+La tradición se remonta aproximadamente al año 1820, cuando un insurgente calentano de nombre José Atanasio, integrante de las fuerzas comandadas por el teniente Pedro Ascencio Alquisiras, colaborador cercano de Vicente Guerrero, elaboró de manera improvisada un largo chicote trenzado con una reata de lazar, rematado con pabilo de vela. Al hacerlo tronar, su apariencia y comportamiento provocaron que alguien lo comparara con un diablo. A partir de esta ocurrencia, se confeccionó una máscara de madera adornada con crines de cola de caballo y se complementó el atuendo con una cuera de piel de gamuza.
+
+La impresión que causaron estos personajes llevó al teniente Alquisiras a ordenar que varios hombres así ataviados descendieran a Teloloapan para asustar a la población y facilitar la toma del lugar. Al descubrirse que era una estratagema insurgente, los pobladores reaccionaron con hospitalidad.
+
+Actualmente, esta tradición llena de algarabía, color y pasión, continúa siendo una de las festividades más importantes de nuestra feria, haciéndose presentes durante el tradicional Paseo del Pendón.
+
+Referencia: 
+El paseo del Pendón (2003). Breves datos monográficos de las danzas tradicionales.`
+    },
+    {
+        id: 8,
+        title: 'Danza de los Diablos',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/DIABLO_Mesa de trabajo 1.webp`,
+        category: 'Danza',
+        description: `En el siglo XVIII, se presentaban obras teatrales con temas eminentemente religiosos, interpretadas por laicos y frailes de la orden de los agustinos, las cuales funcionaban como un medio para la conversión de los naturales de la Nueva España.
+
+La danza de los Diablos surge como una expresión de fuerte contenido moral, en la que se representa la lucha entre el bien y el mal, reflejada en los distintos caracteres del ser humano. A través de esta danza se escenifican los castigos infernales a los que serían sometidos quienes no abrazaran la fe cristiana.
+
+Los personajes que integran la danza son profundamente simbólicos. Destaca el Diablo Mayor, quien porta una caja de madera cuyo sonido representa el castigo a la avaricia, el orgullo y el dinero mal habido. Otro de los diablos lleva una quijada de burro, conocida como charrasca, que simboliza el castigo a la lujuria y la pereza. La Diabla porta un requinto con el que armoniza la danza. Asimismo, participan Lucifer, la Muerte, así como diablos y diablas, quienes en conjunto representan los siete pecados capitales.
+
+Esta danza conserva una profunda carga simbólica que refleja la influencia religiosa y moral presente en las tradiciones heredadas de la época colonial.
+
+Referencia: 
+El paseo del Pendón (2003). Breves datos monográficos de las danzas tradicionales.`
+    },
+    {
+        id: 9,
+        title: 'Moros y Cristianos',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/MORO_Mesa de trabajo 1.webp`,
+        category: 'Danza',
+        description: `Una de las figuras más importantes introducidas en América durante la época colonial fue Santiago Apóstol, a quien la tradición representaba montando un caballo blanco y descendiendo de las nubes para auxiliar a los españoles en los combates librados contra los pueblos indígenas.
+
+La danza de los Moros Cabezones de Chilpancingo es una de las variantes de la danza de Moros y Cristianos, originada en Aragón, España, durante la Edad Media. Su antecedente histórico se sitúa en el año 1150.
+
+El eje de la representación es el enfrentamiento entre el bando cristiano y el bando moro, desarrollado a partir de una relación en verso y prosa que se alterna con la música, interpretada con flauta y tambor. Entre los personajes principales se encuentran el señor Santiago, el embajador, el rey, el alférez, el niño y Vespasiano. Sus oponentes son Pilatos, Tiberio, Savario, Alchareo, así como otros personajes moros.
+
+En el estado de Guerrero, esta danza es interpretada por los cuatro grupos étnicos y por poblaciones mestizas, siendo apreciada por la riqueza de su vestuario y fuerza interpretativa.`
+    },
+    {
+        id: 10,
+        title: 'Danza de los Manueles',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/MANUEL_Mesa de trabajo 1.webp`,
+        category: 'Danza',
+        description: `Aunque existen diversas versiones sobre el origen de la danza de los Manueles, la más aceptada es la que se sitúa en la ciudad de Tixtla de Guerrero.
+
+Se cuenta que, durante el siglo XVIII, la ciudad era gobernada por un español déspota, avaro y ruin, llamado Manuel. Era descrito como un hombre alto y delgado, que vestía frac y sombrero de copa alta, y que siempre llevaba consigo un puñado de monedas de plata. Cansados de su forma de gobernar, los vecinos buscaron la manera de manifestar su inconformidad y encontraron en la danza un medio de protesta.
+
+Al presentarse la danza, el alcalde se mostró intrigado y preguntó a uno de sus regidores cuál era su significado. Entonces se le explicó que el pueblo expresaba su descontento y que los personajes eran una caricatura grotesca de su propia persona. Al escucharlo, lejos de molestarse, permitió que continuaran danzando.
+
+Entre los personajes que integran la danza se encuentran el Manuel, la Vieja, acompañados por los peones, quienes refuerzan el carácter satírico de la representación.`
+    },
+    {
+        id: 11,
+        title: 'Diablos Costa Chica',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/DIABLOS NEGROS_Mesa de trabajo 1.webp`,
+        category: 'Danza',
+        description: `La Danza de los Diablos de la Costa Chica es una de las expresiones culturales más representativas de esta región y presenta características particulares que la distinguen de otras versiones de la danza.
+
+En esta variante, los personajes principales son el Diablo Viejo o Diablo de Bote, llamado así porque porta un tecomate o calabazo cubierto con parche de piel de animal. Otro personaje fundamental es la Vieja de la Charrasca, también conocida como Nana Minga. Las máscaras, de apariencia grotesca, están elaboradas con cuero de res y llevan largas barbas hechas de crin de caballo.
+
+Esta manifestación conserva una fuerte herencia cultural de origen africano, visible tanto en sus personajes como en su simbolismo. Actualmente, la danza se desarrolla principalmente los días 1 y 2 de noviembre durante el Día de Muertos, y también se hace presente durante el tradicional Paseo del Pendón en Chilpancingo.
+
+Esta danza es testimonio vivo de la diversidad cultural de Guerrero y de la permanencia de las raíces afrodescendientes que, a través de la tradición, continúan dando identidad y sentido a las comunidades de la Costa Chica.`
+    }
 ];
 
 export default function ElementsGrid() {

@@ -51,7 +51,7 @@ export default function InfoModal({ selectedElement, onClose }) {
                         </div>
 
                         <div className="prose prose-sm prose-slate mb-6">
-                            <p className="text-lg leading-relaxed text-gray-600">
+                            <p className="text-lg leading-relaxed text-gray-600 whitespace-pre-line">
                                 {selectedElement.description || "Este elemento representa una parte fundamental de la historia y tradición de la Feria de San Mateo. Su presencia evoca memorias de antaño y celebra la identidad cultural de Chilpancingo."}
                             </p>
                         </div>
