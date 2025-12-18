@@ -62,14 +62,14 @@ export default function PosterGallery() {
 
                 <div className="relative">
                     {/* Mobile: Horizontal Scroll (No Arrows) */}
-                    <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-6 px-4 pb-8 items-center scroll-smooth">
+                    <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-3 px-2 pb-8 items-center scroll-smooth">
                         {posters.map((poster, index) => (
                             <motion.div
                                 key={poster.id}
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                                 transition={{ delay: 0.2 + (index * 0.2), duration: 0.8 }}
-                                className="min-w-[85vw] snap-center flex justify-center flex-shrink-0"
+                                className="min-w-[45vw] snap-center flex justify-center flex-shrink-0"
                             >
                                 <ProfileCard
                                     avatarUrl={poster.src}

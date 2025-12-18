@@ -86,15 +86,15 @@ export default function Navigation() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-feria-blue/95 backdrop-blur-md overflow-hidden"
+                        className="md:hidden bg-feria-blue/95 backdrop-blur-md overflow-hidden absolute top-full left-0 w-full z-50 border-t border-white/10"
                     >
-                        <div className="flex flex-col items-center py-4 space-y-4">
+                        <div className="flex flex-col items-center py-6 space-y-6">
                             {links.map((link) => (
                                 <a
                                     key={link.name}
                                     href={link.href}
                                     onClick={(e) => handleNavClick(e, link.href)}
-                                    className="text-white font-medium hover:text-feria-accent"
+                                    className="text-white text-lg font-medium hover:text-feria-accent transition-colors cursor-pointer"
                                 >
                                     {link.name}
                                 </a>
