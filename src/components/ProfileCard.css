@@ -35,6 +35,11 @@
     transform: translate3d(0, 0, 0.1px);
     position: relative;
     touch-action: none;
+    /* Centering fix */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .pc-behind {
@@ -48,6 +53,7 @@
     filter: blur(50px) saturate(1.1);
     opacity: calc(0.8 * var(--card-opacity));
     transition: opacity 200ms ease;
+    /* Ensure glow is centered too if needed, but it uses inset 0 */
 }
 
 .pc-card-wrapper:hover,
@@ -57,7 +63,8 @@
 
 .pc-card {
     height: 80svh;
-    max-height: 540px;
+    max-height: 700px;
+    /* Increased from 540px to allow bigger posters on taller screens */
     display: grid;
     aspect-ratio: 0.718;
     border-radius: var(--card-radius);

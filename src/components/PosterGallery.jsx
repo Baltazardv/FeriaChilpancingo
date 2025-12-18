@@ -66,7 +66,7 @@ export default function PosterGallery() {
                 <div className="relative">
                     {/* Mobile: Toggle Controls & Single Display */}
                     <div className="md:hidden flex flex-col items-center">
-                        <div className="w-full max-w-[85vw] mx-auto aspect-[3/4] flex justify-center items-center mb-6">
+                        <div className="w-full max-w-[95vw] mx-auto flex justify-center items-center mb-8">
                             <motion.div
                                 key={activePoster.id}
                                 initial={{ opacity: 0, scale: 0.95 }}
@@ -93,7 +93,7 @@ export default function PosterGallery() {
                         </div>
 
                         {/* Toggle Buttons */}
-                        <div className="grid grid-cols-2 gap-4 w-full max-w-[85vw] mx-auto">
+                        <div className="grid grid-cols-2 gap-4 w-full max-w-[90vw] mx-auto">
                             {posters.map((poster) => (
                                 <button
                                     key={poster.id}
