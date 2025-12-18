@@ -72,7 +72,7 @@ export default function PosterGallery() {
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5 }}
-                                className="w-full"
+                                className="w-full flex justify-center"
                             >
                                 <ProfileCard
                                     avatarUrl={activePoster.src}

@@ -22,28 +22,35 @@ export default function Navigation() {
         setIsOpen(false);
 
         const targetId = href.replace('#', '');
-        const element = document.getElementById(targetId);
 
-        if (element) {
-            const headerOffset = 80;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
+        const scrollToElement = (elementId) => {
+            const element = document.getElementById(elementId);
+            if (element) {
+                const headerOffset = 85; // Slightly increased offset
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+                return true;
+            }
+            return false;
+        };
+
+        if (location.pathname === '/') {
+            // If already on home, try to scroll immediately
+            if (!scrollToElement(targetId)) {
+                // If element not found yet (rare), retry briefly
+                setTimeout(() => scrollToElement(targetId), 100);
+            }
         } else {
+            // If on another page, navigate to home then scroll
             await navigate('/');
+            // Retry a few times to ensure page is loaded
             setTimeout(() => {
-                const element = document.getElementById(targetId);
-                if (element) {
-                    const headerOffset = 80;
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
+                if (!scrollToElement(targetId)) {
+                    setTimeout(() => scrollToElement(targetId), 300);
                 }
             }, 100);
         }
