@@ -33,6 +33,9 @@ export default function PosterGallery() {
 
 
 
+    const [activePosterId, setActivePosterId] = useState(1);
+    const activePoster = posters.find(p => p.id === activePosterId) || posters[0];
+
     return (
         <section
             id="posters"
@@ -43,7 +46,7 @@ export default function PosterGallery() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-800 via-neutral-900 to-black opacity-80" />
 
             <div className="relative z-10 max-w-7xl mx-auto">
-                <div className="text-center mb-16">
+                <div className="text-center mb-6 md:mb-16">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -61,33 +64,49 @@ export default function PosterGallery() {
                 </div>
 
                 <div className="relative">
-                    {/* Mobile: Horizontal Scroll (No Arrows) */}
-                    <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-3 px-2 pb-8 items-center scroll-smooth">
-                        {posters.map((poster, index) => (
+                    {/* Mobile: Toggle Controls & Single Display */}
+                    <div className="md:hidden flex flex-col items-center">
+                        <div className="w-full max-w-[95vw] sm:max-w-md aspect-[3/4] flex justify-center items-center mb-6">
                             <motion.div
-                                key={poster.id}
-                                initial={{ opacity: 0, y: 50 }}
-                                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                                transition={{ delay: 0.2 + (index * 0.2), duration: 0.8 }}
-                                className="min-w-[45vw] snap-center flex justify-center flex-shrink-0"
+                                key={activePoster.id}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.5 }}
+                                className="w-full"
                             >
                                 <ProfileCard
-                                    avatarUrl={poster.src}
-                                    name={poster.title}
-                                    title={poster.artist}
+                                    avatarUrl={activePoster.src}
+                                    name={activePoster.title}
+                                    title={activePoster.artist}
                                     handle="Feria200"
                                     status="2025"
                                     contactText="Ver Detalles"
-                                    contactLink={poster.link}
-                                    innerGradient={poster.gradient}
-                                    behindGlowColor={poster.glow}
+                                    contactLink={activePoster.link}
+                                    innerGradient={activePoster.gradient}
+                                    behindGlowColor={activePoster.glow}
                                     showUserInfo={true}
                                     enableTilt={true}
                                     enableMobileTilt={true}
-                                    className="w-full max-w-md"
+                                    className="w-full"
                                 />
                             </motion.div>
-                        ))}
+                        </div>
+
+                        {/* Toggle Buttons */}
+                        <div className="grid grid-cols-2 gap-4 w-full max-w-[95vw] sm:max-w-md">
+                            {posters.map((poster) => (
+                                <button
+                                    key={poster.id}
+                                    onClick={() => setActivePosterId(poster.id)}
+                                    className={`relative px-4 py-3 rounded-xl font-medium text-sm transition-all duration-300 overflow-hidden ${activePosterId === poster.id ? 'text-white scale-105 shadow-lg ring-2 ring-amber-500/50' : 'text-neutral-400 hover:text-white opacity-75'}`}
+                                    style={{
+                                        background: activePosterId === poster.id ? poster.gradient : 'rgba(255,255,255,0.05)'
+                                    }}
+                                >
+                                    <span className="relative z-10">{poster.title}</span>
+                                </button>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Desktop: Grid Layout */}

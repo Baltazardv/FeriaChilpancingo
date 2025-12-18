@@ -11,7 +11,7 @@ export default function PosterPropuesta() {
     }, []);
 
     return (
-        <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
+        <div className="min-h-screen flex flex-col bg-neutral-900 font-sans">
             <Header />
             <main className="flex-grow pt-24">
                 <div className="bg-neutral-900 pb-20">

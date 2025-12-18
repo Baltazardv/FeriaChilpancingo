@@ -20,8 +20,9 @@ export default function Navigation() {
     const handleNavClick = (e, href) => {
         e.preventDefault();
         const targetId = href.replace('#', '');
+        const isHome = location.pathname === '/' || location.pathname === '/FeriaChilpancingo/';
 
-        if (location.pathname === '/' || location.pathname === '/FeriaChilpancingo/') {
+        if (isHome) {
             const element = document.getElementById(targetId);
             if (element) {
                 const headerOffset = 80;
@@ -33,6 +34,7 @@ export default function Navigation() {
                 });
             }
         } else {
+            // Navigate to home with hash
             navigate(`/${href}`);
         }
         setIsOpen(false);
@@ -47,7 +49,7 @@ export default function Navigation() {
     ];
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-feria-blue/90 backdrop-blur-sm shadow-lg py-2' : 'bg-black/50 backdrop-blur-md md:bg-transparent py-4'}`}>
+        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-feria-blue/90 backdrop-blur-sm shadow-lg py-2' : 'bg-transparent py-4'}`}>
             <div className="container mx-auto px-4 flex justify-between items-center">
                 <div
                     className="text-white font-serif font-bold text-xl md:hidden cursor-pointer"
