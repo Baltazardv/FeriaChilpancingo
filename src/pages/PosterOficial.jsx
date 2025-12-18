@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
@@ -58,15 +59,15 @@ export default function PosterOficial() {
                                 </div>
 
                                 <div className="mt-8">
-                                    <a
-                                        href="/"
+                                    <Link
+                                        to="/"
                                         className="inline-flex items-center gap-2 px-6 py-3 border border-amber-500 text-amber-500 rounded-full hover:bg-amber-500 hover:text-white transition-all duration-300 group/btn"
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 group-hover/btn:-translate-x-1 transition-transform">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                                         </svg>
                                         Regresar al Inicio
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
