@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -14,18 +17,42 @@ export default function Navigation() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const handleNavClick = (e, href) => {
+        e.preventDefault();
+        const targetId = href.replace('#', '');
+
+        if (location.pathname === '/' || location.pathname === '/FeriaChilpancingo/') {
+            const element = document.getElementById(targetId);
+            if (element) {
+                const headerOffset = 80;
+                const elementPosition = element.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        } else {
+            navigate(`/${href}`);
+        }
+        setIsOpen(false);
+    };
+
     const links = [
         { name: 'Inicio', href: '#hero' },
         { name: 'Historia', href: '#history' },
-        { name: 'Cartelera', href: '#events' },
-        { name: 'Tradiciones', href: '#traditions' },
-        { name: 'Mapa', href: '#map' },
+        { name: 'Carteles', href: '#posters' },
+        { name: 'Cartelera', href: '#program' },
+        { name: 'Mapa', href: '#location' },
     ];
 
     return (
         <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-feria-blue/90 backdrop-blur-sm shadow-lg py-2' : 'bg-transparent py-4'}`}>
             <div className="container mx-auto px-4 flex justify-between items-center">
-                <div className="text-white font-serif font-bold text-xl md:hidden">
+                <div
+                    className="text-white font-serif font-bold text-xl md:hidden cursor-pointer"
+                    onClick={(e) => handleNavClick(e, '#hero')}
+                >
                     Feria Chilpancingo
                 </div>
 
@@ -35,7 +62,8 @@ export default function Navigation() {
                         <a
                             key={link.name}
                             href={link.href}
-                            className="text-white font-medium hover:text-feria-accent transition-colors uppercase tracking-wider text-sm"
+                            onClick={(e) => handleNavClick(e, link.href)}
+                            className="text-white font-medium hover:text-feria-accent transition-colors uppercase tracking-wider text-sm cursor-pointer"
                         >
                             {link.name}
                         </a>
@@ -65,8 +93,8 @@ export default function Navigation() {
                                 <a
                                     key={link.name}
                                     href={link.href}
+                                    onClick={(e) => handleNavClick(e, link.href)}
                                     className="text-white font-medium hover:text-feria-accent"
-                                    onClick={() => setIsOpen(false)}
                                 >
                                     {link.name}
                                 </a>
