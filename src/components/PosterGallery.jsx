@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import ProfileCard from './ProfileCard';
-import CircularGallery from './CircularGallery';
+
 
 export default function PosterGallery() {
     const sectionRef = useRef(null);
@@ -31,10 +31,7 @@ export default function PosterGallery() {
         }
     ];
 
-    const galleryItems = posters.map(poster => ({
-        image: poster.src,
-        text: poster.title
-    }));
+
 
     return (
         <section
@@ -63,47 +60,64 @@ export default function PosterGallery() {
                     />
                 </div>
 
-                {/* Mobile Circular Gallery */}
-                <div className="md:hidden h-[600px] w-full relative">
-                    <CircularGallery
-                        items={galleryItems}
-                        bend={3}
-                        textColor="#ffffff"
-                        borderRadius={0.05}
-                        font="bold 30px Figtree" // Or custom font
-                    />
-                    <div className="absolute bottom-4 left-0 w-full text-center text-white/50 text-sm pointer-events-none">
-                        Desliza para explorar
+                <div className="relative">
+                    {/* Mobile: Horizontal Scroll (No Arrows) */}
+                    <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-6 px-4 pb-8 items-center scroll-smooth">
+                        {posters.map((poster, index) => (
+                            <motion.div
+                                key={poster.id}
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                                transition={{ delay: 0.2 + (index * 0.2), duration: 0.8 }}
+                                className="min-w-[85vw] snap-center flex justify-center flex-shrink-0"
+                            >
+                                <ProfileCard
+                                    avatarUrl={poster.src}
+                                    name={poster.title}
+                                    title={poster.artist}
+                                    handle="Feria200"
+                                    status="2025"
+                                    contactText="Ver Detalles"
+                                    contactLink={poster.link}
+                                    innerGradient={poster.gradient}
+                                    behindGlowColor={poster.glow}
+                                    showUserInfo={true}
+                                    enableTilt={true}
+                                    enableMobileTilt={true}
+                                    className="w-full max-w-md"
+                                />
+                            </motion.div>
+                        ))}
                     </div>
-                </div>
 
-                {/* Desktop Grid Layout */}
-                <div className="hidden md:grid md:grid-cols-2 gap-12 lg:gap-20 items-center justify-center">
-                    {posters.map((poster, index) => (
-                        <motion.div
-                            key={poster.id}
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={isInView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ delay: 0.2 + (index * 0.2), duration: 0.8 }}
-                            className="flex justify-center"
-                        >
-                            <ProfileCard
-                                avatarUrl={poster.src}
-                                name={poster.title}
-                                title={poster.artist}
-                                handle="Feria200"
-                                status="2025"
-                                contactText="Ver Detalles"
-                                contactLink={poster.link}
-                                innerGradient={poster.gradient}
-                                behindGlowColor={poster.glow}
-                                showUserInfo={true}
-                                enableTilt={true}
-                                enableMobileTilt={false} // Circular Gallery handles mobile now
-                                className="w-full max-w-md"
-                            />
-                        </motion.div>
-                    ))}
+                    {/* Desktop: Grid Layout */}
+                    <div className="hidden md:grid md:grid-cols-2 gap-12 lg:gap-20 items-center justify-center">
+                        {posters.map((poster, index) => (
+                            <motion.div
+                                key={poster.id}
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                                transition={{ delay: 0.2 + (index * 0.2), duration: 0.8 }}
+                                className="flex justify-center"
+                            >
+                                <ProfileCard
+                                    avatarUrl={poster.src}
+                                    name={poster.title}
+                                    title={poster.artist}
+                                    handle="Feria200"
+                                    status="2025"
+                                    contactText="Ver Detalles"
+                                    contactLink={poster.link}
+                                    innerGradient={poster.gradient}
+                                    behindGlowColor={poster.glow}
+                                    showUserInfo={true}
+                                    enableTilt={true}
+                                    enableMobileTilt={false} // Desktop has hover tilt
+                                    className="w-full max-w-md"
+                                />
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
