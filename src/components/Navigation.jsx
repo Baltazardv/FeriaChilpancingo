@@ -17,27 +17,36 @@ export default function Navigation() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const handleNavClick = (e, href) => {
+    const handleNavClick = async (e, href) => {
         e.preventDefault();
-        const targetId = href.replace('#', '');
-        const isHome = location.pathname === '/' || location.pathname === '/FeriaChilpancingo/';
-
-        if (isHome) {
-            const element = document.getElementById(targetId);
-            if (element) {
-                const headerOffset = 80;
-                const elementPosition = element.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
-            }
-        } else {
-            // Navigate to home with hash
-            navigate(`/${href}`);
-        }
         setIsOpen(false);
+
+        const targetId = href.replace('#', '');
+        const element = document.getElementById(targetId);
+
+        if (element) {
+            const headerOffset = 80;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+        } else {
+            await navigate('/');
+            setTimeout(() => {
+                const element = document.getElementById(targetId);
+                if (element) {
+                    const headerOffset = 80;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            }, 100);
+        }
     };
 
     const links = [
