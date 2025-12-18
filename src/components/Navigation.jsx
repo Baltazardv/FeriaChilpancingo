@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Home, BookOpen, Image, Calendar, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
+import Dock from './Dock';
 
 export default function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
@@ -57,70 +58,62 @@ export default function Navigation() {
     };
 
     const links = [
-        { name: 'Inicio', href: '#hero' },
-        { name: 'Historia', href: '#history' },
-        { name: 'Carteles', href: '#posters' },
-        { name: 'Cartelera', href: '#program' },
-        { name: 'Mapa', href: '#location' },
+        { name: 'Inicio', href: '#hero', icon: <Home size={22} className="text-white" /> },
+        { name: 'Carteles', href: '#posters', icon: <Image size={22} className="text-white" /> },
+        { name: 'Historia', href: '#history', icon: <BookOpen size={22} className="text-white" /> },
+        { name: 'Cartelera', href: '#program', icon: <Calendar size={22} className="text-white" /> },
+        { name: 'Mapa', href: '#location', icon: <MapPin size={22} className="text-white" /> },
     ];
 
+    const dockItems = links.map(link => ({
+        icon: link.icon,
+        label: link.name,
+        onClick: (e) => handleNavClick(e, link.href)
+    }));
+
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-feria-blue/90 backdrop-blur-sm shadow-lg py-2' : 'bg-transparent py-4'}`}>
-            <div className="container mx-auto px-4 flex justify-between items-center">
-                <div
-                    className="text-white font-serif font-bold text-xl md:hidden cursor-pointer"
-                    onClick={(e) => handleNavClick(e, '#hero')}
-                >
-                    Feria Chilpancingo
-                </div>
-
-                {/* Desktop Menu */}
-                <div className="hidden md:flex justify-center w-full space-x-8">
-                    {links.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            onClick={(e) => handleNavClick(e, link.href)}
-                            className="text-white font-medium hover:text-feria-accent transition-colors uppercase tracking-wider text-sm cursor-pointer"
-                        >
-                            {link.name}
-                        </a>
-                    ))}
-                </div>
-
-                {/* Mobile Toggle */}
-                <button
-                    className="md:hidden text-white"
-                    onClick={() => setIsOpen(!isOpen)}
-                >
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-            </div>
-
-            {/* Mobile Menu */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-feria-blue/95 backdrop-blur-md overflow-hidden absolute top-full left-0 w-full z-50 border-t border-white/10"
+        <>
+            <nav className={`fixed w-full z-40 transition-all duration-300 hidden md:block ${scrolled ? 'bg-feria-blue/90 backdrop-blur-sm shadow-lg py-2' : 'bg-transparent py-4'}`}>
+                <div className="container mx-auto px-4 flex justify-between items-center">
+                    <div
+                        className="text-white font-serif font-bold text-xl cursor-pointer"
+                        onClick={(e) => handleNavClick(e, '#hero')}
                     >
-                        <div className="flex flex-col items-center py-6 space-y-6">
-                            {links.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={(e) => handleNavClick(e, link.href)}
-                                    className="text-white text-lg font-medium hover:text-feria-accent transition-colors cursor-pointer"
-                                >
-                                    {link.name}
-                                </a>
-                            ))}
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </nav>
+                        Feria Chilpancingo
+                    </div>
+
+                    {/* Desktop Menu */}
+                    <div className="flex justify-center space-x-8">
+                        {links.map((link) => (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                onClick={(e) => handleNavClick(e, link.href)}
+                                className="text-white font-medium hover:text-feria-accent transition-colors uppercase tracking-wider text-sm cursor-pointer"
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </nav>
+
+            {/* Mobile Dock Navigation */}
+            <div className="md:hidden">
+                {/* Mobile Logo added to top for branding presence if needed, or rely on Hero */}
+                <div className={`fixed top-0 left-0 w-full z-40 p-4 transition-all duration-300 ${scrolled ? 'bg-feria-blue/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'}`}>
+                    <div className="text-white font-serif font-bold text-lg text-center drop-shadow-md">
+                        Feria Chilpancingo
+                    </div>
+                </div>
+
+                <Dock
+                    items={dockItems}
+                    panelHeight={60}
+                    baseItemSize={40}
+                    magnification={60}
+                />
+            </div>
+        </>
     );
 }
