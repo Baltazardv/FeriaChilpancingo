@@ -7,27 +7,45 @@ import Dock from './Dock';
 export default function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [isHero, setIsHero] = useState(true);
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
+            const scrollY = window.scrollY;
+            setScrolled(scrollY > 50);
+
+            // Check if we are in the Hero section (approx first 80% of viewport or 100vh)
+            // User requested: "only in the section of hero it has to reduce"
+            // So if scrollY is small (user is at top), isHero = true -> reduced dock
+            setIsHero(scrollY < window.innerHeight * 0.8);
         };
         window.addEventListener('scroll', handleScroll);
+        // Initial check
+        handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const handleNavClick = async (e, href) => {
         e.preventDefault();
-        setIsOpen(false);
+        // setIsOpen(false); // Mobile menu removed, no need for this
 
         const targetId = href.replace('#', '');
 
         const scrollToElement = (elementId) => {
             const element = document.getElementById(elementId);
             if (element) {
-                const headerOffset = 85; // Slightly increased offset
+                // If it's the hero/home, scroll to 0 to be exact
+                if (elementId === 'hero') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                    return true;
+                }
+
+                const headerOffset = 85;
                 const elementPosition = element.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                 window.scrollTo({
@@ -39,16 +57,15 @@ export default function Navigation() {
             return false;
         };
 
-        if (location.pathname === '/') {
+        if (location.pathname === '/' || location.pathname === '/FeriaChilpancingo/') {
             // If already on home, try to scroll immediately
             if (!scrollToElement(targetId)) {
-                // If element not found yet (rare), retry briefly
                 setTimeout(() => scrollToElement(targetId), 100);
             }
         } else {
             // If on another page, navigate to home then scroll
+            // Handle GH pages base url if needed, but router usually handles relative paths
             await navigate('/');
-            // Retry a few times to ensure page is loaded
             setTimeout(() => {
                 if (!scrollToElement(targetId)) {
                     setTimeout(() => scrollToElement(targetId), 300);
@@ -58,11 +75,11 @@ export default function Navigation() {
     };
 
     const links = [
-        { name: 'Inicio', href: '#hero', icon: <Home size={22} className="text-white" /> },
-        { name: 'Carteles', href: '#posters', icon: <Image size={22} className="text-white" /> },
-        { name: 'Historia', href: '#history', icon: <BookOpen size={22} className="text-white" /> },
-        { name: 'Cartelera', href: '#program', icon: <Calendar size={22} className="text-white" /> },
-        { name: 'Mapa', href: '#location', icon: <MapPin size={22} className="text-white" /> },
+        { name: 'Inicio', href: '#hero', icon: <Home size={isHero ? 18 : 22} className="text-white" /> },
+        { name: 'Carteles', href: '#posters', icon: <Image size={isHero ? 18 : 22} className="text-white" /> },
+        { name: 'Historia', href: '#history', icon: <BookOpen size={isHero ? 18 : 22} className="text-white" /> },
+        { name: 'Cartelera', href: '#program', icon: <Calendar size={isHero ? 18 : 22} className="text-white" /> },
+        { name: 'Mapa', href: '#location', icon: <MapPin size={isHero ? 18 : 22} className="text-white" /> },
     ];
 
     const dockItems = links.map(link => ({
@@ -101,7 +118,8 @@ export default function Navigation() {
             {/* Mobile Dock Navigation */}
             <div className="md:hidden">
                 {/* Mobile Logo added to top for branding presence if needed, or rely on Hero */}
-                <div className={`fixed top-0 left-0 w-full z-40 p-4 transition-all duration-300 ${scrolled ? 'bg-feria-blue/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'}`}>
+                {/* Hide logo in Hero section to avoid redundancy with main logo and to give space to top Dock */}
+                <div className={`fixed top-0 left-0 w-full z-40 p-4 transition-all duration-300 ${!isHero ? 'opacity-100 visible' : 'opacity-0 invisible'} ${scrolled ? 'bg-feria-blue/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'}`}>
                     <div className="text-white font-serif font-bold text-lg text-center drop-shadow-md">
                         Feria Chilpancingo
                     </div>
@@ -109,11 +127,15 @@ export default function Navigation() {
 
                 <Dock
                     items={dockItems}
-                    panelHeight={60}
-                    baseItemSize={40}
-                    magnification={60}
+                    panelHeight={isHero ? 50 : 68}
+                    baseItemSize={isHero ? 40 : 50}
+                    magnification={isHero ? 60 : 70}
+                    distance={200}
+                    outerClassName={isHero ? "dock-top" : ""}
+                    className="transition-all duration-500 ease-in-out"
                 />
             </div>
         </>
     );
 }
+

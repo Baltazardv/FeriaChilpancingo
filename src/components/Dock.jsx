@@ -77,6 +77,7 @@ function DockIcon({ children, className = '' }) {
 export default function Dock({
     items,
     className = '',
+    outerClassName = '',
     spring = { mass: 0.1, stiffness: 150, damping: 12 },
     magnification = 70,
     distance = 200,
@@ -95,7 +96,7 @@ export default function Dock({
     const height = useSpring(heightRow, spring);
 
     return (
-        <motion.div style={{ height: panelHeight, scrollbarWidth: 'none' }} className="dock-outer">
+        <motion.div style={{ height: panelHeight, scrollbarWidth: 'none' }} className={`dock-outer ${outerClassName}`}>
             <motion.div
                 onMouseMove={({ pageX }) => {
                     isHovered.set(1);
