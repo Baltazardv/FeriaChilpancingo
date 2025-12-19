@@ -122,7 +122,7 @@ export default function Navigation() {
             </nav>
 
             {/* Mobile Dock Navigation */}
-            <div className="md:hidden">
+            <div className="md:hidden mobile-nav-root">
                 <div className={`fixed top-0 left-0 w-full z-40 p-4 transition-all duration-300 ${!isHero ? 'opacity-100 visible' : 'opacity-0 invisible'} ${scrolled ? 'bg-feria-blue/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'}`}>
                     <div className="text-white font-serif font-bold text-lg text-center drop-shadow-md">
                         Feria Chilpancingo

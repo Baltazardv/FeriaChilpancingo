@@ -36,3 +36,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #b8932d;
 }
+body.modal-open .mobile-nav-root {
+  display: none !important;
+}

@@ -35,8 +35,8 @@ const Cover = React.forwardRef((props, ref) => {
 
             {/* Border decoration */}
             <div className="w-full h-full border-4 border-[#FFD700] border-double rounded-lg flex flex-col items-center justify-center p-6 relative z-10">
-                <div className="w-24 h-24 mb-6 opacity-80">
-                    <img src={`${import.meta.env.BASE_URL} escudopendon.webp`} alt="Escudo" className="w-full h-full object-contain filter drop-shadow-lg" />
+                <div className="w-56 h-56 mb-8 opacity-90">
+                    <img src={`${import.meta.env.BASE_URL}escudo_pendon.webp`} alt="Escudo" className="w-full h-full object-contain filter drop-shadow-lg" />
                 </div>
 
                 <h1 className="text-4xl font-serif font-bold text-[#FFD700] mb-2 drop-shadow-md">
@@ -67,8 +67,8 @@ const BackCover = React.forwardRef((props, ref) => {
 
             {/* Border decoration */}
             <div className="w-full h-full border-4 border-[#FFD700] border-double rounded-lg flex flex-col items-center justify-center p-6 relative z-10">
-                <div className="w-32 h-32 mb-8 opacity-80">
-                    <img src={`${import.meta.env.BASE_URL}escudopendon.webp`} alt="Escudo" className="w-full h-full object-contain filter drop-shadow-lg" loading="eager" />
+                <div className="w-48 h-48 mb-6 opacity-90">
+                    <img src={`${import.meta.env.BASE_URL}escudo_pendon.webp`} alt="Escudo" className="w-full h-full object-contain filter drop-shadow-lg" loading="eager" />
                 </div>
 
                 <h2 className="text-2xl font-serif text-[#FFECB3] mb-4 drop-shadow-sm uppercase tracking-widest">
@@ -83,10 +83,12 @@ const BackCover = React.forwardRef((props, ref) => {
 });
 
 function BookSection() {
+    const bookRef = React.useRef(null);
+
     // Preload images for smoother experience
     React.useEffect(() => {
         const preloadHeaders = [
-            `${import.meta.env.BASE_URL}escudopendon.webp`,
+            `${import.meta.env.BASE_URL}escudo_pendon.webp`,
             ...bookImages
         ];
 
@@ -95,6 +97,12 @@ function BookSection() {
             img.src = src;
         });
     }, []);
+
+    const handleReset = () => {
+        if (bookRef.current) {
+            bookRef.current.pageFlip().turnToPage(0);
+        }
+    };
 
     return (
         <section className="w-full py-20 bg-neutral-900 flex flex-col items-center justify-center overflow-hidden">
@@ -121,6 +129,7 @@ function BookSection() {
                     showCover={true}
                     mobileScrollSupport={true}
                     className="shadow-2xl"
+                    ref={bookRef}
                 >
                     <Cover />
                     {bookImages.map((img, index) => (
@@ -130,9 +139,17 @@ function BookSection() {
                 </HTMLFlipBook>
             </div>
 
-            <p className="text-gray-500 text-sm mt-8 animate-pulse">
-                &larr; Arrastra las esquinas para leer &rarr;
-            </p>
+            <div className="mt-24 flex flex-col items-center gap-4 relative z-20">
+                <p className="text-gray-500 text-sm animate-pulse">
+                    &larr; Arrastra las esquinas para leer &rarr;
+                </p>
+                <button
+                    onClick={handleReset}
+                    className="px-6 py-2 bg-[#FFD700] text-[#3E2723] font-serif font-bold rounded-full shadow-lg hover:bg-amber-400 transition-colors duration-300 text-sm"
+                >
+                    Regresar a la Portada
+                </button>
+            </div>
         </section>
     );
 }

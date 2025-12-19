@@ -70,11 +70,11 @@ Anaya del Carmen, N. (2003). El paseo del Pendón “El Porrazo del Tigre”.`
     {
         id: 4,
         title: 'Danza de los Tlacololeros',
-        image: `${import.meta.env.BASE_URL}ELEMENTOS/TLACOLOLERO_Mesa de trabajo 1.webp`,
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/TLACOLOLERO CHILPO.webp`,
         category: 'Danza',
         variants: [
-            { name: 'Versión Chichihualco', image: `${import.meta.env.BASE_URL}ELEMENTOS/TLACOLOLERO_Mesa de trabajo 1.webp` },
-            { name: 'Versión Chilpancingo', image: `${import.meta.env.BASE_URL}ELEMENTOS/TLACOLOLERO CHILPO.webp` }
+            { name: 'Versión Chilpancingo', image: `${import.meta.env.BASE_URL}ELEMENTOS/TLACOLOLERO CHILPO.webp` },
+            { name: 'Versión Chichihualco', image: `${import.meta.env.BASE_URL}ELEMENTOS/TLACOLOLERO_Mesa de trabajo 1.webp` }
         ],
         description: `En la ladera, entre tierra y canto, nace una de las danzas más representativas y antiguas de nuestra región: la danza de los Tlacololeros, con antecedentes documentados desde el siglo XIX.
 Su nombre proviene del náhuatl tlacolol, que significa “cultivo del campo” o “terreno de ladera”. Su coreografía y simbolismo remiten directamente al trabajo de la siembra del maíz, el frijol y la calabaza.
@@ -239,6 +239,13 @@ Esta danza es testimonio vivo de la diversidad cultural de Guerrero y de la perm
         image: `${import.meta.env.BASE_URL}ELEMENTOS/ZITLALA.webp`,
         category: 'Tradición',
         description: `Los Tigres de Zitlala son protagonistas de una de las tradiciones más antiguas y místicas de Guerrero: la "Pelea de Tigres" o "Atsatsilistli". Esta ceremonia, que se celebra para pedir por las lluvias y la fertilidad de la tierra, representa la fuerza, el valor y la conexión profunda con la naturaleza.`
+    },
+    {
+        id: 19,
+        title: 'Plaza de Toros',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/PLAZA DE TOROS_Mesa de trabajo 1.webp`,
+        category: 'Lugar',
+        description: `La Plaza de Toros "Belisario Domínguez" es el recinto donde late el corazón de la feria. Aquí se vive la emoción del Porrazo de Tigres y se congregan miles de familias para disfrutar de los espectáculos, convirtiéndose en el escenario principal de nuestra fiesta.`
     }
 ];
 
