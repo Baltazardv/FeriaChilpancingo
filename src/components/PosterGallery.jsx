@@ -11,7 +11,7 @@ export default function PosterGallery() {
     const posters = [
         {
             id: 1,
-            src: "/FeriaChilpancingo/CARTEL FRANCISCO.webp",
+            src: "/CARTEL FRANCISCO.webp",
             title: "Cartel Oficial",
             artist: "Francisco Alarcón Tapia",
             description: "Obra representativa con elementos tradicionales.",
@@ -21,7 +21,7 @@ export default function PosterGallery() {
         },
         {
             id: 2,
-            src: "/FeriaChilpancingo/POSTER_DE_LA_FERIA_PROP_2_Mesa_de_trabajo_1.webp",
+            src: "/POSTER_DE_LA_FERIA_PROP_2_Mesa_de_trabajo_1.webp",
             title: "Propuesta Bicentenario",
             artist: "Edición Especial",
             description: "Edición especial para los 200 años de la feria.",

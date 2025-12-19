@@ -24,7 +24,7 @@ export default function PosterOficial() {
                         <div className="relative group">
                             <div className="absolute -inset-1 bg-gradient-to-r from-amber-600 to-amber-900 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                             <img
-                                src="/FeriaChilpancingo/CARTEL FRANCISCO.webp"
+                                src="/CARTEL FRANCISCO.webp"
                                 alt="Cartel Oficial Feria Chilpancingo 200 Años"
                                 className="relative w-full rounded-xl shadow-2xl transform transition duration-500 hover:scale-[1.02]"
                             />

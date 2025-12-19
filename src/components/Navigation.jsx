@@ -66,7 +66,7 @@ export default function Navigation() {
             return false;
         };
 
-        if (location.pathname === '/' || location.pathname === '/FeriaChilpancingo/') {
+        if (location.pathname === '/') {
             if (!scrollToElement(targetId)) {
                 setTimeout(() => scrollToElement(targetId), 100);
             }
