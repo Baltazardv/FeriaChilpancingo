@@ -8,44 +8,20 @@ const historyEvents = [
         title: 'Origen',
         image: `${import.meta.env.BASE_URL}ELEMENTOS/NICOLAS BRAVO_Mesa de trabajo 1.webp`,
         secondaryImage: `${import.meta.env.BASE_URL}Decreto de creación de la feria.webp`,
-        description: `La Feria de Chilpancingo tiene su origen en un contexto de profunda crisis social y económica derivada del movimiento independentista. Tras años de guerra, la población enfrentaba la destrucción de familias, la pobreza generalizada y la pérdida de sus medios de subsistencia.
-        
-        Ante esta situación, el general Nicolás Bravo expuso ante el Congreso del Estado de México las difíciles condiciones en que se encontraba Chilpancingo. En el documento dirigido a las autoridades legislativas, Bravo subrayó la necesidad de un reconocimiento institucional que permitiera la recuperación de la ciudad.
-        
-        "...Motivos poderosos me obligan a procurar para este pueblo su antiguo engrandecimiento: soy testigo de sus padecimientos... estas mismas circunstancias me mueven también a suplicar a V.M. le permita tener a dicho pueblo una feria cada año..."
-        
-        Como resultado, el 26 de marzo de 1825, mediante el Decreto n.º 40, se concedió oficialmente a Chilpancingo el derecho de celebrar una feria anual en diciembre.`
+        description: `Nacida en la posguerra independentista para reactivar la economía. Fue el General Nicolás Bravo quien, ante la destrucción y pobreza, solicitó al Congreso una feria anual. El 26 de marzo de 1825, mediante el Decreto n.º 40, se concedió oficialmente el derecho a celebrar la feria en diciembre, marcando el inicio de nuestra tradición.`
     },
     {
         year: 'Siglo XIX',
         title: 'Consolidación',
         image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`,
         secondaryImage: `${import.meta.env.BASE_URL}escudopendon.webp`,
-        description: `Tras su establecimiento formal en 1825, la feria inició un proceso paulatino de consolidación. Lo que en un inicio surgió como una medida para la reactivación del comercio local, se transformó en un espacio de encuentro colectivo y fortalecimiento del tejido comunitario.
-        
-        Durante el siglo XIX, el Pendón adquirió un papel central como símbolo anunciador de la festividad. Su recorrido no solo convocaba a la población, sino que reforzaba el sentido de pertenencia de los distintos barrios. De forma gradual, a la actividad comercial se sumaron expresiones festivas colectivas y prácticas culturales heredadas.
-        
-        Hacia finales del siglo XIX y principios del siglo XX, la feria ya se encontraba firmemente arraigada, consolidándose como un referente regional y sentando las bases para su permanencia como la actual Feria de San Mateo, Navidad y Año Nuevo.`
+        description: `Durante este siglo, la feria pasó de ser un evento comercial a un símbolo de identidad. El Paseo del Pendón se consolidó como el gran anuncio de la fiesta, uniendo a los barrios y sus danzas. Hacia finales de siglo, la feria ya era un referente regional inamovible.`
     },
     {
         year: '1900',
         title: 'La Cuelga de Petaquillas',
         image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`,
-        description: `Es una de las expresiones más representativas y destacadas de nuestra Feria de Chilpancingo, San Mateo, Navidad y Año Nuevo, narra los vínculos históricos entre Chilpancingo y sus poblados vecinos.
-
-Los registros más fidedignos sobre esta tradición se sitúan hacia finales del siglo XIX e inicios del XX, cuando el poblado de Petaquillas enviaba anualmente un contingente encabezado por el cacique indígena don Nicolás Tolentino, acompañado por habitantes de la localidad, con el propósito de entregar la cuelga a la ciudad de Chilpancingo como ofrenda festiva.
-
-El obsequio consistía en tres mulas cargadas con barriles de mezcal de maguey, símbolo de abundancia, hospitalidad y reconocimiento a la feria. El cortejo se distinguía por las cadenas de flores, principalmente de cempasúchil, que colgaban del cuello de los mayordomos, así como de autoridades civiles y eclesiásticas. Parte de estas flores eran colocadas en el templo del santo patrono, reforzando el carácter simbólico y ceremonial del acto.
-
-La llegada del contingente era anunciada por música de viento y el estallido constante de cohetes, que marcaban el ingreso de la procesión al sitio donde se desarrollaba la feria, convirtiendo la cuelga en un acontecimiento esperado y reconocido por la población chilpancingueña.
-
-Tras la muerte de Floriberto Solorio, hijo de don Nicolás Tolentino y continuador de esta tradición, la Cuelga de Petaquillas dejó de realizarse en 1936, marcando el cierre de una etapa fundamental en la historia de la feria.
-
-La Cuelga de Petaquillas representó durante décadas un símbolo de solidaridad regional, identidad compartida y participación comunitaria, elementos que contribuyeron de manera decisiva al fortalecimiento social y cultural de la Feria de Chilpancingo, consolidándola como una celebración que trascendió lo local para convertirse en un referente histórico del estado de Guerrero.
-
-Referencias:
-Salazar Adame, J. (2008). Chilpancingo Capital: de su origen a la modernidad.
-López Romero, F. J. (2003). El paseo del Pendón. Añejo panorama de la Feria de Chilpancingo, San Mateo, Navidad y Año Nuevo.`
+        description: `Tradición emblemática de hermandad entre pueblos. Petaquillas enviaba una ofrenda o "cuelga" de mezcal y cadenas de cempasúchil a Chilpancingo, anunciada con música y cohetes. Aunque dejó de realizarse en 1936, permanece como un símbolo histórico de la solidaridad que cimentó nuestra feria.`
     },
     {
         year: 'Siglo XX',
@@ -67,23 +43,7 @@ López Romero, F. J. (2003). El paseo del Pendón. Añejo panorama de la Feria d
         year: 'Actualidad',
         title: 'Modernización y Sede',
         image: `${import.meta.env.BASE_URL}ELEMENTOS/PLAZA DE TOROS_Mesa de trabajo 1.webp`,
-        description: `El crecimiento demográfico y urbano de Chilpancingo, especialmente a lo largo del siglo XX, trajo consigo transformaciones significativas en la organización y desarrollo de la Feria de San Mateo, Navidad y Año Nuevo. Lo que en sus primeras etapas se había celebrado en espacios tradicionales del centro de la ciudad comenzó a enfrentar serias limitaciones ante el aumento de visitantes, comerciantes, juegos mecánicos y actividades recreativas.
-
-Durante varios años, la sede original resultó insuficiente, las calles estrechas y plazas tradicionales se saturaban, generando problemas de movilidad, seguridad y logística. Esta situación obligó a las autoridades municipales a buscar alternativas, dando paso a un periodo de reubicaciones temporales que convirtieron a la feria en un evento itinerante, sin una sede fija que garantizara su adecuado funcionamiento.
-
-En este proceso de adaptación, siendo presidente municipal Elías Naime Nemer, se tomó la decisión de trasladar la feria a terrenos baldíos ubicados junto al Hotel Posada Meléndez. Aunque esta medida respondía a necesidades prácticas, el cambio generó inconformidad entre algunos sectores de la población, que percibían la reubicación como una ruptura con la tradición histórica de la feria.
-
-Posteriormente, la celebración fue instalada en el interior del Estadio Andrés Figueroa, espacio que ofrecía ciertas ventajas en términos de capacidad, pero que también presentaba limitaciones para albergar la diversidad de actividades propias de la feria. A pesar de los esfuerzos, quedó claro que Chilpancingo requería un espacio permanente, amplio y adecuado para la magnitud que había alcanzado la festividad.
-
-Finalmente, durante la administración del ingeniero Carlos León Román, y con el respaldo del entonces gobernador Alejandro Cervantes Delgado, el Gobierno Federal cedió al municipio los terrenos del antiguo vivero de la Secretaría de Agricultura, ubicados en el Barrio de San Antonio. Este espacio reunía las condiciones necesarias: amplitud, ubicación estratégica y un entorno arbolado que favorecía la convivencia social.
-
-Tras un proceso de adecuación y remodelación, el sitio se consolidó como la sede actual de la feria, marcando un punto decisivo en su modernización. De manera paralela, se creó un patronato con el objetivo de organizar, fortalecer y preservar la celebración, permitiendo una mejor planeación y proyección a largo plazo.
-
-La modernización y definición de una sede permanente no significaron la pérdida de la esencia tradicional de la Feria de Chilpancingo, sino su adaptación a una ciudad en crecimiento. Este proceso permitió garantizar su continuidad, fortalecer su organización y consolidarla como una de las festividades más importantes y representativas del estado de Guerrero, capaz de conjugar tradición, identidad y desarrollo urbano.
-
-Referencias:
-Salazar Adame, J. (2008). Chilpancingo Capital: de su origen a la modernidad.
-López Romero, F. J. (2003). El paseo del Pendón. Añejo panorama de la Feria de Chilpancingo, San Mateo, Navidad y Año Nuevo.`
+        description: `El crecimiento de la ciudad exigió un nuevo hogar para la fiesta. Tras un periodo itinerante, la feria se estableció definitivamente en los antiguos viveros del Barrio de San Antonio. Hoy, con instalaciones permanentes y un patronato oficial, la feria conjuga tradición y modernidad, manteniéndose como la celebración más importante de Guerrero.`
     }
 ];
 
