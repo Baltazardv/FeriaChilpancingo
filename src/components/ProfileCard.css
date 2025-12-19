@@ -237,9 +237,10 @@
 }
 
 .pc-avatar-content {
-    mix-blend-mode: luminosity;
+    mix-blend-mode: normal;
+    /* Restored to normal for iOS visibility */
     overflow: visible;
-    transform: translateZ(2);
+    transform: translateZ(2px);
     backface-visibility: hidden;
 }
 
@@ -253,6 +254,8 @@
     backface-visibility: hidden;
     will-change: transform;
     transition: transform 120ms ease-out;
+    /* iOS Fix */
+    -webkit-backface-visibility: hidden;
 }
 
 .pc-avatar-content::before {

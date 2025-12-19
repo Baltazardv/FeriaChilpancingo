@@ -85,8 +85,8 @@ export default function PosterGallery() {
                                     innerGradient={activePoster.gradient}
                                     behindGlowColor={activePoster.glow}
                                     showUserInfo={true}
-                                    enableTilt={true}
-                                    enableMobileTilt={true}
+                                    enableTilt={false} // Disable heavy JS tilt on mobile for performance
+                                    enableMobileTilt={false}
                                     className="w-full"
                                 />
                             </motion.div>

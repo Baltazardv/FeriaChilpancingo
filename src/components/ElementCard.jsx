@@ -21,9 +21,11 @@ export default function ElementCard({ element, onClick }) {
                     />
                 </div>
 
-                {/* Hover Overlay Title */}
-                <div className="absolute inset-0 bg-gradient-to-t from-feria-blue/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
-                    <span className="text-white font-serif font-bold text-center px-2">{element.title}</span>
+                {/* Title Overlay - Always Visible */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end justify-center pb-4 pt-10">
+                    <span className="text-white font-serif font-bold text-center px-2 drop-shadow-lg text-sm md:text-base leading-tight">
+                        {element.title}
+                    </span>
                 </div>
             </div>
         </motion.div>

@@ -57,10 +57,25 @@ Ocampo, M. L. (1947). Bajo el fuego.
 Anaya del Carmen, N. (2003). El paseo del Pendón “El Porrazo del Tigre”.`
     },
     {
+        id: 12,
+        title: 'Escaramuza',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/ESCARAMUSA2_Mesa de trabajo 1.webp`,
+        category: 'Tradición',
+        description: `La mujer de a caballo, símbolo de destreza, valentía y belleza, es pieza fundamental en las festividades charras mexicanas y en nuestra Feria de Chilpancingo.
+        
+        Ataviada con el tradicional traje de Adelita o de Charra, la escaramuza ejecuta complejas rutinas ecuestres con elegancia y precisión, demostrando un dominio absoluto del caballo. Su participación destaca especialmente durante el desfile, donde encabeza contingentes con orgullo y gallardía.
+        
+        Representa la fuerza femenina en la tradición rural y charra, preservando un legado cultural que une deporte, arte e historia en cada presentación.`
+    },
+    {
         id: 4,
         title: 'Danza de los Tlacololeros',
         image: `${import.meta.env.BASE_URL}ELEMENTOS/TLACOLOLERO_Mesa de trabajo 1.webp`,
         category: 'Danza',
+        variants: [
+            { name: 'Versión Chichihualco', image: `${import.meta.env.BASE_URL}ELEMENTOS/TLACOLOLERO_Mesa de trabajo 1.webp` },
+            { name: 'Versión Chilpancingo', image: `${import.meta.env.BASE_URL}ELEMENTOS/TLACOLOLERO CHILPO.webp` }
+        ],
         description: `En la ladera, entre tierra y canto, nace una de las danzas más representativas y antiguas de nuestra región: la danza de los Tlacololeros, con antecedentes documentados desde el siglo XIX.
 Su nombre proviene del náhuatl tlacolol, que significa “cultivo del campo” o “terreno de ladera”. Su coreografía y simbolismo remiten directamente al trabajo de la siembra del maíz, el frijol y la calabaza.
 
@@ -124,6 +139,10 @@ El paseo del Pendón (2003). Breves datos monográficos de las danzas tradiciona
         title: 'Danza de los Diablos',
         image: `${import.meta.env.BASE_URL}ELEMENTOS/DIABLO_Mesa de trabajo 1.webp`,
         category: 'Danza',
+        variants: [
+            { name: 'Versión Masculina', image: `${import.meta.env.BASE_URL}ELEMENTOS/DIABLO_Mesa de trabajo 1.webp` },
+            { name: 'Versión Femenina', image: `${import.meta.env.BASE_URL}ELEMENTOS/DIABLA_Mesa de trabajo 1.webp` }
+        ],
         description: `En el siglo XVIII, se presentaban obras teatrales con temas eminentemente religiosos, interpretadas por laicos y frailes de la orden de los agustinos, las cuales funcionaban como un medio para la conversión de los naturales de la Nueva España.
 
 La danza de los Diablos surge como una expresión de fuerte contenido moral, en la que se representa la lucha entre el bien y el mal, reflejada en los distintos caracteres del ser humano. A través de esta danza se escenifican los castigos infernales a los que serían sometidos quienes no abrazaran la fe cristiana.
@@ -153,6 +172,10 @@ En el estado de Guerrero, esta danza es interpretada por los cuatro grupos étni
         title: 'Danza de los Manueles',
         image: `${import.meta.env.BASE_URL}ELEMENTOS/MANUEL_Mesa de trabajo 1.webp`,
         category: 'Danza',
+        variants: [
+            { name: 'Versión Masculina', image: `${import.meta.env.BASE_URL}ELEMENTOS/MANUEL_Mesa de trabajo 1.webp` },
+            { name: 'Versión Femenina', image: `${import.meta.env.BASE_URL}ELEMENTOS/MANUELA_Mesa de trabajo 1.webp` }
+        ],
         description: `Aunque existen diversas versiones sobre el origen de la danza de los Manueles, la más aceptada es la que se sitúa en la ciudad de Tixtla de Guerrero.
 
 Se cuenta que, durante el siglo XVIII, la ciudad era gobernada por un español déspota, avaro y ruin, llamado Manuel. Era descrito como un hombre alto y delgado, que vestía frac y sombrero de copa alta, y que siempre llevaba consigo un puñado de monedas de plata. Cansados de su forma de gobernar, los vecinos buscaron la manera de manifestar su inconformidad y encontraron en la danza un medio de protesta.
@@ -173,6 +196,49 @@ En esta variante, los personajes principales son el Diablo Viejo o Diablo de Bot
 Esta manifestación conserva una fuerte herencia cultural de origen africano, visible tanto en sus personajes como en su simbolismo. Actualmente, la danza se desarrolla principalmente los días 1 y 2 de noviembre durante el Día de Muertos, y también se hace presente durante el tradicional Paseo del Pendón en Chilpancingo.
 
 Esta danza es testimonio vivo de la diversidad cultural de Guerrero y de la permanencia de las raíces afrodescendientes que, a través de la tradición, continúan dando identidad y sentido a las comunidades de la Costa Chica.`
+    },
+
+    {
+        id: 13,
+        title: 'Barrio de San Mateo',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`,
+        category: 'Arquitectura',
+        description: `La Iglesia de San Mateo, corazón de uno de los barrios más antiguos y tradicionales de Chilpancingo. Este barrio es fundamental en la conmemoración de la feria, siendo anfitrión de múltiples tradiciones y danzas.`
+    },
+    {
+        id: 14,
+        title: 'Barrio de San Antonio',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN ANTONIO_Mesa de trabajo 1.webp`,
+        category: 'Arquitectura',
+        description: `La Iglesia de San Antonio de Padua representa la fe y unión de su barrio. Es un punto de referencia histórico y cultural, manteniendo vivas las costumbres que dan identidad a la capital guerrerense.`
+    },
+    {
+        id: 15,
+        title: 'Barrio de San Francisco',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA SAN FRANCISCO_Mesa de trabajo 1.webp`,
+        category: 'Arquitectura',
+        description: `La Iglesia de San Francisco, símbolo de uno de los barrios con mayor arraigo. Su arquitectura y su gente son parte esencial del mosaico cultural que conforma la historia de Chilpancingo.`
+    },
+    {
+        id: 16,
+        title: 'Barrio de Santa Cruz',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SANTA CRUZ_Mesa de trabajo 1.webp`,
+        category: 'Arquitectura',
+        description: `La Iglesia de Santa Cruz destaca por su belleza y por ser el centro de reunión del barrio del mismo nombre. Sus festividades y participación en la feria enriquecen el patrimonio local.`
+    },
+    {
+        id: 17,
+        title: 'Barrio de Tequicorral',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE TEQUICORRAL_Mesa de trabajo 1.webp`,
+        category: 'Arquitectura',
+        description: `La Iglesia de Tequicorral, emblema de un barrio lleno de historia. Su comunidad juega un papel vital en la preservación de las tradiciones, participando activamente en cada edición de la feria.`
+    },
+    {
+        id: 18,
+        title: 'Tigre de Zitlala',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/ZITLALA.webp`,
+        category: 'Tradición',
+        description: `Los Tigres de Zitlala son protagonistas de una de las tradiciones más antiguas y místicas de Guerrero: la "Pelea de Tigres" o "Atsatsilistli". Esta ceremonia, que se celebra para pedir por las lluvias y la fertilidad de la tierra, representa la fuerza, el valor y la conexión profunda con la naturaleza.`
     }
 ];
 

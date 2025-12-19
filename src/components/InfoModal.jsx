@@ -5,6 +5,15 @@ import { X } from 'lucide-react';
 export default function InfoModal({ selectedElement, onClose }) {
     if (!selectedElement) return null;
 
+    // State for handling image variants
+    const [currentImage, setCurrentImage] = React.useState(selectedElement.image);
+
+    React.useEffect(() => {
+        if (selectedElement) {
+            setCurrentImage(selectedElement.image);
+        }
+    }, [selectedElement]);
+
     return (
         <AnimatePresence>
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -21,13 +30,38 @@ export default function InfoModal({ selectedElement, onClose }) {
                     className="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl overflow-hidden max-h-[90vh] flex flex-col md:flex-row"
                 >
                     {/* Image Section */}
-                    <div className="w-full md:w-1/2 bg-gray-100 p-8 flex items-center justify-center relative">
+                    <div className="w-full md:w-1/2 bg-gray-100 p-8 flex flex-col items-center justify-center relative">
                         <motion.img
-                            layoutId={`image-${selectedElement.id}`}
-                            src={selectedElement.image}
+                            key={currentImage} // Force re-render for animation if desired, or let src handle it
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3 }}
+                            src={currentImage}
                             alt={selectedElement.title}
-                            className="max-w-full max-h-[60vh] object-contain drop-shadow-xl"
+                            className="max-w-full max-h-[50vh] md:max-h-[60vh] object-contain drop-shadow-xl z-0"
                         />
+
+                        {/* Variant Toggles */}
+                        {selectedElement.variants && (
+                            <div className="mt-6 flex gap-3 z-10">
+                                {selectedElement.variants.map((variant) => (
+                                    <button
+                                        key={variant.name}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setCurrentImage(variant.image);
+                                        }}
+                                        className={`px-4 py-2 rounded-full text-sm font-bold transition-all transform hover:scale-105 ${currentImage === variant.image
+                                                ? 'bg-feria-blue text-white shadow-lg ring-2 ring-feria-gold'
+                                                : 'bg-white text-gray-600 shadow-md hover:bg-gray-50'
+                                            }`}
+                                    >
+                                        {variant.name}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+
                         <button
                             onClick={onClose}
                             className="absolute top-4 left-4 md:hidden bg-white/20 p-2 rounded-full text-feria-blue"

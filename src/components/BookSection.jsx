@@ -68,7 +68,7 @@ const BackCover = React.forwardRef((props, ref) => {
             {/* Border decoration */}
             <div className="w-full h-full border-4 border-[#FFD700] border-double rounded-lg flex flex-col items-center justify-center p-6 relative z-10">
                 <div className="w-32 h-32 mb-8 opacity-80">
-                    <img src={`${import.meta.env.BASE_URL}escudopendon.webp`} alt="Escudo" className="w-full h-full object-contain filter drop-shadow-lg" />
+                    <img src={`${import.meta.env.BASE_URL}escudopendon.webp`} alt="Escudo" className="w-full h-full object-contain filter drop-shadow-lg" loading="eager" />
                 </div>
 
                 <h2 className="text-2xl font-serif text-[#FFECB3] mb-4 drop-shadow-sm uppercase tracking-widest">
@@ -83,6 +83,19 @@ const BackCover = React.forwardRef((props, ref) => {
 });
 
 function BookSection() {
+    // Preload images for smoother experience
+    React.useEffect(() => {
+        const preloadHeaders = [
+            `${import.meta.env.BASE_URL}escudopendon.webp`,
+            ...bookImages
+        ];
+
+        preloadHeaders.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+        });
+    }, []);
+
     return (
         <section className="w-full py-20 bg-neutral-900 flex flex-col items-center justify-center overflow-hidden">
             <div className="text-center mb-24 relative z-20 px-4">
