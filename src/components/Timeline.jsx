@@ -135,14 +135,14 @@ export default function Timeline() {
                 ))}
             </div>
 
-            {/* Desktop View: Recursive Sticky Stack */}
-            <div className="hidden md:block relative container mx-auto px-4 pb-48">
-                {/* Vertical Line */}
-                <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-feria-gold/20 transform -translate-x-1/2"></div>
+            {/* Desktop View: Vertical Alternating Timeline */}
+            <div className="hidden md:block relative container mx-auto px-4 pb-24">
+                {/* Central Line */}
+                <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-feria-gold/0 via-feria-gold/50 to-feria-gold/0 transform -translate-x-1/2"></div>
 
-                <div className="relative flex flex-col gap-0">
+                <div className="relative flex flex-col">
                     {historyEvents.map((event, index) => (
-                        <StickyCard key={index} event={event} index={index} onImageClick={setSelectedImage} />
+                        <TimelineItem key={index} event={event} index={index} onImageClick={setSelectedImage} />
                     ))}
                 </div>
             </div>
@@ -179,70 +179,89 @@ export default function Timeline() {
     );
 }
 
-function StickyCard({ event, index, onImageClick }) {
-    // Increased base offset + larger gap per index to prevent crowding
-    const topOffset = 140 + index * 50;
+function TimelineItem({ event, index, onImageClick }) {
+    const isEven = index % 2 === 0;
 
     return (
-        <div
-            className="sticky mb-[50vh] last:mb-12"
-            style={{
-                top: `${topOffset}px`,
-                zIndex: index + 1
-            }}
-        >
-            <motion.div
-                initial={{ opacity: 0, y: 60, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                className="max-w-4xl mx-auto shadow-2xl rounded-3xl overflow-hidden bg-white relative"
-            >
-                <div className="h-2 w-full bg-gradient-to-r from-feria-gold to-feria-red"></div>
-                <div className="flex flex-row h-[420px]">
-                    {/* Desktop Image */}
-                    <div className="w-5/12 relative h-full bg-gray-100 overflow-hidden group">
-                        <img
-                            src={event.image}
-                            alt={event.title}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            onError={(e) => {
-                                e.target.onerror = null;
-                                e.target.style.display = 'none';
-                            }}
-                        />
-                        <div className="absolute inset-0 bg-feria-blue/10 group-hover:bg-transparent transition-colors duration-500"></div>
+        <div className={`flex items-center justify-between w-full mb-24 relative ${isEven ? 'flex-row' : 'flex-row-reverse'}`}>
+            {/* Content Side */}
+            <div className="w-5/12">
+                <motion.div
+                    initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className={`bg-white text-feria-blue p-8 rounded-2xl shadow-xl border border-white/10 relative ${isEven ? 'text-right' : 'text-left'}`}
+                >
+                    {/* Year Badge */}
+                    <div className={`absolute top-[-15px] ${isEven ? 'right-8' : 'left-8'} bg-feria-gold text-white font-bold px-4 py-1 rounded-full shadow-lg z-10`}>
+                        {event.year}
                     </div>
 
-                    {/* Desktop Content */}
-                    <div className="w-7/12 p-10 flex flex-col justify-center bg-white relative">
-                        <span className="text-feria-gold font-bold text-2xl tracking-widest uppercase mb-2">
-                            Año {event.year}
-                        </span>
-                        <h3 className="text-4xl font-serif font-bold text-feria-blue mb-5">
-                            {event.title}
-                        </h3>
-                        <div className="w-20 h-1 bg-feria-gold/50 rounded-full mb-6"></div>
-                        <p className="text-gray-600 leading-relaxed text-lg whitespace-pre-line overflow-y-auto max-h-[200px] pr-4 custom-scrollbar">
-                            {event.description}
-                        </p>
+                    <h3 className="text-3xl font-serif font-bold mb-4 mt-2">{event.title}</h3>
+                    <p className="text-gray-600 leading-relaxed mb-4">
+                        {event.description.split('\n\n')[0]} {/* Show first paragraph roughly */}
+                    </p>
 
-                        {event.secondaryImage && (
-                            <div
-                                className="absolute top-6 right-6 w-24 h-24 rounded-lg overflow-hidden border-2 border-gray-100 shadow-md transform rotate-3 hover:rotate-0 transition-transform duration-300 bg-white cursor-pointer group/sec"
+                    {/* Expandable full text could go here or keep it concise. 
+                        Let's render full description but ensuring clean spacing. 
+                    */}
+                    <div className="text-gray-600 leading-relaxed text-sm whitespace-pre-line">
+                        {event.description.includes('...') ? event.description : event.description.substring(event.description.indexOf('\n\n') + 1)}
+                    </div>
+
+                    {/* Secondary Image Icon */}
+                    {event.secondaryImage && (
+                        <div
+                            className={`mt-4 flex ${isEven ? 'justify-end' : 'justify-start'}`}
+                        >
+                            <button
                                 onClick={() => onImageClick && onImageClick(event.secondaryImage)}
-                                title="Click para ampliar"
+                                className="flex items-center gap-2 text-sm font-bold text-feria-gold hover:text-feria-red transition-colors group"
                             >
-                                <img src={event.secondaryImage} className="w-full h-full object-cover" alt="Documento oficial" />
-                                {/* Overlay/Icon */}
-                                <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover/sec:opacity-100 transition-opacity duration-300">
-                                    <ZoomIn className="text-white drop-shadow-md" size={24} />
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </motion.div>
+                                {isEven ? (
+                                    <>
+                                        <span>Ver documento</span>
+                                        <ZoomIn size={16} />
+                                    </>
+                                ) : (
+                                    <>
+                                        <ZoomIn size={16} />
+                                        <span>Ver documento</span>
+                                    </>
+                                )}
+                            </button>
+                        </div>
+                    )}
+
+                    {/* Arrow pointing to center */}
+                    <div className={`absolute top-8 ${isEven ? '-right-3 border-l-[12px] border-l-white' : '-left-3 border-r-[12px] border-r-white'} w-0 h-0 border-t-[12px] border-t-transparent border-b-[12px] border-b-transparent`}></div>
+                </motion.div>
+            </div>
+
+            {/* Center Node */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+                <div className="w-4 h-4 bg-feria-gold rounded-full ring-4 ring-feria-blue z-10 shadow-[0_0_15px_rgba(251,191,36,0.5)]"></div>
+            </div>
+
+            {/* Image Side */}
+            <div className="w-5/12 pl-8 pr-8">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 h-[300px] group relative cursor-pointer"
+                    onClick={() => onImageClick && onImageClick(event.image)}
+                >
+                    <img
+                        src={event.image}
+                        alt={event.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                </motion.div>
+            </div>
         </div>
     );
 }

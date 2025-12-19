@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Stack from './Stack';
 
 export default function HistoricalGallery() {
@@ -7,12 +8,14 @@ export default function HistoricalGallery() {
         `${import.meta.env.BASE_URL}fotos historicas/historia_${i + 1}.webp`
     );
 
-    // Split images into 3 chunks
+    // Desktop: Split images into 3 chunks
     const chunk1 = allImages.slice(0, 10);
     const chunk2 = allImages.slice(10, 20);
     const chunk3 = allImages.slice(20, 29);
+    const desktopStacks = [chunk1, chunk2, chunk3];
 
-    const stacks = [chunk1, chunk2, chunk3];
+    // Mobile: Show only first 10 images in one stack
+    const mobileStack = allImages.slice(0, 10);
 
     return (
         <section id="historical-gallery" className="py-24 bg-neutral-900 relative overflow-hidden">
@@ -26,22 +29,52 @@ export default function HistoricalGallery() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 lg:gap-8 max-w-7xl mx-auto items-center justify-center">
-                    {stacks.map((stackImages, stackIndex) => (
+                {/* Mobile View: Single Stack + Button */}
+                <div className="md:hidden flex flex-col items-center">
+                    <div className="relative h-[400px] w-full max-w-xs mb-12">
+                        <Stack
+                            randomRotation={true}
+                            sensitivity={180}
+                            sendToBackOnClick={false}
+                            autoplay={false}
+                            cards={mobileStack.map((img, index) => (
+                                <div key={`mobile-${index}`} className="w-full h-full relative group">
+                                    <img
+                                        src={img}
+                                        alt={`Foto histórica ${index + 1}`}
+                                        className="w-full h-full object-cover rounded-2xl shadow-xl"
+                                    />
+                                    {/* No grayscale on mobile as requested */}
+                                </div>
+                            ))}
+                        />
+                    </div>
+                    <Link
+                        to="/galeria"
+                        className="group flex items-center gap-2 text-amber-50 text-lg hover:text-amber-200 transition-colors uppercase tracking-widest text-sm font-light mt-4"
+                    >
+                        <span>Ver galería completa</span>
+                        <div className="w-8 h-[1px] bg-amber-50 group-hover:bg-amber-200 transition-colors"></div>
+                    </Link>
+                </div>
+
+                {/* Desktop View: Grid of 3 Stacks */}
+                <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 max-w-7xl mx-auto items-center justify-center">
+                    {desktopStacks.map((stackImages, stackIndex) => (
                         <div key={stackIndex} className="relative h-[400px] w-full max-w-xs mx-auto">
                             <Stack
                                 randomRotation={true}
                                 sensitivity={180}
                                 sendToBackOnClick={false}
                                 autoplay={false}
-                                autoplayDelay={2500 + (stackIndex * 500)} // Staggered delays: 2500, 3000, 3500
+                                autoplayDelay={2500 + (stackIndex * 500)}
                                 animationConfig={{ stiffness: 200, damping: 15 }}
                                 cards={stackImages.map((img, index) => (
                                     <div key={`${stackIndex}-${index}`} className="w-full h-full relative group">
                                         <img
                                             src={img}
                                             alt={`Foto histórica ${index + 1}`}
-                                            className="w-full h-full object-cover rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-500 shadow-xl"
+                                            className="w-full h-full object-cover rounded-2xl transition-all duration-500 shadow-xl"
                                         />
                                         <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors rounded-2xl"></div>
                                         {/* Number badge for debugging/visual */}
@@ -55,7 +88,7 @@ export default function HistoricalGallery() {
                     ))}
                 </div>
 
-                <p className="text-center text-neutral-500 text-sm mt-20 animate-pulse">
+                <p className="hidden md:block text-center text-neutral-500 text-sm mt-20 animate-pulse">
                     Arrastra las fotos para descubrir más
                 </p>
             </div>
