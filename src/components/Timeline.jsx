@@ -5,20 +5,27 @@ import { ZoomIn, X } from 'lucide-react';
 const historyEvents = [
     {
         year: '1825',
-        title: 'El Origen y el Decreto',
+        title: 'Origen',
         image: `${import.meta.env.BASE_URL}ELEMENTOS/NICOLAS BRAVO_Mesa de trabajo 1.webp`,
         secondaryImage: `${import.meta.env.BASE_URL}Decreto de creación de la feria.webp`,
-        description: `Guerrero alberga una de las ferias más antiguas de las que se tiene registro. Fue en 1825 cuando el general Nicolás Bravo gestionó ante el Congreso del Estado de México el decreto que dio origen a la Feria de Chilpancingo. Dicho decreto estableció que cada año se celebrara una feria decembrina en la ciudad.
-
-"...Motivos poderosos me obligan a procurar para este pueblo su antiguo engrandecimiento... suplicar a V.M. le permita tener a dicho pueblo una feria cada año..." - Nicolás Bravo.`
+        description: `La Feria de Chilpancingo tiene su origen en un contexto de profunda crisis social y económica derivada del movimiento independentista. Tras años de guerra, la población enfrentaba la destrucción de familias, la pobreza generalizada y la pérdida de sus medios de subsistencia.
+        
+        Ante esta situación, el general Nicolás Bravo expuso ante el Congreso del Estado de México las difíciles condiciones en que se encontraba Chilpancingo. En el documento dirigido a las autoridades legislativas, Bravo subrayó la necesidad de un reconocimiento institucional que permitiera la recuperación de la ciudad.
+        
+        "...Motivos poderosos me obligan a procurar para este pueblo su antiguo engrandecimiento: soy testigo de sus padecimientos... estas mismas circunstancias me mueven también a suplicar a V.M. le permita tener a dicho pueblo una feria cada año..."
+        
+        Como resultado, el 26 de marzo de 1825, mediante el Decreto n.º 40, se concedió oficialmente a Chilpancingo el derecho de celebrar una feria anual en diciembre.`
     },
     {
-        year: 'Tradición',
-        title: 'Teopancalaquis',
-        image: `${import.meta.env.BASE_URL}ELEMENTOS/CATEDRAL_Mesa de trabajo 1.webp`,
-        description: `Una mezcla de fe, danza y tradición espiritual. La noche del 24, los vecinos acudían a la Parroquia de la Asunción para el "Teopancalaquis" (ir a la casa de Dios). 
+        year: 'Siglo XIX',
+        title: 'Consolidación',
+        image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`,
+        secondaryImage: `${import.meta.env.BASE_URL}escudopendon.webp`,
+        description: `Tras su establecimiento formal en 1825, la feria inició un proceso paulatino de consolidación. Lo que en un inicio surgió como una medida para la reactivación del comercio local, se transformó en un espacio de encuentro colectivo y fortalecimiento del tejido comunitario.
         
-Era una adoración mediante danzas al Dios recién nacido. Con este acto iniciaba formalmente la feria, donde se disfrutaban juegos, artesanías y eventos culturales.`
+        Durante el siglo XIX, el Pendón adquirió un papel central como símbolo anunciador de la festividad. Su recorrido no solo convocaba a la población, sino que reforzaba el sentido de pertenencia de los distintos barrios. De forma gradual, a la actividad comercial se sumaron expresiones festivas colectivas y prácticas culturales heredadas.
+        
+        Hacia finales del siglo XIX y principios del siglo XX, la feria ya se encontraba firmemente arraigada, consolidándose como un referente regional y sentando las bases para su permanencia como la actual Feria de San Mateo, Navidad y Año Nuevo.`
     },
     {
         year: '1900',
@@ -26,7 +33,7 @@ Era una adoración mediante danzas al Dios recién nacido. Con este acto iniciab
         image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`,
         description: `Los datos más fidedignos comienzan hacia 1900. El poblado de Petaquillas enviaba un contingente con tres mulas cargadas de mezcal como "cuelga" (obsequio) para Chilpancingo.
         
-Destacaban las cadenas de cempasúchil en los cuellos de los mayordomos y la música de viento que anunciaba la llegada del cortejo.`
+        Destacaban las cadenas de cempasúchil en los cuellos de los mayordomos y la música de viento que anunciaba la llegada del cortejo.`
     },
     {
         year: 'Siglo XX',
@@ -34,7 +41,7 @@ Destacaban las cadenas de cempasúchil en los cuellos de los mayordomos y la mú
         image: `${import.meta.env.BASE_URL}ELEMENTOS/PORRAZO_Mesa de trabajo 1.webp`,
         description: `Símbolo de la feria, representa la antigua competencia entre barrios. Originalmente era un encuentro entre los tigres de Amojileca y Chilpancingo en el río Huacapa.
         
-"El tigre carga sobre los hombros la representación del barrio que lo vio nacer; su deber es defender con honor y valentía la presea del ganador..."`
+        "El tigre carga sobre los hombros la representación del barrio que lo vio nacer; su deber es defender con honor y valentía la presea del ganador..."`
     },
     {
         year: '1979',
@@ -42,7 +49,7 @@ Destacaban las cadenas de cempasúchil en los cuellos de los mayordomos y la mú
         image: `${import.meta.env.BASE_URL}escudopendon.webp`,
         description: `Establecido por el Cabildo el 21 de septiembre de 1979. Diseñado por Francisco Antonio Alarcón Tapia, representa a Chilpancingo como "lugar de avispas", con cadenas de cempasúchil que simbolizan festividad y bienvenida.
         
-Al centro figuran los tlacololeros y el tigre, con la iglesia de la Asunción al fondo.`
+        Al centro figuran los tlacololeros y el tigre, con la iglesia de la Asunción al fondo.`
     },
     {
         year: 'Actualidad',
@@ -50,7 +57,7 @@ Al centro figuran los tlacololeros y el tigre, con la iglesia de la Asunción al
         image: `${import.meta.env.BASE_URL}ELEMENTOS/PLAZA DE TOROS_Mesa de trabajo 1.webp`,
         description: `Tras varios traslados (Jardín Cuéllar, Hotel Meléndez, Estadio), la feria encontró su hogar definitivo en el Barrio de San Antonio, en los antiguos viveros.
         
-Hoy, la Feria de San Mateo, Navidad y Año Nuevo es un emblema de identidad cultural que trasciende generaciones.`
+        Hoy, la Feria de San Mateo, Navidad y Año Nuevo es un emblema de identidad cultural que trasciende generaciones.`
     }
 ];
 
@@ -129,7 +136,7 @@ export default function Timeline() {
             </div>
 
             {/* Desktop View: Recursive Sticky Stack */}
-            <div className="hidden md:block relative container mx-auto px-4 pb-64">
+            <div className="hidden md:block relative container mx-auto px-4 pb-48">
                 {/* Vertical Line */}
                 <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-feria-gold/20 transform -translate-x-1/2"></div>
 
@@ -178,7 +185,7 @@ function StickyCard({ event, index, onImageClick }) {
 
     return (
         <div
-            className="sticky mb-[50vh] last:mb-0"
+            className="sticky mb-[50vh] last:mb-12"
             style={{
                 top: `${topOffset}px`,
                 zIndex: index + 1

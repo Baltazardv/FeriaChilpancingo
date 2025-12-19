@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import PosterGallery from '../components/PosterGallery';
 import Timeline from '../components/Timeline';
+import HistoricalGallery from '../components/HistoricalGallery';
 import EventCalendar from '../components/EventCalendar';
 import MapSection from '../components/MapSection';
 
@@ -39,6 +40,7 @@ export default function Home() {
                 <div className="relative z-10 bg-slate-50">
                     <PosterGallery />
                     <Timeline />
+                    <HistoricalGallery />
                     <EventCalendar />
                     <MapSection />
                 </div>
