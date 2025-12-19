@@ -34,7 +34,11 @@
     perspective: 500px;
     transform: translate3d(0, 0, 0.1px);
     position: relative;
-    touch-action: pan-y;
+    touch-action: manipulation;
+    /* Improved for scrolling */
+    -webkit-backface-visibility: hidden;
+    /* iOS fix */
+    backface-visibility: hidden;
     /* Centering fix */
     display: flex;
     justify-content: center;
@@ -51,9 +55,11 @@
             var(--behind-glow-color) 0%,
             transparent var(--behind-glow-size));
     filter: blur(50px) saturate(1.1);
+    -webkit-backdrop-filter: blur(50px);
+    /* iOS Fix attempt */
+    backdrop-filter: blur(50px);
     opacity: calc(0.8 * var(--card-opacity));
     transition: opacity 200ms ease;
-    /* Ensure glow is centered too if needed, but it uses inset 0 */
 }
 
 .pc-card-wrapper:hover,
@@ -252,10 +258,9 @@
     transform: translateX(calc(-50% + (var(--pointer-from-left) - 0.5) * 6px)) translateZ(0) scaleY(calc(1 + (var(--pointer-from-top) - 0.5) * 0.02)) scaleX(calc(1 + (var(--pointer-from-left) - 0.5) * 0.01));
     bottom: -1px;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     will-change: transform;
     transition: transform 120ms ease-out;
-    /* iOS Fix */
-    -webkit-backface-visibility: hidden;
 }
 
 .pc-avatar-content::before {

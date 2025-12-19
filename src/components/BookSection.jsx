@@ -1,5 +1,6 @@
 import React from 'react';
 import HTMLFlipBook from 'react-pageflip';
+import { Hand } from 'lucide-react';
 
 const bookImages = [
     `${import.meta.env.BASE_URL}libro/page_2.webp`, // The "Right" image (Memorias Cover)
@@ -54,6 +55,12 @@ const Cover = React.forwardRef((props, ref) => {
                 <p className="text-[#D7CCC8] text-xs mt-2">
                     1825 - 2025
                 </p>
+
+                {/* Hand Interact Indicator */}
+                <div className="absolute bottom-6 right-6 flex flex-col items-center gap-1 animate-pulse">
+                    <Hand className="w-6 h-6 text-[#FFD700] rotate-12" />
+                    <span className="text-[10px] text-[#FFECB3] font-serif uppercase tracking-widest">Abrir</span>
+                </div>
             </div>
         </div>
     );

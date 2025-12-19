@@ -165,10 +165,13 @@ const ProfileCardComponent = ({
         event => {
             const shell = shellRef.current;
             if (!shell || !tiltEngine) return;
+            // Allow native scrolling on mobile if tilt disabled
+            if (!enableMobileTilt && (event.pointerType === 'touch' || event.type === 'touchmove')) return;
+
             const { x, y } = getOffsets(event, shell);
             tiltEngine.setTarget(x, y);
         },
-        [tiltEngine]
+        [tiltEngine, enableMobileTilt]
     );
 
     const handlePointerEnter = useCallback(
