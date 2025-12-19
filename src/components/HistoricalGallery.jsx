@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Stack from './Stack';
+import BookSection from './BookSection';
 
 export default function HistoricalGallery() {
     // Generate array of 29 images
@@ -92,6 +93,8 @@ export default function HistoricalGallery() {
                     Arrastra las fotos para descubrir más
                 </p>
             </div>
+            {/* Book Section */}
+            <BookSection />
         </section>
     );
 }

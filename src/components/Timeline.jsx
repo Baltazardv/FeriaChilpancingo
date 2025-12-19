@@ -31,9 +31,21 @@ const historyEvents = [
         year: '1900',
         title: 'La Cuelga de Petaquillas',
         image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`,
-        description: `Los datos más fidedignos comienzan hacia 1900. El poblado de Petaquillas enviaba un contingente con tres mulas cargadas de mezcal como "cuelga" (obsequio) para Chilpancingo.
-        
-        Destacaban las cadenas de cempasúchil en los cuellos de los mayordomos y la música de viento que anunciaba la llegada del cortejo.`
+        description: `Es una de las expresiones más representativas y destacadas de nuestra Feria de Chilpancingo, San Mateo, Navidad y Año Nuevo, narra los vínculos históricos entre Chilpancingo y sus poblados vecinos.
+
+Los registros más fidedignos sobre esta tradición se sitúan hacia finales del siglo XIX e inicios del XX, cuando el poblado de Petaquillas enviaba anualmente un contingente encabezado por el cacique indígena don Nicolás Tolentino, acompañado por habitantes de la localidad, con el propósito de entregar la cuelga a la ciudad de Chilpancingo como ofrenda festiva.
+
+El obsequio consistía en tres mulas cargadas con barriles de mezcal de maguey, símbolo de abundancia, hospitalidad y reconocimiento a la feria. El cortejo se distinguía por las cadenas de flores, principalmente de cempasúchil, que colgaban del cuello de los mayordomos, así como de autoridades civiles y eclesiásticas. Parte de estas flores eran colocadas en el templo del santo patrono, reforzando el carácter simbólico y ceremonial del acto.
+
+La llegada del contingente era anunciada por música de viento y el estallido constante de cohetes, que marcaban el ingreso de la procesión al sitio donde se desarrollaba la feria, convirtiendo la cuelga en un acontecimiento esperado y reconocido por la población chilpancingueña.
+
+Tras la muerte de Floriberto Solorio, hijo de don Nicolás Tolentino y continuador de esta tradición, la Cuelga de Petaquillas dejó de realizarse en 1936, marcando el cierre de una etapa fundamental en la historia de la feria.
+
+La Cuelga de Petaquillas representó durante décadas un símbolo de solidaridad regional, identidad compartida y participación comunitaria, elementos que contribuyeron de manera decisiva al fortalecimiento social y cultural de la Feria de Chilpancingo, consolidándola como una celebración que trascendió lo local para convertirse en un referente histórico del estado de Guerrero.
+
+Referencias:
+Salazar Adame, J. (2008). Chilpancingo Capital: de su origen a la modernidad.
+López Romero, F. J. (2003). El paseo del Pendón. Añejo panorama de la Feria de Chilpancingo, San Mateo, Navidad y Año Nuevo.`
     },
     {
         year: 'Siglo XX',
@@ -55,9 +67,23 @@ const historyEvents = [
         year: 'Actualidad',
         title: 'Modernización y Sede',
         image: `${import.meta.env.BASE_URL}ELEMENTOS/PLAZA DE TOROS_Mesa de trabajo 1.webp`,
-        description: `Tras varios traslados (Jardín Cuéllar, Hotel Meléndez, Estadio), la feria encontró su hogar definitivo en el Barrio de San Antonio, en los antiguos viveros.
-        
-        Hoy, la Feria de San Mateo, Navidad y Año Nuevo es un emblema de identidad cultural que trasciende generaciones.`
+        description: `El crecimiento demográfico y urbano de Chilpancingo, especialmente a lo largo del siglo XX, trajo consigo transformaciones significativas en la organización y desarrollo de la Feria de San Mateo, Navidad y Año Nuevo. Lo que en sus primeras etapas se había celebrado en espacios tradicionales del centro de la ciudad comenzó a enfrentar serias limitaciones ante el aumento de visitantes, comerciantes, juegos mecánicos y actividades recreativas.
+
+Durante varios años, la sede original resultó insuficiente, las calles estrechas y plazas tradicionales se saturaban, generando problemas de movilidad, seguridad y logística. Esta situación obligó a las autoridades municipales a buscar alternativas, dando paso a un periodo de reubicaciones temporales que convirtieron a la feria en un evento itinerante, sin una sede fija que garantizara su adecuado funcionamiento.
+
+En este proceso de adaptación, siendo presidente municipal Elías Naime Nemer, se tomó la decisión de trasladar la feria a terrenos baldíos ubicados junto al Hotel Posada Meléndez. Aunque esta medida respondía a necesidades prácticas, el cambio generó inconformidad entre algunos sectores de la población, que percibían la reubicación como una ruptura con la tradición histórica de la feria.
+
+Posteriormente, la celebración fue instalada en el interior del Estadio Andrés Figueroa, espacio que ofrecía ciertas ventajas en términos de capacidad, pero que también presentaba limitaciones para albergar la diversidad de actividades propias de la feria. A pesar de los esfuerzos, quedó claro que Chilpancingo requería un espacio permanente, amplio y adecuado para la magnitud que había alcanzado la festividad.
+
+Finalmente, durante la administración del ingeniero Carlos León Román, y con el respaldo del entonces gobernador Alejandro Cervantes Delgado, el Gobierno Federal cedió al municipio los terrenos del antiguo vivero de la Secretaría de Agricultura, ubicados en el Barrio de San Antonio. Este espacio reunía las condiciones necesarias: amplitud, ubicación estratégica y un entorno arbolado que favorecía la convivencia social.
+
+Tras un proceso de adecuación y remodelación, el sitio se consolidó como la sede actual de la feria, marcando un punto decisivo en su modernización. De manera paralela, se creó un patronato con el objetivo de organizar, fortalecer y preservar la celebración, permitiendo una mejor planeación y proyección a largo plazo.
+
+La modernización y definición de una sede permanente no significaron la pérdida de la esencia tradicional de la Feria de Chilpancingo, sino su adaptación a una ciudad en crecimiento. Este proceso permitió garantizar su continuidad, fortalecer su organización y consolidarla como una de las festividades más importantes y representativas del estado de Guerrero, capaz de conjugar tradición, identidad y desarrollo urbano.
+
+Referencias:
+Salazar Adame, J. (2008). Chilpancingo Capital: de su origen a la modernidad.
+López Romero, F. J. (2003). El paseo del Pendón. Añejo panorama de la Feria de Chilpancingo, San Mateo, Navidad y Año Nuevo.`
     }
 ];
 
@@ -194,7 +220,7 @@ function TimelineItem({ event, index, onImageClick }) {
                     className={`bg-white text-feria-blue p-8 rounded-2xl shadow-xl border border-white/10 relative ${isEven ? 'text-right' : 'text-left'}`}
                 >
                     {/* Year Badge */}
-                    <div className={`absolute top-[-15px] ${isEven ? 'right-8' : 'left-8'} bg-feria-gold text-white font-bold px-4 py-1 rounded-full shadow-lg z-10`}>
+                    <div className={`absolute top-[-20px] ${isEven ? 'right-8' : 'left-8'} bg-white text-feria-blue border-4 border-feria-blue font-serif font-bold px-6 py-2 rounded-full shadow-xl z-20 text-lg`}>
                         {event.year}
                     </div>
 
@@ -210,27 +236,27 @@ function TimelineItem({ event, index, onImageClick }) {
                         {event.description.includes('...') ? event.description : event.description.substring(event.description.indexOf('\n\n') + 1)}
                     </div>
 
-                    {/* Secondary Image Icon */}
+                    {/* Secondary Image Thumbnail */}
                     {event.secondaryImage && (
                         <div
-                            className={`mt-4 flex ${isEven ? 'justify-end' : 'justify-start'}`}
+                            className={`mt-6 flex ${isEven ? 'justify-end' : 'justify-start'}`}
                         >
-                            <button
+                            <div
+                                className="relative group cursor-pointer w-24 h-32 bg-gray-100 rounded-lg shadow-md border hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:rotate-2"
                                 onClick={() => onImageClick && onImageClick(event.secondaryImage)}
-                                className="flex items-center gap-2 text-sm font-bold text-feria-gold hover:text-feria-red transition-colors group"
                             >
-                                {isEven ? (
-                                    <>
-                                        <span>Ver documento</span>
-                                        <ZoomIn size={16} />
-                                    </>
-                                ) : (
-                                    <>
-                                        <ZoomIn size={16} />
-                                        <span>Ver documento</span>
-                                    </>
-                                )}
-                            </button>
+                                <img
+                                    src={event.secondaryImage}
+                                    alt="Documento histórico"
+                                    className="w-full h-full object-cover rounded-lg opacity-90 group-hover:opacity-100 transition-opacity"
+                                />
+                                <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/10 rounded-lg transition-colors">
+                                    <ZoomIn className="text-feria-blue bg-white/80 p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity shadow-sm" size={24} />
+                                </div>
+                                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-xs font-bold text-gray-500 bg-white px-2 py-0.5 rounded shadow-sm z-20">
+                                    Ver documento
+                                </div>
+                            </div>
                         </div>
                     )}
 
@@ -251,15 +277,15 @@ function TimelineItem({ event, index, onImageClick }) {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 h-[300px] group relative cursor-pointer"
+                    className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 h-[300px] group relative cursor-pointer bg-black/20"
                     onClick={() => onImageClick && onImageClick(event.image)}
                 >
                     <img
                         src={event.image}
                         alt={event.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="w-full h-full object-contain p-2 transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                 </motion.div>
             </div>
         </div>
