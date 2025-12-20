@@ -92,6 +92,17 @@ export default function HistoricalGallery() {
                 <p className="hidden md:block text-center text-neutral-500 text-sm mt-20 animate-pulse">
                     Arrastra las fotos para descubrir más
                 </p>
+
+                {/* Desktop Link to Full Gallery */}
+                <div className="hidden md:flex justify-center mt-8">
+                    <Link
+                        to="/galeria"
+                        className="group flex items-center gap-2 text-amber-50 text-lg hover:text-amber-200 transition-colors uppercase tracking-widest text-sm font-light"
+                    >
+                        <span>Ver galería completa</span>
+                        <div className="w-8 h-[1px] bg-amber-50 group-hover:bg-amber-200 transition-colors"></div>
+                    </Link>
+                </div>
             </div>
             {/* Book Section */}
             <BookSection />

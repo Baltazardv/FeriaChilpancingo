@@ -2,11 +2,9 @@ import React from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import { Hand } from 'lucide-react';
 
-const bookImages = [
-    `${import.meta.env.BASE_URL}libro/page_2.webp`, // The "Right" image (Memorias Cover)
-    `${import.meta.env.BASE_URL}libro/page_1.webp`, // The "Left" image (Text)
-    ...Array.from({ length: 27 }, (_, i) => `${import.meta.env.BASE_URL}libro/page_${i + 3}.webp`)
-];
+const bookImages = Array.from({ length: 29 }, (_, i) =>
+    `${import.meta.env.BASE_URL}libro/page_${i + 1}.webp`
+);
 
 const Page = React.forwardRef((props, ref) => {
     return (

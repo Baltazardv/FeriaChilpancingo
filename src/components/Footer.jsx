@@ -1,11 +1,11 @@
 import React from 'react';
-import { Facebook, Instagram, Twitter, MapPin, Mail, Phone } from 'lucide-react';
+import { Facebook } from 'lucide-react';
 
 export default function Footer({ className }) {
     return (
         <footer className={`text-white pt-12 pb-6 ${className || 'bg-feria-blue'}`}>
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                     {/* Brand */}
                     <div className="space-y-4">
                         <h3 className="font-serif text-2xl font-bold text-feria-gold">Feria Chilpancingo</h3>
@@ -13,30 +13,11 @@ export default function Footer({ className }) {
                             Celebrando 200 años de historia, tradición y cultura. La fiesta más grande de Guerrero.
                         </p>
                         <div className="flex space-x-4">
-                            <a href="#" className="hover:text-feria-gold transition-colors"><Facebook size={20} /></a>
-                            <a href="#" className="hover:text-feria-gold transition-colors"><Instagram size={20} /></a>
-                            <a href="#" className="hover:text-feria-gold transition-colors"><Twitter size={20} /></a>
+                            <a href="https://www.facebook.com/share/1ADuDhPx6C/" target="_blank" rel="noopener noreferrer" className="hover:text-feria-gold transition-colors"><Facebook size={20} /></a>
                         </div>
                     </div>
 
-                    {/* Contact */}
-                    <div>
-                        <h4 className="font-bold text-lg mb-4 text-feria-gold">Contacto</h4>
-                        <ul className="space-y-3 text-sm text-gray-300">
-                            <li className="flex items-start space-x-2">
-                                <MapPin size={16} className="mt-1 flex-shrink-0" />
-                                <span>Recinto Ferial, Chilpancingo de los Bravo, Gro.</span>
-                            </li>
-                            <li className="flex items-center space-x-2">
-                                <Mail size={16} />
-                                <span>contacto@feriachilpancingo.com</span>
-                            </li>
-                            <li className="flex items-center space-x-2">
-                                <Phone size={16} />
-                                <span>747 123 4567</span>
-                            </li>
-                        </ul>
-                    </div>
+
 
                     {/* Links */}
                     <div>

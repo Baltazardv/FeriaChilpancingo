@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Home, BookOpen, Image, Calendar, MapPin } from 'lucide-react';
+import { Home, BookOpen, Image, Calendar, MapPin, Film, Palette } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Dock from './Dock';
@@ -36,6 +36,12 @@ export default function Navigation({ scrolledBgClass, mobileDockClass }) {
 
     const handleNavClick = async (e, href) => {
         e.preventDefault();
+
+        // Check if it's a route navigation (starts with /)
+        if (href.startsWith('/')) {
+            navigate(href);
+            return;
+        }
 
         const targetId = href.replace('#', '');
 
@@ -78,8 +84,10 @@ export default function Navigation({ scrolledBgClass, mobileDockClass }) {
 
     const links = [
         { name: 'Inicio', href: '#hero', icon: <Home size={isTimeline ? 16 : 22} className="text-white" /> },
-        { name: 'Carteles', href: '#posters', icon: <Image size={isTimeline ? 16 : 22} className="text-white" /> },
+        { name: 'Carteles', href: '#posters', icon: <Palette size={isTimeline ? 16 : 22} className="text-white" /> },
         { name: 'Historia', href: '#history', icon: <BookOpen size={isTimeline ? 16 : 22} className="text-white" /> },
+        { name: 'Contenido Histórico', href: '#historical-gallery', icon: <Image size={isTimeline ? 16 : 22} className="text-white" /> },
+        { name: 'Cine Feria', href: '/videos', icon: <Film size={isTimeline ? 16 : 22} className="text-white" /> },
         { name: 'Cartelera', href: '#program', icon: <Calendar size={isTimeline ? 16 : 22} className="text-white" /> },
         { name: 'Mapa', href: '#location', icon: <MapPin size={isTimeline ? 16 : 22} className="text-white" /> },
     ];
@@ -132,10 +140,10 @@ export default function Navigation({ scrolledBgClass, mobileDockClass }) {
                             <div className="pointer-events-auto">
                                 <Dock
                                     items={dockItems}
-                                    panelHeight={68}
-                                    baseItemSize={50}
-                                    magnification={70}
-                                    distance={200}
+                                    panelHeight={56}
+                                    baseItemSize={42}
+                                    magnification={60}
+                                    distance={150}
                                     outerClassName=""
                                     className={`transition-all duration-500 ease-in-out ${mobileDockClass || ''}`}
                                 />

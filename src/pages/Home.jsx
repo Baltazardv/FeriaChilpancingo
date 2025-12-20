@@ -6,6 +6,7 @@ import Hero from '../components/Hero';
 import PosterGallery from '../components/PosterGallery';
 import Timeline from '../components/Timeline';
 import HistoricalGallery from '../components/HistoricalGallery';
+import VideoSection from '../components/VideoSection';
 import EventCalendar from '../components/EventCalendar';
 import MapSection from '../components/MapSection';
 
@@ -41,6 +42,7 @@ export default function Home() {
                     <PosterGallery />
                     <Timeline />
                     <HistoricalGallery />
+                    <VideoSection />
                     <EventCalendar />
                     <MapSection />
                 </div>

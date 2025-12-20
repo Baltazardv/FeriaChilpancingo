@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
+import { Play, ArrowRight } from 'lucide-react';
 
 export default function PosterOficial() {
     useEffect(() => {
@@ -18,10 +19,10 @@ export default function PosterOficial() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+                        className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
                     >
                         {/* Poster Image */}
-                        <div className="relative group">
+                        <div className="relative group sticky top-24">
                             <div className="absolute -inset-1 bg-gradient-to-r from-amber-600 to-amber-900 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                             <img
                                 src="/cartel_francisco.webp"
@@ -49,6 +50,21 @@ export default function PosterOficial() {
                                 <p>
                                     Esta obra captura la esencia de 200 años de historia y tradición. En ella se representan elementos icónicos de la cultura chilpancingueña, fusionando el pasado colonial con la vitalidad de nuestras fiestas actuales.
                                 </p>
+
+                                {/* Video Embed */}
+                                <div className="my-8 rounded-xl overflow-hidden shadow-2xl border border-white/10 aspect-video group relative">
+                                    <iframe
+                                        width="100%"
+                                        height="100%"
+                                        src="https://www.youtube.com/embed/Jbsn6dAOm88"
+                                        title="Entrevista Cartel Oficial"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen
+                                        className="absolute inset-0 w-full h-full"
+                                    ></iframe>
+                                </div>
+
                                 <div className="bg-white/5 p-6 rounded-lg border border-white/10 mt-8">
                                     <h3 className="text-xl font-serif text-amber-400 mb-2">Detalles de la Obra</h3>
                                     <ul className="list-disc list-inside space-y-2 text-sm">
@@ -58,15 +74,20 @@ export default function PosterOficial() {
                                     </ul>
                                 </div>
 
-                                <div className="mt-8">
+                                <div className="mt-8 flex flex-col sm:flex-row gap-4">
                                     <Link
                                         to="/"
-                                        className="inline-flex items-center gap-2 px-6 py-3 border border-amber-500 text-amber-500 rounded-full hover:bg-amber-500 hover:text-white transition-all duration-300 group/btn"
+                                        className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-amber-500 text-amber-500 rounded-full hover:bg-amber-500 hover:text-white transition-all duration-300 group/btn"
                                     >
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 group-hover/btn:-translate-x-1 transition-transform">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-                                        </svg>
+                                        <ArrowRight className="w-5 h-5 rotate-180 group-hover/btn:-translate-x-1 transition-transform" />
                                         Regresar al Inicio
+                                    </Link>
+                                    <Link
+                                        to="/videos"
+                                        className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition-all duration-300 group/btn shadow-lg hover:shadow-amber-500/20"
+                                    >
+                                        <Play className="w-5 h-5 fill-current" />
+                                        Descubre más contenido
                                     </Link>
                                 </div>
                             </div>

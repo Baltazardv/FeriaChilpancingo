@@ -5,6 +5,7 @@ import PosterOficial from './pages/PosterOficial';
 import PosterPropuesta from './pages/PosterPropuesta';
 import PorrazoDelTigre from './pages/PorrazoDelTigre';
 import FullGallery from './pages/FullGallery';
+import VideoPage from './pages/VideoPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/propuesta-bicentenario" element={<PosterPropuesta />} />
         <Route path="/porrazo-del-tigre" element={<PorrazoDelTigre />} />
         <Route path="/galeria" element={<FullGallery />} />
+        <Route path="/videos" element={<VideoPage />} />
       </Routes>
     </Router>
   );

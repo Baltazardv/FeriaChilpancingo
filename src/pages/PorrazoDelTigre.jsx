@@ -58,20 +58,34 @@ export default function PorrazoDelTigre() {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.3 }}
                             >
-                                <h1 className="text-5xl md:text-7xl font-serif mb-2 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-600 drop-shadow-sm filter drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                                <h1 className="text-4xl md:text-5xl font-serif mb-2 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-600 drop-shadow-sm filter drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                                     Porrazo de Tigre
                                 </h1>
-                                <h2 className="text-2xl md:text-3xl text-amber-500 mb-8 font-bold uppercase tracking-[0.2em] border-b-2 border-amber-900/50 pb-4 inline-block drop-shadow-md">
+                                <h2 className="text-xl md:text-2xl text-amber-500 mb-6 font-bold uppercase tracking-[0.2em] border-b-2 border-amber-900/50 pb-4 inline-block drop-shadow-md">
                                     Tradición Guerrerense
                                 </h2>
 
-                                <div className="space-y-6 text-lg md:text-xl text-stone-200 leading-relaxed font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                                <div className="space-y-6 text-base md:text-lg text-stone-200 leading-relaxed font-light drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                                     <p>
-                                        <span className="text-amber-400 font-bold text-2xl">L</span>a tierra ruge. Una de las tradiciones más emblemáticas y feroces de nuestra cultura. El Porrazo del Tigre representa la fuerza, la mística y el espíritu indomable del pueblo de Chilpancingo.
+                                        <span className="text-amber-400 font-bold text-xl">L</span>a tierra ruge. Una de las tradiciones más emblemáticas y feroces de nuestra cultura. El Porrazo del Tigre representa la fuerza, la mística y el espíritu indomable del pueblo de Chilpancingo.
                                     </p>
                                     <p>
                                         En esta obra se captura la intensidad del ritual, con los colores vibrantes del jaguar y la energía de la danza que anuncia la lluvia y la fertilidad para nuestras tierras.
                                     </p>
+
+                                    {/* Video Embed */}
+                                    <div className="my-8 rounded-xl overflow-hidden shadow-2xl border border-amber-500/30 aspect-video group relative">
+                                        <iframe
+                                            width="100%"
+                                            height="100%"
+                                            src="https://www.youtube.com/embed/jmNVa1zmnyQ"
+                                            title="Promocional Oficial Feria Chilpancingo"
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                            className="absolute inset-0 w-full h-full"
+                                        ></iframe>
+                                    </div>
 
                                     <div className="bg-gradient-to-br from-amber-950/90 to-black/90 p-8 rounded-2xl border border-amber-500/20 mt-10 backdrop-blur-md shadow-2xl relative overflow-hidden group">
                                         <div className="absolute inset-0 bg-gradient-to-r from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -89,16 +103,26 @@ export default function PorrazoDelTigre() {
                                         </ul>
                                     </div>
 
-                                    <div className="mt-10">
+                                    <div className="mt-10 flex flex-col sm:flex-row gap-4">
                                         <Link
                                             to="/"
-                                            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-700 text-white font-bold rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(245,158,11,0.6)] hover:-translate-y-1 overflow-hidden"
+                                            className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-700 text-white font-bold rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(245,158,11,0.6)] hover:-translate-y-1 overflow-hidden"
                                         >
                                             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-amber-500 opacity-0 group-hover:opacity-20 transition-opacity"></div>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 group-hover:-translate-x-1 transition-transform">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                                             </svg>
                                             <span className="tracking-wider">REGRESAR AL INICIO</span>
+                                        </Link>
+                                        <Link
+                                            to="/videos"
+                                            className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-600 to-amber-700 text-white font-bold rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(251,146,60,0.6)] hover:-translate-y-1 overflow-hidden"
+                                        >
+                                            <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                            <span className="tracking-wider">DESCUBRE MÁS CONTENIDO</span>
                                         </Link>
                                     </div>
                                 </div>
