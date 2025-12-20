@@ -48,6 +48,28 @@ const allVideos = [
         date: '18 de Diciembre, 2025',
         author: 'Feria de Chilpancingo',
         thumbnail: 'https://img.youtube.com/vi/Jbsn6dAOm88/maxresdefault.jpg'
+    },
+    {
+        id: 'QTAKrov9r8M', // Las Raíces del Tlacololero
+        title: 'PROMOCIONAL DOCUMENTAL "LAS RAÍCES DEL TLACOLOLERO"',
+        description: 'Documental sobre las raíces y tradiciones del Tlacololero en Chilpancingo.',
+        category: 'Documentales',
+        duration: '01:46',
+        year: '2025',
+        date: '20 de Diciembre, 2025',
+        author: 'Feria de Chilpancingo',
+        thumbnail: 'https://img.youtube.com/vi/QTAKrov9r8M/maxresdefault.jpg'
+    },
+    {
+        id: '4OsNkEMrkd8', // Documental Feria 2019-2020
+        title: 'DOCUMENTAL FERIA DE SAN MATEO 2019-2020',
+        description: 'Documental sobre la Feria de San Mateo 2019-2020. Reunión de gente de Chilpancingo, maestros, abogados, periodistas, gente del pueblo.',
+        category: 'Documentales',
+        duration: '24:00',
+        year: '2020',
+        date: '20 de Diciembre, 2025',
+        author: 'Feria de Chilpancingo',
+        thumbnail: 'https://img.youtube.com/vi/4OsNkEMrkd8/maxresdefault.jpg'
     }
 ];
 
@@ -142,9 +164,9 @@ export default function VideoPage() {
                 <div className="flex items-center">
                     <Link to="/">
                         <img
-                            src={`${import.meta.env.BASE_URL}LOGOS/LOGO FERIA CHILPO.webp`}
+                            src={`${import.meta.env.BASE_URL}LOGOS/feria de chilpo_1.webp`}
                             alt="Feria Chilpancingo"
-                            className="h-10 md:h-20 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
+                            className="h-8 md:h-10 object-contain drop-shadow-md hover:scale-105 transition-transform duration-300"
                         />
                     </Link>
                 </div>
@@ -216,7 +238,7 @@ export default function VideoPage() {
             </div>
 
             {/* Hero Section */}
-            <header className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+            <header className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden pt-16 md:pt-20">
                 {/* Background Image/Video */}
                 <AnimatePresence mode="wait">
                     <motion.div

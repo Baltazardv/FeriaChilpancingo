@@ -21,9 +21,9 @@ export default function Header({ mobileBgClass, desktopBgClass, scrolledBgClass,
                     </Link>
                     <div className="flex items-center justify-center gap-2">
                         <img
-                            src="/LOGOS/LOGO DE PORRAZO DE TIGRES.webp"
+                            src="/LOGOS/feria de chilpo_1.webp"
                             alt="Logo Feria Chilpancingo"
-                            className="h-10 w-auto"
+                            className="h-8 w-auto"
                         />
                     </div>
                 </div>

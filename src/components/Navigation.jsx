@@ -103,10 +103,14 @@ export default function Navigation({ scrolledBgClass, mobileDockClass }) {
             <nav className={`fixed w-full z-40 transition-all duration-300 hidden md:block ${scrolled ? `${scrolledBgClass || 'bg-feria-blue/90'} backdrop-blur-sm shadow-lg py-2` : 'bg-transparent py-4'}`}>
                 <div className="container mx-auto px-4 flex justify-between items-center">
                     <div
-                        className="text-white font-serif font-bold text-xl cursor-pointer"
+                        className="cursor-pointer"
                         onClick={(e) => handleNavClick(e, '#hero')}
                     >
-                        Feria Chilpancingo
+                        <img
+                            src="/LOGOS/feria de chilpo_1.webp"
+                            alt="Feria Chilpancingo"
+                            className="h-8 w-auto"
+                        />
                     </div>
 
                     {/* Desktop Menu */}
