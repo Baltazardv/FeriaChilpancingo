@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import PosterOficial from './pages/PosterOficial';
 import PosterPropuesta from './pages/PosterPropuesta';
+import PorrazoDelTigre from './pages/PorrazoDelTigre';
 import FullGallery from './pages/FullGallery';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cartel-oficial" element={<PosterOficial />} />
         <Route path="/propuesta-bicentenario" element={<PosterPropuesta />} />
+        <Route path="/porrazo-del-tigre" element={<PorrazoDelTigre />} />
         <Route path="/galeria" element={<FullGallery />} />
       </Routes>
     </Router>

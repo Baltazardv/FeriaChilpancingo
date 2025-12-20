@@ -28,6 +28,16 @@ export default function PosterGallery() {
             gradient: "linear-gradient(145deg, #4b6cb78c 0%, #18284844 100%)", // Cool/Modern
             glow: "rgba(100, 149, 237, 0.67)",
             link: "/propuesta-bicentenario"
+        },
+        {
+            id: 3,
+            src: "/poster_porrazo.webp",
+            title: "Porrazo de Tigre",
+            artist: "Tradición Viva",
+            description: "La fuerza y el color de nuestra tradición.",
+            gradient: "linear-gradient(145deg, #f59e0b8c 0%, #78350f44 100%)", // Amber/Dark
+            glow: "rgba(245, 158, 11, 0.67)",
+            link: "/porrazo-del-tigre"
         }
     ];
 
@@ -93,24 +103,24 @@ export default function PosterGallery() {
                         </div>
 
                         {/* Toggle Buttons */}
-                        <div className="grid grid-cols-2 gap-4 w-full max-w-[90vw] mx-auto">
+                        <div className="grid grid-cols-3 gap-2 w-full max-w-[95vw] mx-auto text-xs">
                             {posters.map((poster) => (
                                 <button
                                     key={poster.id}
                                     onClick={() => setActivePosterId(poster.id)}
-                                    className={`relative px-4 py-3 rounded-xl font-medium text-sm transition-all duration-300 overflow-hidden ${activePosterId === poster.id ? 'text-white scale-105 shadow-lg ring-2 ring-amber-500/50' : 'text-neutral-400 hover:text-white opacity-75'}`}
+                                    className={`relative px-2 py-3 rounded-lg font-medium transition-all duration-300 overflow-hidden ${activePosterId === poster.id ? 'text-white scale-105 shadow-lg ring-2 ring-amber-500/50' : 'text-neutral-400 hover:text-white opacity-75'}`}
                                     style={{
                                         background: activePosterId === poster.id ? poster.gradient : 'rgba(255,255,255,0.05)'
                                     }}
                                 >
-                                    <span className="relative z-10">{poster.title}</span>
+                                    <span className="relative z-10 block truncate">{poster.title}</span>
                                 </button>
                             ))}
                         </div>
                     </div>
 
                     {/* Desktop: Grid Layout */}
-                    <div className="hidden md:grid md:grid-cols-2 gap-12 lg:gap-20 items-center justify-center">
+                    <div className="hidden md:grid md:grid-cols-3 gap-8 items-center justify-center">
                         {posters.map((poster, index) => (
                             <motion.div
                                 key={poster.id}
@@ -130,9 +140,7 @@ export default function PosterGallery() {
                                     innerGradient={poster.gradient}
                                     behindGlowColor={poster.glow}
                                     showUserInfo={true}
-                                    enableTilt={true}
-                                    enableMobileTilt={false} // Desktop has hover tilt
-                                    className="w-full max-w-md"
+                                    className="w-full max-w-sm"
                                 />
                             </motion.div>
                         ))}
