@@ -26,7 +26,7 @@ export default function PosterPropuesta() {
                             <div className="relative group order-first md:order-last">
                                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-900 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                                 <img
-                                    src="/POSTER_DE_LA_FERIA_PROP_2_Mesa_de_trabajo_1.webp"
+                                    src="/cartel_propuesta.webp"
                                     alt="Propuesta Cartel Bicentenario"
                                     className="relative w-full rounded-xl shadow-2xl transform transition duration-500 hover:scale-[1.02]"
                                 />
