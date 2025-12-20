@@ -19,11 +19,12 @@ export default function Header({ mobileBgClass, desktopBgClass, scrolledBgClass,
                     >
                         <ArrowLeft size={20} />
                     </Link>
-                    <div className="font-serif text-sm font-medium tracking-wide">
-                        Feria de Chilpancingo
-                    </div>
-                    <div className={`text-[10px] ${mobileTextClass || 'text-amber-400'} mt-0.5 font-sans tracking-widest uppercase opacity-90`}>
-                        Edición Bicentenario 1825-2025
+                    <div className="flex items-center justify-center gap-2">
+                        <img
+                            src="/LOGOS/LOGO DE PORRAZO DE TIGRES.webp"
+                            alt="Logo Feria Chilpancingo"
+                            className="h-10 w-auto"
+                        />
                     </div>
                 </div>
             )}
