@@ -90,3 +90,25 @@
     font-weight: 600;
     letter-spacing: 0.05em;
 }
+
+/* Amber Theme for Porrazo Page */
+.dock-panel.dock-amber {
+    background-color: rgba(42, 27, 5, 0.95) !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+.dock-panel.dock-amber .dock-item {
+    background-color: rgba(42, 27, 5, 0.95) !important;
+    border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+.dock-panel.dock-amber .dock-item:hover {
+    border-color: rgba(245, 158, 11, 0.8) !important;
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.5) !important;
+}
+
+.dock-panel.dock-amber .dock-label {
+    background-color: rgba(42, 27, 5, 1) !important;
+    color: #f59e0b !important;
+    border-color: rgba(245, 158, 11, 0.4) !important;
+}

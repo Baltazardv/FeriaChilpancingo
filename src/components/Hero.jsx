@@ -125,7 +125,7 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 1 }}
-                className="relative z-20 mt-2 md:mt-4 flex flex-col items-center gap-[-10px] text-white/60"
+                className="relative z-20 mt-2 md:mt-4 flex flex-col items-center gap-[-10px] text-white/60 md:hidden"
             >
                 <motion.div
                     animate={{ y: [0, 8, 0], opacity: [0.4, 1, 0.4] }}

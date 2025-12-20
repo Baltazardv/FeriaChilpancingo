@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Dock from './Dock';
 
-export default function Navigation() {
+export default function Navigation({ scrolledBgClass, mobileDockClass }) {
     const [scrolled, setScrolled] = useState(false);
     const [isHero, setIsHero] = useState(true);
     const [isTimeline, setIsTimeline] = useState(false);
@@ -92,7 +92,7 @@ export default function Navigation() {
 
     return (
         <>
-            <nav className={`fixed w-full z-40 transition-all duration-300 hidden md:block ${scrolled ? 'bg-feria-blue/90 backdrop-blur-sm shadow-lg py-2' : 'bg-transparent py-4'}`}>
+            <nav className={`fixed w-full z-40 transition-all duration-300 hidden md:block ${scrolled ? `${scrolledBgClass || 'bg-feria-blue/90'} backdrop-blur-sm shadow-lg py-2` : 'bg-transparent py-4'}`}>
                 <div className="container mx-auto px-4 flex justify-between items-center">
                     <div
                         className="text-white font-serif font-bold text-xl cursor-pointer"
@@ -137,7 +137,7 @@ export default function Navigation() {
                                     magnification={70}
                                     distance={200}
                                     outerClassName=""
-                                    className="transition-all duration-500 ease-in-out"
+                                    className={`transition-all duration-500 ease-in-out ${mobileDockClass || ''}`}
                                 />
                             </div>
                         </motion.div>

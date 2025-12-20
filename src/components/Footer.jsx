@@ -1,9 +1,9 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, MapPin, Mail, Phone } from 'lucide-react';
 
-export default function Footer() {
+export default function Footer({ className }) {
     return (
-        <footer className="bg-feria-blue text-white pt-12 pb-6">
+        <footer className={`text-white pt-12 pb-6 ${className || 'bg-feria-blue'}`}>
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                     {/* Brand */}
