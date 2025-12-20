@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Home, BookOpen, Image, Calendar, MapPin } from 'lucide-react';
+import { Home, BookOpen, Image, Calendar, MapPin, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Dock from './Dock';
 
 export default function Navigation() {
-    const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [isHero, setIsHero] = useState(true);
     const [isTimeline, setIsTimeline] = useState(false);
+    const [isMenuExpanded, setIsMenuExpanded] = useState(false); // New state for mobile menu
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -25,9 +25,6 @@ export default function Navigation() {
             if (historySection) {
                 const rect = historySection.getBoundingClientRect();
                 const windowHeight = window.innerHeight;
-                // Considered "in timeline" if it occupies a significant portion of the screen
-                // or if its top is near top of viewport and bottom is not yet cleared.
-                // Using a simpler visibility check: overlapping the middle of the screen
                 const isVisible = rect.top < windowHeight * 0.8 && rect.bottom > windowHeight * 0.2;
                 setIsTimeline(isVisible);
             }
@@ -40,6 +37,9 @@ export default function Navigation() {
 
     const handleNavClick = async (e, href) => {
         e.preventDefault();
+
+        // Close mobile menu if open
+        setIsMenuExpanded(false);
 
         const targetId = href.replace('#', '');
 
@@ -81,11 +81,11 @@ export default function Navigation() {
     };
 
     const links = [
-        { name: 'Inicio', href: '#hero', icon: <Home size={isTimeline ? 16 : (isHero ? 18 : 22)} className="text-white" /> },
-        { name: 'Carteles', href: '#posters', icon: <Image size={isTimeline ? 16 : (isHero ? 18 : 22)} className="text-white" /> },
-        { name: 'Historia', href: '#history', icon: <BookOpen size={isTimeline ? 16 : (isHero ? 18 : 22)} className="text-white" /> },
-        { name: 'Cartelera', href: '#program', icon: <Calendar size={isTimeline ? 16 : (isHero ? 18 : 22)} className="text-white" /> },
-        { name: 'Mapa', href: '#location', icon: <MapPin size={isTimeline ? 16 : (isHero ? 18 : 22)} className="text-white" /> },
+        { name: 'Inicio', href: '#hero', icon: <Home size={isTimeline ? 16 : 22} className="text-white" /> },
+        { name: 'Carteles', href: '#posters', icon: <Image size={isTimeline ? 16 : 22} className="text-white" /> },
+        { name: 'Historia', href: '#history', icon: <BookOpen size={isTimeline ? 16 : 22} className="text-white" /> },
+        { name: 'Cartelera', href: '#program', icon: <Calendar size={isTimeline ? 16 : 22} className="text-white" /> },
+        { name: 'Mapa', href: '#location', icon: <MapPin size={isTimeline ? 16 : 22} className="text-white" /> },
     ];
 
     const dockItems = links.map(link => ({
@@ -121,24 +121,53 @@ export default function Navigation() {
                 </div>
             </nav>
 
-            {/* Mobile Dock Navigation */}
+            {/* Mobile Navigation */}
             <div className="md:hidden mobile-nav-root">
-                <div className={`fixed top-0 left-0 w-full z-40 p-4 transition-all duration-300 ${!isHero ? 'opacity-100 visible' : 'opacity-0 invisible'} ${scrolled ? 'bg-feria-blue/90 backdrop-blur-sm shadow-sm' : 'bg-transparent'}`}>
-                    <div className="text-white font-serif font-bold text-lg text-center drop-shadow-md">
-                        Feria Chilpancingo
-                    </div>
-                </div>
+                {/* Hero Section Toggle Button */}
+                <AnimatePresence>
+                    {isHero && !isMenuExpanded && (
+                        <motion.button
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            onClick={() => setIsMenuExpanded(true)}
+                            className="fixed top-4 right-4 z-50 p-3 bg-feria-blue/80 backdrop-blur-md border border-amber-500/30 rounded-full shadow-lg text-amber-400"
+                        >
+                            <Menu size={24} />
+                        </motion.button>
+                    )}
+                </AnimatePresence>
 
-                <Dock
-                    items={dockItems}
-                    // Significantly reduce size when in timeline to prevent reading obstruction
-                    panelHeight={isTimeline ? 40 : (isHero ? 50 : 68)}
-                    baseItemSize={isTimeline ? 28 : (isHero ? 40 : 50)}
-                    magnification={isTimeline ? 40 : (isHero ? 60 : 70)}
-                    distance={200}
-                    outerClassName={isHero ? "dock-top" : ""}
-                    className="transition-all duration-500 ease-in-out"
-                />
+                {/* Mobile Dock */}
+                {/* Render Dock if: (It's NOT hero) OR (It IS hero AND expanded) */}
+                {(!isHero || (isHero && isMenuExpanded)) && (
+                    <motion.div
+                        initial={isHero ? { opacity: 0, y: -20 } : { opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0 }}
+                        className={isHero ? "fixed top-0 left-0 w-full z-50 flex flex-col items-center pt-4" : ""}
+                    >
+                        {/* Close button inside Dock area for Hero mode */}
+                        {isHero && isMenuExpanded && (
+                            <button
+                                onClick={() => setIsMenuExpanded(false)}
+                                className="mb-4 p-2 bg-black/40 rounded-full text-white/80 hover:text-white"
+                            >
+                                <X size={20} />
+                            </button>
+                        )}
+
+                        <Dock
+                            items={dockItems}
+                            panelHeight={68}
+                            baseItemSize={50}
+                            magnification={70}
+                            distance={200}
+                            outerClassName={isHero ? "dock-top" : ""} // Position at top if in Hero
+                            className="transition-all duration-500 ease-in-out"
+                        />
+                    </motion.div>
+                )}
             </div>
         </>
     );

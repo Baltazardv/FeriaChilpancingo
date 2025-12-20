@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 
 const Fireworks = () => {
     const canvasRef = useRef(null);
@@ -117,6 +118,28 @@ export default function Hero() {
             >
                 <img src={`${import.meta.env.BASE_URL}LOGOS/logo_chilpancingo_bicentenario.webp`} alt="Chilpancingo Logo" className="h-[14vh] md:h-[16vh] object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />
                 <img src={`${import.meta.env.BASE_URL}LOGOS/logo_200_anos.webp`} alt="200 Años Logo" className="h-[9vh] md:h-[10vh] object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]" />
+            </motion.div>
+
+            {/* Scroll Indicators */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 1 }}
+                className="relative z-20 mt-2 md:mt-4 flex flex-col items-center gap-[-10px] text-white/60"
+            >
+                <motion.div
+                    animate={{ y: [0, 8, 0], opacity: [0.4, 1, 0.4] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                >
+                    <ChevronDown size={32} strokeWidth={1.5} />
+                </motion.div>
+                <motion.div
+                    animate={{ y: [0, 8, 0], opacity: [0.4, 1, 0.4] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+                    className="-mt-4"
+                >
+                    <ChevronDown size={32} strokeWidth={1.5} />
+                </motion.div>
             </motion.div>
 
             {/* Main Composition Container */}
