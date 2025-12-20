@@ -140,6 +140,14 @@ export default function Hero() {
                 >
                     <ChevronDown size={32} strokeWidth={1.5} />
                 </motion.div>
+                <motion.span
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.8 }}
+                    transition={{ delay: 2, duration: 1 }}
+                    className="text-[10px] uppercase tracking-widest mt-1 font-medium"
+                >
+                    Desliza hacia abajo
+                </motion.span>
             </motion.div>
 
             {/* Main Composition Container */}
