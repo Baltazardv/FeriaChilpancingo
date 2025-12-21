@@ -251,10 +251,10 @@ export default function Hero() {
                     </svg>
 
                     {/* Institutional Logos (Centered on white) */}
-                    <div className="absolute bottom-2 md:bottom-3 left-0 w-full flex justify-center items-center gap-6 md:gap-16 px-4 pb-2 z-50">
-                        <img src={`${import.meta.env.BASE_URL}LOGOS/H AYUNTAMIENTO .webp`} className="h-6 md:h-12 object-contain" alt="Ayuntamiento" />
-                        <img src={`${import.meta.env.BASE_URL}LOGOS/LOGO RENACE.webp`} className="h-6 md:h-10 object-contain" alt="Renace" />
-                        <img src={`${import.meta.env.BASE_URL}LOGOS/CONSEJO LOGO.webp`} className="h-6 md:h-12 object-contain" alt="Consejo" />
+                    <div className="absolute bottom-1 md:bottom-2 left-0 w-full flex justify-center items-center gap-4 md:gap-12 px-4 pb-2 z-50">
+                        <img src={`${import.meta.env.BASE_URL}LOGOS/H AYUNTAMIENTO .webp`} className="h-5 md:h-10 object-contain" alt="Ayuntamiento" />
+                        <img src={`${import.meta.env.BASE_URL}LOGOS/LOGO RENACE.webp`} className="h-4 md:h-8 object-contain" alt="Renace" />
+                        <img src={`${import.meta.env.BASE_URL}LOGOS/CONSEJO LOGO.webp`} className="h-5 md:h-10 object-contain" alt="Consejo" />
                     </div>
                 </div>
 

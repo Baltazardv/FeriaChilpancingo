@@ -13,7 +13,7 @@ export default function PosterOficial() {
     return (
         <div className="min-h-screen flex flex-col bg-neutral-900 font-sans">
             <Header />
-            <main className="flex-grow pt-24 pb-12">
+            <main className="flex-grow pt-24 pb-32 md:pb-12">
                 <div className="container mx-auto px-4">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -22,7 +22,7 @@ export default function PosterOficial() {
                         className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
                     >
                         {/* Poster Image */}
-                        <div className="relative group sticky top-24">
+                        <div className="relative group md:sticky md:top-24">
                             <div className="absolute -inset-1 bg-gradient-to-r from-amber-600 to-amber-900 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
                             <img
                                 src="/cartel_francisco.webp"

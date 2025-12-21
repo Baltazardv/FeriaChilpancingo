@@ -238,7 +238,7 @@ export default function VideoPage() {
             </div>
 
             {/* Hero Section */}
-            <header className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden pt-16 md:pt-20">
+            <header className="relative w-full h-[85vh] md:h-[95vh] min-h-[600px] overflow-hidden pt-16 md:pt-20">
                 {/* Background Image/Video */}
                 <AnimatePresence mode="wait">
                     <motion.div

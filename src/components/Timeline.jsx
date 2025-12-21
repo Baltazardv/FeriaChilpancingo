@@ -8,14 +8,14 @@ const historyEvents = [
         title: 'Origen',
         image: `${import.meta.env.BASE_URL}ELEMENTOS/NICOLAS BRAVO_Mesa de trabajo 1.webp`,
         secondaryImage: `${import.meta.env.BASE_URL}Decreto de creación de la feria.webp`,
-        description: `Nacida en la posguerra independentista para reactivar la economía. Fue el General Nicolás Bravo quien, ante la destrucción y pobreza, solicitó al Congreso una feria anual. El 26 de marzo de 1825, mediante el Decreto n.º 40, se concedió oficialmente el derecho a celebrar la feria en diciembre, marcando el inicio de nuestra tradición.`
+        description: `Nacida en la posguerra de 1825 para reactivar la economía local, la Feria fue impulsada por el General Nicolás Bravo para auxiliar a una población devastada. Oficializada mediante el Decreto n.º 40 el 26 de marzo, se estableció en diciembre como un medio de recuperación social, honrando el sacrificio de Chilpancingo en la causa insurgente.`
     },
     {
         year: 'Siglo XIX',
         title: 'Consolidación',
         image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`,
         secondaryImage: `${import.meta.env.BASE_URL}escudopendon.webp`,
-        description: `Durante este siglo, la feria pasó de ser un evento comercial a un símbolo de identidad. El Paseo del Pendón se consolidó como el gran anuncio de la fiesta, uniendo a los barrios y sus danzas. Hacia finales de siglo, la feria ya era un referente regional inamovible.`
+        description: `Desde su inicio, la feria trascendió lo comercial para convertirse en el corazón cultural de la ciudad. Durante el siglo XIX, el 'Paseo del Pendón' emergió como el hilo conductor que unía a los barrios tradicionales. La festividad integró danzas y rituales, consolidándose como un símbolo de identidad que perdura hasta hoy.`
     },
     {
         year: '1900',
@@ -185,15 +185,8 @@ function TimelineItem({ event, index, onImageClick }) {
                     </div>
 
                     <h3 className="text-3xl font-serif font-bold mb-4 mt-2">{event.title}</h3>
-                    <p className="text-gray-600 leading-relaxed mb-4">
-                        {event.description.split('\n\n')[0]} {/* Show first paragraph roughly */}
-                    </p>
-
-                    {/* Expandable full text could go here or keep it concise. 
-                        Let's render full description but ensuring clean spacing. 
-                    */}
-                    <div className="text-gray-600 leading-relaxed text-sm whitespace-pre-line">
-                        {event.description.includes('...') ? event.description : event.description.substring(event.description.indexOf('\n\n') + 1)}
+                    <div className="text-gray-600 leading-relaxed mb-4 text-sm whitespace-pre-line">
+                        {event.description}
                     </div>
 
                     {/* Secondary Image Thumbnail */}

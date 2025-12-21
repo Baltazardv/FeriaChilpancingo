@@ -106,23 +106,23 @@ export default function PorrazoDelTigre() {
                                     <div className="mt-10 flex flex-col sm:flex-row gap-4">
                                         <Link
                                             to="/"
-                                            className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-600 to-orange-700 text-white font-bold rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(245,158,11,0.6)] hover:-translate-y-1 overflow-hidden"
+                                            className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-orange-700 text-white rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(245,158,11,0.6)] hover:-translate-y-1 overflow-hidden"
                                         >
                                             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-amber-500 opacity-0 group-hover:opacity-20 transition-opacity"></div>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 group-hover:-translate-x-1 transition-transform">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                                             </svg>
-                                            <span className="tracking-wider">REGRESAR AL INICIO</span>
+                                            <span className="">REGRESAR AL INICIO</span>
                                         </Link>
                                         <Link
                                             to="/videos"
-                                            className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-600 to-amber-700 text-white font-bold rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(251,146,60,0.6)] hover:-translate-y-1 overflow-hidden"
+                                            className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-600 to-amber-700 text-white rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(251,146,60,0.6)] hover:-translate-y-1 overflow-hidden"
                                         >
                                             <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 opacity-0 group-hover:opacity-20 transition-opacity"></div>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5">
                                                 <path d="M8 5v14l11-7z" />
                                             </svg>
-                                            <span className="tracking-wider">DESCUBRE MÁS CONTENIDO</span>
+                                            <span className="">DESCUBRE MÁS CONTENIDO</span>
                                         </Link>
                                     </div>
                                 </div>
