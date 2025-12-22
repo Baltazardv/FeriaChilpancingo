@@ -53,11 +53,37 @@ export default function Home() {
                     <div className="absolute left-0 top-0 bottom-0 w-8 md:w-12 bg-contain bg-repeat-y opacity-30 z-1 pointer-events-none" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}ELEMENTOS/GRECAS.webp)` }}></div>
                     <div className="absolute right-0 top-0 bottom-0 w-8 md:w-12 bg-contain bg-repeat-y opacity-30 z-1 pointer-events-none" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}ELEMENTOS/GRECAS.webp)` }}></div>
 
+                    {/* Section Dividers - Recurso 4 */}
                     <PosterGallery />
+
+                    <div className="flex justify-center my-8 md:my-16 pointer-events-none relative z-10">
+                        <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-48 opacity-80" />
+                    </div>
+
                     <Timeline />
+
+                    <div className="flex justify-center my-8 md:my-16 pointer-events-none relative z-10">
+                        <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-48 opacity-80" />
+                    </div>
+
                     <HistoricalGallery />
+
+                    <div className="flex justify-center my-8 md:my-16 pointer-events-none relative z-10">
+                        <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-48 opacity-80" />
+                    </div>
+
                     <VideoSection />
+
+                    <div className="flex justify-center my-8 md:my-16 pointer-events-none relative z-10">
+                        <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-48 opacity-80" />
+                    </div>
+
                     <EventCalendar />
+
+                    <div className="flex justify-center my-8 md:my-16 pointer-events-none relative z-10">
+                        <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-48 opacity-80" />
+                    </div>
+
                     <MapSection />
                 </div>
             </main>
