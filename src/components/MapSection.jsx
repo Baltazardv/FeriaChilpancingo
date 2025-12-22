@@ -12,7 +12,7 @@ const locations = [
         color: 'text-[#84bd00]', // Green from image
         bgColor: 'bg-[#84bd00]',
         description: 'La legendaria Plaza de Toros Belisario Arteaga, hogar del tradicional Porrazo del Tigre.',
-        mapImage: `${import.meta.env.BASE_URL}sede/Recurso2.webp`,
+        mapImage: `${import.meta.env.BASE_URL}sede/Map_Plaza.png`, // Updated to static map w/ QR
         qrLink: 'https://goo.gl/maps/examplePlaza',
         pieceImage: `${import.meta.env.BASE_URL}sede/Recurso2.webp`,
         iconImage: `${import.meta.env.BASE_URL}sede/PlazaIcon.webp`, // Explicit icon
@@ -26,7 +26,7 @@ const locations = [
         color: 'text-[#a00037]', // Deep Pink/Red from image
         bgColor: 'bg-[#a00037]', // Darker pink for Zocalo bar
         description: 'El corazón de la ciudad. Cultura, música y tradición en la plaza cívica.',
-        mapImage: `${import.meta.env.BASE_URL}sede/Recurso3.webp`,
+        mapImage: `${import.meta.env.BASE_URL}sede/Map_Zocalo.png`, // Updated to static map w/ QR
         qrLink: 'https://goo.gl/maps/exampleZocalo',
         pieceImage: `${import.meta.env.BASE_URL}sede/Recurso3.webp`,
         iconImage: `${import.meta.env.BASE_URL}sede/Recurso1.webp`, // Stage icon
@@ -40,7 +40,7 @@ const locations = [
         color: 'text-[#9c27b0]', // Purple (from Recurso 6)
         bgColor: 'bg-[#7b1fa2]', // Deep Purple for bar
         description: 'El nuevo Recinto Ferial. Un espacio amplio para toda la familia.',
-        mapImage: `${import.meta.env.BASE_URL}sede/Recurso1.webp`,
+        mapImage: `${import.meta.env.BASE_URL}sede/Map_Terreno.png`, // Updated to static map w/ QR
         qrLink: 'https://goo.gl/maps/exampleTerreno',
         pieceImage: `${import.meta.env.BASE_URL}sede/Recurso1.webp`,
         iconImage: `${import.meta.env.BASE_URL}sede/Recurso2.webp`, // Carousel icon
@@ -57,9 +57,6 @@ export default function MapSection() {
             <div className="absolute top-4 left-0 w-full flex justify-center pointer-events-none z-20 opacity-80">
                 <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
             </div>
-
-            {/* Decorative Side Borders (Grecas) */}
-            {/* Decorative Side Borders (Grecas) removed - moved to Home.jsx global wrapper */}
 
             {/* Bottom Decoration */}
             <div className="absolute bottom-4 left-0 w-full flex justify-center pointer-events-none z-20 opacity-80">
@@ -100,10 +97,7 @@ export default function MapSection() {
                                     onClick={() => setSelectedLocation(locations[0])}
                                 >
                                     <div className="relative w-full h-full">
-                                        {/* Background Shape: Green (Recurso 5) */}
                                         <img src={`${import.meta.env.BASE_URL}sede/Recurso5.webp`} className="absolute inset-0 w-full h-full object-contain drop-shadow-lg" alt="Fondo Plaza" />
-
-                                        {/* Icon: Plaza */}
                                         <div className="absolute top-[28%] left-[18%] w-[60%] h-[60%] flex items-center justify-center">
                                             <img src={`${import.meta.env.BASE_URL}sede/PlazaIcon.webp`} className="w-full object-contain drop-shadow-md transform -rotate-12" alt="Icono Plaza" />
                                         </div>
@@ -117,10 +111,7 @@ export default function MapSection() {
                                     onClick={() => setSelectedLocation(locations[1])}
                                 >
                                     <div className="relative w-full h-full">
-                                        {/* Background Shape: Pink (Recurso 4) */}
                                         <img src={`${import.meta.env.BASE_URL}sede/Recurso4.webp`} className="absolute inset-0 w-full h-full object-contain drop-shadow-lg" alt="Fondo Zócalo" />
-
-                                        {/* Icon: Stage */}
                                         <div className="absolute top-[32%] right-[15%] w-[60%] h-[60%] flex items-center justify-center">
                                             <img src={`${import.meta.env.BASE_URL}sede/Recurso1.webp`} className="w-full object-contain drop-shadow-md" alt="Icono Teatro" />
                                         </div>
@@ -134,10 +125,7 @@ export default function MapSection() {
                                     onClick={() => setSelectedLocation(locations[2])}
                                 >
                                     <div className="relative w-full h-full">
-                                        {/* Background Shape: Purple (Recurso 6) */}
                                         <img src={`${import.meta.env.BASE_URL}sede/Recurso6.webp`} className="absolute inset-0 w-full h-full object-contain drop-shadow-lg" alt="Fondo Feria" />
-
-                                        {/* Icons: Tent + Carousel */}
                                         <div className="absolute top-[35%] left-[20%] w-[70%] h-[60%]">
                                             <img src={`${import.meta.env.BASE_URL}sede/Recurso3.webp`} className="absolute bottom-0 left-0 w-[55%] object-contain drop-shadow-md z-10" alt="Icono Carpa" />
                                             <img src={`${import.meta.env.BASE_URL}sede/Recurso2.webp`} className="absolute bottom-[20%] right-0 w-[55%] object-contain drop-shadow-md z-0" alt="Icono Carrusel" />
@@ -145,7 +133,6 @@ export default function MapSection() {
                                     </div>
                                 </motion.div>
 
-                                {/* Pulse hint */}
                                 <p className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-white/40 text-xs md:text-sm animate-pulse whitespace-nowrap">
                                     Toca una pieza para ver la ubicación
                                 </p>
@@ -207,9 +194,7 @@ export default function MapSection() {
                                         <p className="text-white font-serif italic text-lg leading-tight opacity-90">Muestra gastronómica y artesanal</p>
                                     </div>
                                 </motion.div>
-
                             </div>
-
                         </motion.div>
                     ) : (
                         <motion.div
@@ -244,32 +229,20 @@ export default function MapSection() {
                             {/* Main Content Grid */}
                             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
 
-                                {/* Left Side: Map Card */}
-                                <div className="md:col-span-7 relative group">
+                                {/* Left Side: Map Card (NOW FULL IMAGE) */}
+                                <div className="md:col-span-8 relative group">
                                     <div className="absolute inset-0 bg-white/30 transform rotate-1 rounded-3xl blur-lg"></div>
-                                    <div className="bg-[#e8f5e9] rounded-3xl overflow-hidden p-3 shadow-2xl relative z-10 border-4 border-white transform hover:scale-[1.01] transition-transform duration-500">
-                                        <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-inner bg-[#a5d6a7]">
-                                            <iframe
-                                                title="Mapa Sede"
-                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3775.312961808092!2d-99.4993!3d17.5506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDMzJzAyLjIiTiA5OcKwMjknNTcuNSJX!5e0!3m2!1ses-419!2smx!4v1634567890123!5m2!1ses-419!2smx"
-                                                width="100%"
-                                                height="100%"
-                                                className="w-full h-full opacity-90 contrast-[1.1] saturate-[0.8] mix-blend-multiply"
-                                                style={{ border: 0 }}
-                                                allowFullScreen=""
-                                                loading="lazy"
-                                            ></iframe>
-                                            <div className="absolute top-0 right-0 p-4">
-                                                <span className={`${selectedLocation.bgColor} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg border-2 border-white`}>
-                                                    VISTA SATELITAL DISPONIBLE
-                                                </span>
-                                            </div>
-                                        </div>
+                                    <div className="bg-[#e8f5e9] rounded-3xl overflow-hidden shadow-2xl relative z-10 border-4 border-white transform hover:scale-[1.01] transition-transform duration-500">
+                                        <img
+                                            src={selectedLocation.mapImage}
+                                            alt={`Mapa ${selectedLocation.title}`}
+                                            className="w-full h-auto object-cover"
+                                        />
                                     </div>
                                 </div>
 
-                                {/* Right Side: Info & QR */}
-                                <div className="md:col-span-5 flex flex-col justify-between space-y-8 bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-md">
+                                {/* Right Side: Info Only (QR is now in image) */}
+                                <div className="md:col-span-4 flex flex-col justify-center space-y-8 bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-md">
                                     <div className="space-y-4">
                                         {selectedLocation.features && (
                                             <ul className="space-y-2">
@@ -285,27 +258,21 @@ export default function MapSection() {
                                         </p>
                                     </div>
 
-                                    {/* QR Section */}
-                                    <div className="relative mt-4 flex-1 flex items-center justify-center">
-                                        <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-xl transform rotate-1 hover:rotate-0 transition-transform duration-300 w-full max-w-sm border-b-8 border-gray-200">
-                                            <div className="flex items-center gap-2 bg-[#e91d63] text-white font-bold text-lg px-4 py-2 rounded-full mb-4 shadow-md w-full justify-center">
-                                                <span>📍</span> ESCANEA LA UBICACIÓN
-                                            </div>
-
-                                            <div className="p-2 bg-white rounded-xl">
-                                                <QrCode size={160} className="text-[#0B1520]" />
-                                            </div>
-                                            <p className="text-center text-gray-400 text-xs mt-3 font-medium">
-                                                Abre la cámara de tu celular
-                                            </p>
-                                        </div>
+                                    <div className="mt-8 text-center bg-white/10 p-4 rounded-xl border border-white/20">
+                                        <img
+                                            src={`${import.meta.env.BASE_URL}sede/Header_QR.png`}
+                                            alt="Escanea la ubicación"
+                                            className="h-12 w-auto mx-auto mb-2"
+                                        />
+                                        <p className="text-white/80 text-sm">
+                                            Utiliza el código QR en el mapa para navegar con Google Maps.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </motion.div>
                     )}
                 </AnimatePresence>
-
             </div>
         </section>
     );
