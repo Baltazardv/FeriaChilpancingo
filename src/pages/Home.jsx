@@ -10,6 +10,23 @@ import VideoSection from '../components/VideoSection';
 import EventCalendar from '../components/EventCalendar';
 import MapSection from '../components/MapSection';
 
+// Helper component to frame sections with Recurso 4
+const SectionWrapper = ({ children }) => (
+    <div className="relative">
+        {/* Top Decoration */}
+        <div className="flex justify-center py-4 pointer-events-none relative z-10 opacity-90">
+            <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
+        </div>
+
+        {children}
+
+        {/* Bottom Decoration */}
+        <div className="flex justify-center py-4 pointer-events-none relative z-10 opacity-90">
+            <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
+        </div>
+    </div>
+);
+
 export default function Home() {
     const location = useLocation();
 
@@ -53,38 +70,29 @@ export default function Home() {
                     <div className="absolute left-0 top-0 bottom-0 w-8 md:w-12 bg-contain bg-repeat-y opacity-30 z-1 pointer-events-none" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}ELEMENTOS/GRECAS.webp)` }}></div>
                     <div className="absolute right-0 top-0 bottom-0 w-8 md:w-12 bg-contain bg-repeat-y opacity-30 z-1 pointer-events-none" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}ELEMENTOS/GRECAS.webp)` }}></div>
 
-                    {/* Section Dividers - Recurso 4 */}
-                    <PosterGallery />
+                    <SectionWrapper>
+                        <PosterGallery />
+                    </SectionWrapper>
 
-                    <div className="flex justify-center my-8 md:my-16 pointer-events-none relative z-10">
-                        <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-48 opacity-80" />
-                    </div>
+                    <SectionWrapper>
+                        <Timeline />
+                    </SectionWrapper>
 
-                    <Timeline />
+                    <SectionWrapper>
+                        <HistoricalGallery />
+                    </SectionWrapper>
 
-                    <div className="flex justify-center my-8 md:my-16 pointer-events-none relative z-10">
-                        <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-48 opacity-80" />
-                    </div>
+                    <SectionWrapper>
+                        <VideoSection />
+                    </SectionWrapper>
 
-                    <HistoricalGallery />
+                    <SectionWrapper>
+                        <EventCalendar />
+                    </SectionWrapper>
 
-                    <div className="flex justify-center my-8 md:my-16 pointer-events-none relative z-10">
-                        <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-48 opacity-80" />
-                    </div>
-
-                    <VideoSection />
-
-                    <div className="flex justify-center my-8 md:my-16 pointer-events-none relative z-10">
-                        <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-48 opacity-80" />
-                    </div>
-
-                    <EventCalendar />
-
-                    <div className="flex justify-center my-8 md:my-16 pointer-events-none relative z-10">
-                        <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-48 opacity-80" />
-                    </div>
-
-                    <MapSection />
+                    <SectionWrapper>
+                        <MapSection />
+                    </SectionWrapper>
                 </div>
             </main>
             <Footer />
