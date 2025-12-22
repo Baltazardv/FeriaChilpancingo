@@ -2,43 +2,49 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, ArrowLeft, QrCode } from 'lucide-react';
 
+// Location Data
 const locations = [
     {
         id: 'plaza',
         title: 'PLAZA DE TOROS',
-        subtitle: 'Porrazo de tigres, Jaripeo y Eventos Masivos',
+        subtitle: 'Porrazo de tigres', // Shortened for legend
+        features: ['Jaripeo', 'Eventos Masivos', 'Porrazo de Tigre'],
         color: 'text-[#84bd00]', // Green from image
         bgColor: 'bg-[#84bd00]',
         description: 'La legendaria Plaza de Toros Belisario Arteaga, hogar del tradicional Porrazo del Tigre.',
         mapImage: `${import.meta.env.BASE_URL}sede/Recurso2.webp`,
         qrLink: 'https://goo.gl/maps/examplePlaza',
         pieceImage: `${import.meta.env.BASE_URL}sede/Recurso2.webp`,
+        iconImage: `${import.meta.env.BASE_URL}sede/PlazaIcon.webp`, // Explicit icon
         position: 'top-left'
-    },
-    {
-        id: 'feria', // Changed ID to feria
-        title: 'FERIA DE TODOS', // Changed Title from TERRENO to FERIA
-        subtitle: '(A UN COSTADO DE LIVERPOOL)',
-        features: ['Juegos Mecánicos', 'Muestra gastronómica', 'Muestra artesanal'],
-        color: 'text-[#9c27b0]', // Purple (from Recurso 6)
-        bgColor: 'bg-[#9c27b0]',
-        description: 'El nuevo Recinto Ferial. Un espacio amplio para toda la familia.',
-        mapImage: `${import.meta.env.BASE_URL}sede/Recurso1.webp`,
-        qrLink: 'https://goo.gl/maps/exampleTerreno',
-        pieceImage: `${import.meta.env.BASE_URL}sede/Recurso1.webp`,
-        position: 'bottom' // Position Bottom
     },
     {
         id: 'zocalo',
         title: 'ZÓCALO',
         subtitle: 'Teatro del Pueblo',
-        color: 'text-[#e91d63]', // Pink/Red (from Recurso 4)
-        bgColor: 'bg-[#e91d63]',
+        features: ['Cultura', 'Música', 'Tradición'],
+        color: 'text-[#a00037]', // Deep Pink/Red from image
+        bgColor: 'bg-[#a00037]', // Darker pink for Zocalo bar
         description: 'El corazón de la ciudad. Cultura, música y tradición en la plaza cívica.',
         mapImage: `${import.meta.env.BASE_URL}sede/Recurso3.webp`,
         qrLink: 'https://goo.gl/maps/exampleZocalo',
         pieceImage: `${import.meta.env.BASE_URL}sede/Recurso3.webp`,
-        position: 'top-right' // Position Top Right
+        iconImage: `${import.meta.env.BASE_URL}sede/Recurso1.webp`, // Stage icon
+        position: 'top-right'
+    },
+    {
+        id: 'feria',
+        title: 'TERRENO', // ID remains feria, Title is TERRENO
+        subtitle: '(A UN COSTADO DE LIVERPOOL)',
+        features: ['Juegos Mecánicos', 'Muestra gastronómica', 'Muestra artesanal'],
+        color: 'text-[#9c27b0]', // Purple (from Recurso 6)
+        bgColor: 'bg-[#7b1fa2]', // Deep Purple for bar
+        description: 'El nuevo Recinto Ferial. Un espacio amplio para toda la familia.',
+        mapImage: `${import.meta.env.BASE_URL}sede/Recurso1.webp`,
+        qrLink: 'https://goo.gl/maps/exampleTerreno',
+        pieceImage: `${import.meta.env.BASE_URL}sede/Recurso1.webp`,
+        iconImage: `${import.meta.env.BASE_URL}sede/Recurso2.webp`, // Carousel icon
+        position: 'bottom'
     }
 ];
 
@@ -46,10 +52,10 @@ export default function MapSection() {
     const [selectedLocation, setSelectedLocation] = useState(null);
 
     return (
-        <section id="location" className="py-12 md:py-20 bg-[#0B1520] relative overflow-hidden min-h-[800px] flex items-center">
+        <section id="location" className="py-8 md:py-16 bg-[#0B1520] relative overflow-hidden min-h-[700px] flex items-center">
             {/* Decorative Side Borders (Grecas) */}
-            <div className="absolute left-0 top-0 bottom-0 w-12 md:w-20 bg-contain bg-repeat-y opacity-30 z-0" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}ELEMENTOS/GRECAS.webp)` }}></div>
-            <div className="absolute right-0 top-0 bottom-0 w-12 md:w-20 bg-contain bg-repeat-y opacity-30 z-0" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}ELEMENTOS/GRECAS.webp)` }}></div>
+            <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-contain bg-repeat-y opacity-30 z-0 pointer-events-none" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}ELEMENTOS/GRECAS.webp)` }}></div>
+            <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-contain bg-repeat-y opacity-30 z-0 pointer-events-none" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}ELEMENTOS/GRECAS.webp)` }}></div>
 
             <div className="container mx-auto px-4 relative z-10">
 
@@ -57,90 +63,143 @@ export default function MapSection() {
                     {!selectedLocation ? (
                         <motion.div
                             key="selection"
-                            initial={{ opacity: 0, scale: 0.9 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.8 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.5 }}
-                            className="flex flex-col items-center justify-center"
+                            className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-16"
                         >
-                            {/* Title: ¿YA SABES A DÓNDE IR? */}
-                            <div className="bg-[#e91d63] text-white font-bold text-2xl md:text-4xl py-2 px-6 rounded-lg -rotate-2 mb-8 shadow-lg transform hover:scale-105 transition-transform cursor-default inline-block">
-                                ¿YA SABES A
-                            </div>
-                            <div className="bg-[#84bd00] text-white font-extrabold text-4xl md:text-6xl py-2 px-10 rounded-lg rotate-1 mb-16 shadow-xl transform hover:scale-105 transition-transform cursor-default inline-block">
-                                DÓNDE IR?
-                            </div>
 
-                            {/* Puzzle Container - Heart Shape Layout (approx 600x550 desktop) */}
-                            <div className="relative w-[340px] h-[300px] md:w-[600px] md:h-[550px] mx-auto mt-8">
+                            {/* LEFT SIDE: PUZZLE (Heart Shape) */}
+                            <div className="relative w-[340px] h-[340px] md:w-[500px] md:h-[500px] shrink-0">
 
-                                {/* Center Logo - La Feria es de Todos */}
-                                <div className="absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-32 md:w-56 pointer-events-none drop-shadow-2xl">
+                                {/* Center Logo */}
+                                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 w-32 md:w-48 pointer-events-none drop-shadow-2xl">
                                     <img
                                         src={`${import.meta.env.BASE_URL}sede/LaFeriaEsDeTodos.webp`}
                                         alt="La Feria es de Todos"
-                                        className="w-full animate-pulse-slow"
+                                        className="w-full"
                                     />
                                 </div>
 
-                                {/* Clickable Puzzle Pieces - Forming a Heart */}
+                                {/* Clickable Puzzle Pieces - Tighter Layout */}
 
-                                {/* Left Lobe - Plaza de Toros (Green) */}
+                                {/* 1. Green Piece (Plaza) - Left */}
                                 <motion.div
                                     whileHover={{ scale: 1.05, zIndex: 30, rotate: -2 }}
-                                    className="absolute top-0 left-[5%] w-[45%] h-[60%] cursor-pointer z-20"
+                                    className="absolute top-[0%] left-[8%] w-[50%] h-[65%] cursor-pointer z-20"
                                     onClick={() => setSelectedLocation(locations[0])}
                                 >
                                     <div className="relative w-full h-full">
                                         {/* Background Shape: Green (Recurso 5) */}
                                         <img src={`${import.meta.env.BASE_URL}sede/Recurso5.webp`} className="absolute inset-0 w-full h-full object-contain drop-shadow-lg" alt="Fondo Plaza" />
 
-                                        {/* Icon: Plaza (PlazaIcon) */}
-                                        <div className="absolute top-[25%] left-[20%] w-[60%] h-[60%] flex items-center justify-center">
+                                        {/* Icon: Plaza */}
+                                        <div className="absolute top-[28%] left-[18%] w-[60%] h-[60%] flex items-center justify-center">
                                             <img src={`${import.meta.env.BASE_URL}sede/PlazaIcon.webp`} className="w-full object-contain drop-shadow-md transform -rotate-12" alt="Icono Plaza" />
                                         </div>
                                     </div>
                                 </motion.div>
 
-                                {/* Right Lobe - Zócalo / Teatro del Pueblo (Pink) */}
+                                {/* 2. Pink Piece (Zócalo) - Top Right - Closer interaction */}
                                 <motion.div
                                     whileHover={{ scale: 1.05, zIndex: 30, rotate: 2 }}
-                                    className="absolute top-[5%] right-[5%] w-[45%] h-[55%] cursor-pointer z-10"
-                                    onClick={() => setSelectedLocation(locations[2])}
+                                    className="absolute top-[5%] right-[2%] w-[50%] h-[60%] cursor-pointer z-10"
+                                    onClick={() => setSelectedLocation(locations[1])}
                                 >
                                     <div className="relative w-full h-full">
-                                        {/* Background Shape: Pink (Recurso 4) */}
-                                        <img src={`${import.meta.env.BASE_URL}sede/Recurso4.webp`} className="absolute inset-0 w-full h-full object-contain drop-shadow-lg transform scale-x-[-1]" alt="Fondo Zócalo" />
+                                        {/* Background Shape: Pink (Recurso 4) - NO FLIP (removed scale-x-[-1]) */}
+                                        <img src={`${import.meta.env.BASE_URL}sede/Recurso4.webp`} className="absolute inset-0 w-full h-full object-contain drop-shadow-lg" alt="Fondo Zócalo" />
 
-                                        {/* Icon: Stage (Recurso 1) */}
-                                        <div className="absolute top-[30%] right-[15%] w-[60%] h-[60%] flex items-center justify-center">
+                                        {/* Icon: Stage */}
+                                        <div className="absolute top-[32%] right-[15%] w-[60%] h-[60%] flex items-center justify-center">
                                             <img src={`${import.meta.env.BASE_URL}sede/Recurso1.webp`} className="w-full object-contain drop-shadow-md" alt="Icono Teatro" />
                                         </div>
                                     </div>
                                 </motion.div>
 
-                                {/* Bottom Tip - Feria / Terreno (Purple) */}
+                                {/* 3. Purple Piece (Feria) - Bottom - Tucked in */}
                                 <motion.div
                                     whileHover={{ scale: 1.05, zIndex: 30, translateY: -5 }}
-                                    className="absolute bottom-[0%] left-[25%] w-[50%] h-[50%] cursor-pointer z-0"
-                                    onClick={() => setSelectedLocation(locations[1])}
+                                    className="absolute bottom-[5%] left-[25%] w-[50%] h-[50%] cursor-pointer z-0"
+                                    onClick={() => setSelectedLocation(locations[2])}
                                 >
                                     <div className="relative w-full h-full">
                                         {/* Background Shape: Purple (Recurso 6) */}
                                         <img src={`${import.meta.env.BASE_URL}sede/Recurso6.webp`} className="absolute inset-0 w-full h-full object-contain drop-shadow-lg" alt="Fondo Feria" />
 
-                                        {/* Icons: Tent (Recurso 3) + Carousel (Recurso 2) */}
+                                        {/* Icons: Tent + Carousel */}
                                         <div className="absolute top-[35%] left-[20%] w-[70%] h-[60%]">
                                             <img src={`${import.meta.env.BASE_URL}sede/Recurso3.webp`} className="absolute bottom-0 left-0 w-[55%] object-contain drop-shadow-md z-10" alt="Icono Carpa" />
                                             <img src={`${import.meta.env.BASE_URL}sede/Recurso2.webp`} className="absolute bottom-[20%] right-0 w-[55%] object-contain drop-shadow-md z-0" alt="Icono Carrusel" />
                                         </div>
                                     </div>
                                 </motion.div>
+
+                                {/* Pulse hint */}
+                                <p className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-white/40 text-xs md:text-sm animate-pulse whitespace-nowrap">
+                                    Toca una pieza para ver la ubicación
+                                </p>
                             </div>
 
-                            <p className="mt-8 text-white/50 text-sm animate-pulse">
-                                Toca una pieza para ver la ubicación
-                            </p>
+                            {/* RIGHT SIDE: LEGEND LIST */}
+                            <div className="flex flex-col gap-6 mt-8 md:mt-0 max-w-sm w-full z-20">
+
+                                {/* Plaza Legend Item */}
+                                <motion.div
+                                    whileHover={{ scale: 1.02 }}
+                                    className="group cursor-pointer flex flex-col items-center"
+                                    onClick={() => setSelectedLocation(locations[0])}
+                                >
+                                    <div className="bg-[#84bd00] w-full py-2 px-4 rounded-xl shadow-lg border-2 border-white/20 flex items-center justify-center relative overflow-hidden group-hover:brightness-110 transition-all">
+                                        <h3 className="text-white font-black text-xl md:text-2xl uppercase tracking-wider drop-shadow-sm text-center">
+                                            PLAZA DE TOROS
+                                        </h3>
+                                    </div>
+                                    <p className="text-white font-serif italic text-xl mt-1 group-hover:text-[#84bd00] transition-colors text-center">
+                                        Porrazo de tigres
+                                    </p>
+                                </motion.div>
+
+                                {/* Zócalo Legend Item */}
+                                <motion.div
+                                    whileHover={{ scale: 1.02 }}
+                                    className="group cursor-pointer flex flex-col items-center"
+                                    onClick={() => setSelectedLocation(locations[1])}
+                                >
+                                    <div className="bg-gradient-to-r from-[#b71c1c] to-[#a00037] w-full py-2 px-4 rounded-xl shadow-lg border-2 border-white/20 flex items-center justify-center relative overflow-hidden group-hover:brightness-110 transition-all">
+                                        <h3 className="text-white font-black text-xl md:text-2xl uppercase tracking-wider drop-shadow-sm text-center">
+                                            ZÓCALO
+                                        </h3>
+                                    </div>
+                                    <p className="text-white font-serif italic text-xl mt-1 group-hover:text-[#e91d63] transition-colors text-center">
+                                        Teatro del Pueblo
+                                    </p>
+                                </motion.div>
+
+                                {/* Terreno Legend Item */}
+                                <motion.div
+                                    whileHover={{ scale: 1.02 }}
+                                    className="group cursor-pointer flex flex-col items-center"
+                                    onClick={() => setSelectedLocation(locations[2])}
+                                >
+                                    <div className="bg-[#7b1fa2] w-full py-1 px-2 rounded-xl shadow-lg border-2 border-white/20 flex flex-col items-center justify-center relative overflow-hidden group-hover:brightness-110 transition-all h-[50px]">
+                                        <div className="flex items-baseline gap-2">
+                                            <h3 className="text-white font-black text-xl md:text-2xl uppercase tracking-wider drop-shadow-sm leading-none">
+                                                TERRENO
+                                            </h3>
+                                            <span className="text-[0.6rem] text-white/80 font-bold leading-none w-20 text-center">
+                                                (A UN COSTADO DE LIVERPOOL)
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="text-center mt-1 group-hover:text-[#9c27b0] transition-colors">
+                                        <p className="text-white font-serif italic text-xl leading-none">Juegos Mecánicos</p>
+                                        <p className="text-white font-serif italic text-lg leading-tight opacity-90">Muestra gastronómica y artesanal</p>
+                                    </div>
+                                </motion.div>
+
+                            </div>
 
                         </motion.div>
                     ) : (
@@ -176,12 +235,11 @@ export default function MapSection() {
                             {/* Main Content Grid */}
                             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
 
-                                {/* Left Side: Aesthetic Map Card */}
+                                {/* Left Side: Map Card */}
                                 <div className="md:col-span-7 relative group">
                                     <div className="absolute inset-0 bg-white/30 transform rotate-1 rounded-3xl blur-lg"></div>
                                     <div className="bg-[#e8f5e9] rounded-3xl overflow-hidden p-3 shadow-2xl relative z-10 border-4 border-white transform hover:scale-[1.01] transition-transform duration-500">
                                         <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-inner bg-[#a5d6a7]">
-                                            {/* Styled Maps Iframe */}
                                             <iframe
                                                 title="Mapa Sede"
                                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3775.312961808092!2d-99.4993!3d17.5506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDMzJzAyLjIiTiA5OcKwMjknNTcuNSJX!5e0!3m2!1ses-419!2smx!4v1634567890123!5m2!1ses-419!2smx"
@@ -192,8 +250,6 @@ export default function MapSection() {
                                                 allowFullScreen=""
                                                 loading="lazy"
                                             ></iframe>
-
-                                            {/* Decorative Map overlay elements to look like a foldable map */}
                                             <div className="absolute top-0 right-0 p-4">
                                                 <span className={`${selectedLocation.bgColor} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg border-2 border-white`}>
                                                     VISTA SATELITAL DISPONIBLE
