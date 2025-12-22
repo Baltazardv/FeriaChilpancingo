@@ -81,12 +81,12 @@ export default function MapSection() {
                                     />
                                 </div>
 
-                                {/* Clickable Puzzle Pieces - Tighter Layout */}
+                                {/* Clickable Puzzle Pieces - "Touching" Layout (Colindando) */}
 
                                 {/* 1. Green Piece (Plaza) - Left */}
                                 <motion.div
                                     whileHover={{ scale: 1.05, zIndex: 30, rotate: -2 }}
-                                    className="absolute top-[0%] left-[5%] w-[55%] h-[65%] cursor-pointer z-20"
+                                    className="absolute top-[0%] left-[2%] w-[52%] h-[65%] cursor-pointer z-20"
                                     onClick={() => setSelectedLocation(locations[0])}
                                 >
                                     <div className="relative w-full h-full">
@@ -100,14 +100,14 @@ export default function MapSection() {
                                     </div>
                                 </motion.div>
 
-                                {/* 2. Pink Piece (Zócalo) - Top Right - Closer interaction */}
+                                {/* 2. Pink Piece (Zócalo) - Top Right - Touching Green */}
                                 <motion.div
                                     whileHover={{ scale: 1.05, zIndex: 30, rotate: 2 }}
-                                    className="absolute top-[8%] right-[8%] w-[50%] h-[60%] cursor-pointer z-10"
+                                    className="absolute top-[6%] right-[5%] w-[48%] h-[58%] cursor-pointer z-10"
                                     onClick={() => setSelectedLocation(locations[1])}
                                 >
                                     <div className="relative w-full h-full">
-                                        {/* Background Shape: Pink (Recurso 4) - NO FLIP (removed scale-x-[-1]) */}
+                                        {/* Background Shape: Pink (Recurso 4) */}
                                         <img src={`${import.meta.env.BASE_URL}sede/Recurso4.webp`} className="absolute inset-0 w-full h-full object-contain drop-shadow-lg" alt="Fondo Zócalo" />
 
                                         {/* Icon: Stage */}
@@ -117,10 +117,10 @@ export default function MapSection() {
                                     </div>
                                 </motion.div>
 
-                                {/* 3. Purple Piece (Feria) - Bottom - Tucked in */}
+                                {/* 3. Purple Piece (Feria) - Bottom - Fitting in between */}
                                 <motion.div
                                     whileHover={{ scale: 1.05, zIndex: 30, translateY: -5 }}
-                                    className="absolute bottom-[8%] left-[22%] w-[55%] h-[55%] cursor-pointer z-0"
+                                    className="absolute bottom-[2%] left-[24%] w-[52%] h-[52%] cursor-pointer z-0"
                                     onClick={() => setSelectedLocation(locations[2])}
                                 >
                                     <div className="relative w-full h-full">
