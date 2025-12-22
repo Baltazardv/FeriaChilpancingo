@@ -53,8 +53,18 @@ export default function MapSection() {
 
     return (
         <section id="location" className="py-8 md:py-16 bg-[#0B1520] relative overflow-hidden min-h-[700px] flex items-center">
+            {/* Top Decoration */}
+            <div className="absolute top-4 left-0 w-full flex justify-center pointer-events-none z-20 opacity-80">
+                <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
+            </div>
+
             {/* Decorative Side Borders (Grecas) */}
             {/* Decorative Side Borders (Grecas) removed - moved to Home.jsx global wrapper */}
+
+            {/* Bottom Decoration */}
+            <div className="absolute bottom-4 left-0 w-full flex justify-center pointer-events-none z-20 opacity-80">
+                <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
+            </div>
 
             <div className="container mx-auto px-4 relative z-10">
 

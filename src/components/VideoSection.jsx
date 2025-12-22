@@ -37,6 +37,11 @@ export default function VideoSection() {
                 <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-[100px]"></div>
             </div>
 
+            {/* Top Decoration */}
+            <div className="flex justify-center w-full mb-8 pointer-events-none relative z-20 opacity-80">
+                <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
+            </div>
+
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-6">
@@ -104,6 +109,11 @@ export default function VideoSection() {
                         Documentales, entrevistas y registros históricos exclusivos.
                     </p>
                 </div>
+            </div>
+
+            {/* Bottom Decoration */}
+            <div className="flex justify-center w-full mt-8 pointer-events-none relative z-20 opacity-80">
+                <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
             </div>
 
             {/* Video Modal */}

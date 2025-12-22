@@ -68,6 +68,11 @@ export default function Timeline() {
 
     return (
         <section id="history" className="bg-feria-blue text-white py-20 relative">
+            {/* Top Decoration */}
+            <div className="flex justify-center w-full mb-8 pointer-events-none relative z-20 opacity-80">
+                <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
+            </div>
+
             <div className="container mx-auto px-4 mb-10 md:mb-32">
                 <h2 className="text-4xl md:text-5xl font-serif text-center text-feria-gold mb-6">
                     Línea de Tiempo 1825-2025
@@ -130,6 +135,11 @@ export default function Timeline() {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* Bottom Decoration */}
+            <div className="flex justify-center w-full mt-8 pointer-events-none relative z-20 opacity-80">
+                <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
+            </div>
         </section>
     );
 }

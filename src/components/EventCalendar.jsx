@@ -12,7 +12,12 @@ const events = [
 
 export default function EventCalendar() {
     return (
-        <section id="program" className="py-20 bg-gray-50">
+        <section id="program" className="py-20 bg-gray-50 relative">
+            {/* Top Decoration */}
+            <div className="flex justify-center w-full mb-8 pointer-events-none relative z-20 opacity-80">
+                <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
+            </div>
+
             <div className="container mx-auto px-4">
                 <h2 className="text-4xl font-serif text-center mb-12 text-feria-blue">Programa Oficial</h2>
 
@@ -44,6 +49,11 @@ export default function EventCalendar() {
                 </div>
 
 
+            </div>
+
+            {/* Bottom Decoration */}
+            <div className="flex justify-center w-full mt-8 pointer-events-none relative z-20 opacity-80">
+                <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
             </div>
         </section>
     );

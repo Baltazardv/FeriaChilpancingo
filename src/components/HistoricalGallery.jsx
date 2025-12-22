@@ -20,6 +20,11 @@ export default function HistoricalGallery() {
 
     return (
         <section id="historical-gallery" className="py-24 bg-neutral-900 relative overflow-hidden">
+            {/* Top Decoration */}
+            <div className="flex justify-center w-full mb-8 pointer-events-none relative z-20 opacity-80">
+                <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
+            </div>
+
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-serif text-amber-50 mb-6">
@@ -106,6 +111,11 @@ export default function HistoricalGallery() {
             </div>
             {/* Book Section */}
             <BookSection />
+
+            {/* Bottom Decoration */}
+            <div className="flex justify-center w-full mt-8 pointer-events-none relative z-20 opacity-80">
+                <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
+            </div>
         </section>
     );
 }

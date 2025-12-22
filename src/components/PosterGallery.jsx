@@ -56,6 +56,11 @@ export default function PosterGallery() {
             {/* Ambient Lighting Background */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-800 via-neutral-900 to-black opacity-80" />
 
+            {/* Top Decoration */}
+            <div className="flex justify-center w-full mb-8 pointer-events-none relative z-20 opacity-80">
+                <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
+            </div>
+
             <div className="relative z-10 max-w-7xl mx-auto">
                 <div className="text-center mb-6 md:mb-16">
                     <motion.h2
@@ -155,6 +160,11 @@ export default function PosterGallery() {
                         <span className="group-hover:translate-x-1 transition-transform">→</span>
                     </Link>
                 </div>
+            </div>
+
+            {/* Bottom Decoration */}
+            <div className="flex justify-center w-full mt-8 pointer-events-none relative z-20 opacity-80">
+                <img src={`${import.meta.env.BASE_URL}ELEMENTOS/Recurso 4.webp`} alt="Decoración" className="w-24 md:w-32" />
             </div>
         </section>
     );
