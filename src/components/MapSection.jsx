@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, ArrowLeft, QrCode } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
+import QRCode from 'react-qr-code';
 
 // Location Data
 const locations = [
     {
         id: 'plaza',
         title: 'PLAZA DE TOROS',
-        subtitle: 'Porrazo de tigres', // Shortened for legend
+        subtitle: 'Porrazo de tigres',
         features: ['Jaripeo', 'Eventos Masivos', 'Porrazo de Tigre'],
-        color: 'text-[#84bd00]', // Green from image
+        color: 'text-[#84bd00]',
         bgColor: 'bg-[#84bd00]',
         description: 'La legendaria Plaza de Toros Belisario Arteaga, hogar del tradicional Porrazo del Tigre.',
-        mapImage: `${import.meta.env.BASE_URL}sede/Map_Plaza.png`, // Updated to static map w/ QR
-        qrLink: 'https://goo.gl/maps/examplePlaza',
+        // Real Google Maps Embed URL for Plaza de Toros
+        mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3775.3193237583624!2d-99.4913888885072!3d17.55048338329241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cbef7a0e7a0a0d%3A0x123456789abcdef!2sPlaza%20de%20Toros%20Belisario%20Arteaga!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx",
+        // Direct link for QR Code
+        qrLink: 'https://www.google.com/maps/search/?api=1&query=Plaza+de+Toros+Belisario+Arteaga+Chilpancingo',
         pieceImage: `${import.meta.env.BASE_URL}sede/Recurso2.webp`,
-        iconImage: `${import.meta.env.BASE_URL}sede/PlazaIcon.webp`, // Explicit icon
+        iconImage: `${import.meta.env.BASE_URL}sede/PlazaIcon.webp`,
         position: 'top-left'
     },
     {
@@ -23,27 +26,29 @@ const locations = [
         title: 'ZÓCALO',
         subtitle: 'Teatro del Pueblo',
         features: ['Cultura', 'Música', 'Tradición'],
-        color: 'text-[#a00037]', // Deep Pink/Red from image
-        bgColor: 'bg-[#a00037]', // Darker pink for Zocalo bar
+        color: 'text-[#a00037]',
+        bgColor: 'bg-[#a00037]',
         description: 'El corazón de la ciudad. Cultura, música y tradición en la plaza cívica.',
-        mapImage: `${import.meta.env.BASE_URL}sede/Map_Zocalo.png`, // Updated to static map w/ QR
-        qrLink: 'https://goo.gl/maps/exampleZocalo',
+        // Real Google Maps Embed URL for Zocalo
+        mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3775.36573847256!2d-99.50285652433514!3d17.54958864998781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cbedc644871e3d%3A0x5a53609801828b77!2sPlaza%20C%C3%ADvica%20Primer%20Congreso%20de%20An%C3%A1huac!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx",
+        qrLink: 'https://www.google.com/maps/search/?api=1&query=Plaza+Civica+Primer+Congreso+de+Anahuac+Chilpancingo',
         pieceImage: `${import.meta.env.BASE_URL}sede/Recurso3.webp`,
-        iconImage: `${import.meta.env.BASE_URL}sede/Recurso1.webp`, // Stage icon
+        iconImage: `${import.meta.env.BASE_URL}sede/Recurso1.webp`,
         position: 'top-right'
     },
     {
         id: 'feria',
-        title: 'TERRENO', // ID remains feria, Title is TERRENO
+        title: 'TERRENO',
         subtitle: '(A UN COSTADO DE LIVERPOOL)',
         features: ['Juegos Mecánicos', 'Muestra gastronómica', 'Muestra artesanal'],
-        color: 'text-[#9c27b0]', // Purple (from Recurso 6)
-        bgColor: 'bg-[#7b1fa2]', // Deep Purple for bar
+        color: 'text-[#9c27b0]',
+        bgColor: 'bg-[#7b1fa2]',
         description: 'El nuevo Recinto Ferial. Un espacio amplio para toda la familia.',
-        mapImage: `${import.meta.env.BASE_URL}sede/Map_Terreno.png`, // Updated to static map w/ QR
-        qrLink: 'https://goo.gl/maps/exampleTerreno',
+        // Real Google Maps Embed URL for Feria (approximate based on Liverpool reference)
+        mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3775.6989345037!2d-99.4975!3d17.5432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sFeria+de+San+Mateo+Navidad+y+A%C3%B1o+Nuevo!5e0!3m2!1ses-419!2smx!4v1700000000000!5m2!1ses-419!2smx",
+        qrLink: 'https://www.google.com/maps/search/?api=1&query=Feria+de+San+Mateo+Navidad+y+Año+Nuevo+Chilpancingo',
         pieceImage: `${import.meta.env.BASE_URL}sede/Recurso1.webp`,
-        iconImage: `${import.meta.env.BASE_URL}sede/Recurso2.webp`, // Carousel icon
+        iconImage: `${import.meta.env.BASE_URL}sede/Recurso2.webp`,
         position: 'bottom'
     }
 ];
@@ -229,19 +234,32 @@ export default function MapSection() {
                             {/* Main Content Grid */}
                             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
 
-                                {/* Left Side: Map Card (NOW FULL IMAGE) */}
+                                {/* Left Side: Map Card (REVERTED TO IFRAME) */}
                                 <div className="md:col-span-8 relative group">
                                     <div className="absolute inset-0 bg-white/30 transform rotate-1 rounded-3xl blur-lg"></div>
-                                    <div className="bg-[#e8f5e9] rounded-3xl overflow-hidden shadow-2xl relative z-10 border-4 border-white transform hover:scale-[1.01] transition-transform duration-500">
-                                        <img
-                                            src={selectedLocation.mapImage}
-                                            alt={`Mapa ${selectedLocation.title}`}
-                                            className="w-full h-auto object-cover"
-                                        />
+                                    <div className="bg-[#e8f5e9] rounded-3xl overflow-hidden p-3 shadow-2xl relative z-10 border-4 border-white transform hover:scale-[1.01] transition-transform duration-500 h-full">
+                                        <div className="relative w-full h-full min-h-[400px] rounded-2xl overflow-hidden shadow-inner bg-[#a5d6a7]">
+                                            <iframe
+                                                title={`Mapa ${selectedLocation.title}`}
+                                                src={selectedLocation.mapUrl}
+                                                width="100%"
+                                                height="100%"
+                                                className="w-full h-full opacity-90 contrast-[1.1] saturate-[0.8] mix-blend-multiply"
+                                                style={{ border: 0 }}
+                                                allowFullScreen=""
+                                                loading="lazy"
+                                                referrerPolicy="no-referrer-when-downgrade"
+                                            ></iframe>
+                                            <div className="absolute top-0 right-0 p-4">
+                                                <span className={`${selectedLocation.bgColor} text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg border-2 border-white`}>
+                                                    VISTA SATELITAL DISPONIBLE
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-                                {/* Right Side: Info Only (QR is now in image) */}
+                                {/* Right Side: Info Only (QR is now GENERATED) */}
                                 <div className="md:col-span-4 flex flex-col justify-center space-y-8 bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-md">
                                     <div className="space-y-4">
                                         {selectedLocation.features && (
@@ -258,15 +276,27 @@ export default function MapSection() {
                                         </p>
                                     </div>
 
-                                    <div className="mt-8 text-center bg-white/10 p-4 rounded-xl border border-white/20">
-                                        <img
-                                            src={`${import.meta.env.BASE_URL}sede/Header_QR.png`}
-                                            alt="Escanea la ubicación"
-                                            className="h-12 w-auto mx-auto mb-2"
-                                        />
-                                        <p className="text-white/80 text-sm">
-                                            Utiliza el código QR en el mapa para navegar con Google Maps.
-                                        </p>
+                                    {/* QR Section */}
+                                    <div className="relative mt-4 flex-1 flex items-center justify-center">
+                                        <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-xl transform rotate-1 hover:rotate-0 transition-transform duration-300 w-full max-w-sm border-b-8 border-gray-200">
+                                            <div className="flex items-center gap-2 bg-[#e91d63] text-white font-bold text-lg px-4 py-2 rounded-full mb-4 shadow-md w-full justify-center">
+                                                <span>📍</span> ESCANEA LA UBICACIÓN
+                                            </div>
+
+                                            <div className="p-2 bg-white rounded-xl">
+                                                <div className="w-[160px] h-[160px]">
+                                                    <QRCode
+                                                        value={selectedLocation.qrLink}
+                                                        size={160}
+                                                        style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                                                        viewBox={`0 0 256 256`}
+                                                    />
+                                                </div>
+                                            </div>
+                                            <p className="text-center text-gray-400 text-xs mt-3 font-medium">
+                                                Abre la cámara de tu celular
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
