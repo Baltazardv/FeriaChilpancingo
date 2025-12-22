@@ -1,10 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
+import { Play } from 'lucide-react';
 
 export default function PorrazoDelTigre() {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [hasStarted, setHasStarted] = useState(false);
+    const videoRef = useRef(null);
+
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -75,16 +80,48 @@ export default function PorrazoDelTigre() {
 
                                     {/* Video Embed */}
                                     <div className="my-8 rounded-xl overflow-hidden shadow-2xl border border-amber-500/30 aspect-video group relative">
-                                        <iframe
-                                            width="100%"
-                                            height="100%"
-                                            src="https://www.youtube.com/embed/jmNVa1zmnyQ"
-                                            title="Promocional Oficial Feria Chilpancingo"
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                            className="absolute inset-0 w-full h-full"
-                                        ></iframe>
+                                        <div className="relative w-full h-full group">
+                                            {/* Explicit Poster Image (Solves mobile black screen) */}
+                                            <img
+                                                src={`${import.meta.env.BASE_URL}videos/Porrazo_2025.webp`}
+                                                alt="Poster Porrazo"
+                                                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 z-10 cursor-pointer ${hasStarted ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                                                onClick={() => videoRef.current?.play()}
+                                            />
+
+                                            <video
+                                                ref={videoRef}
+                                                src={`${import.meta.env.BASE_URL}videos/PORRAZO_2025.mp4`}
+                                                controls
+                                                className="w-full h-full object-cover relative z-0"
+                                                controlsList="nodownload"
+                                                onContextMenu={(e) => e.preventDefault()}
+                                                onPlay={() => {
+                                                    setIsPlaying(true);
+                                                    setHasStarted(true);
+                                                }}
+                                                onPause={() => setIsPlaying(false)}
+                                            >
+                                                Tu navegador no soporta el elemento de video.
+                                            </video>
+
+                                            {/* Custom Play Button Overlay */}
+                                            {!isPlaying && (
+                                                <div
+                                                    className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/20 transition-colors z-20 pointer-events-none"
+                                                >
+                                                    <div
+                                                        className="w-20 h-20 bg-amber-500/90 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(245,158,11,0.6)] backdrop-blur-sm group-hover:scale-110 transition-transform duration-300 pointer-events-auto cursor-pointer"
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            videoRef.current?.play();
+                                                        }}
+                                                    >
+                                                        <Play size={40} fill="currentColor" className="text-[#1a0f00] ml-2" />
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
 
                                     <div className="bg-gradient-to-br from-amber-950/90 to-black/90 p-8 rounded-2xl border border-amber-500/20 mt-10 backdrop-blur-md shadow-2xl relative overflow-hidden group">

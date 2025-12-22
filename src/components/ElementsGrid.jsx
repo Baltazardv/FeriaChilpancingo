@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ElementCard from './ElementCard';
 import InfoModal from './InfoModal';
 
@@ -272,12 +274,21 @@ export default function ElementsGrid() {
                         />
                     ))}
                 </div>
+                <div className="mt-16 text-center">
+                    <Link
+                        to="/"
+                        className="inline-flex items-center justify-center gap-2 px-8 py-3 border border-amber-500 text-amber-700 hover:bg-amber-500 hover:text-white transition-all duration-300 rounded-full font-medium group text-lg"
+                    >
+                        <ArrowRight className="w-5 h-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
+                        Regresar al Inicio
+                    </Link>
+                </div>
             </div>
 
             <InfoModal
                 selectedElement={selectedElement}
                 onClose={() => setSelectedElement(null)}
             />
-        </section>
+        </section >
     );
 }

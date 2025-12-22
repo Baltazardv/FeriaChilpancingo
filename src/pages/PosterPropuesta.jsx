@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Play } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ElementsGrid from '../components/ElementsGrid';
@@ -55,16 +56,46 @@ export default function PosterPropuesta() {
                                         "Una celebración de luz, color y memoria."
                                     </div>
 
-                                    <div className="mt-8">
-                                        <Link
-                                            to="/"
-                                            className="inline-flex items-center gap-2 px-6 py-3 border border-blue-400 text-blue-400 rounded-full hover:bg-blue-400 hover:text-white transition-all duration-300 group/btn"
-                                        >
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 group-hover/btn:-translate-x-1 transition-transform">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-                                            </svg>
-                                            Regresar al Inicio
-                                        </Link>
+                                    <div className="mt-8 space-y-8">
+                                        {/* Video Embed */}
+                                        <div className="w-full">
+                                            <h3 className="text-amber-500 font-bold mb-3 flex items-center gap-2 text-sm uppercase tracking-wider">
+                                                <Play size={14} fill="currentColor" /> Soundtrack Oficial
+                                            </h3>
+                                            <div className="aspect-video w-full rounded-xl overflow-hidden shadow-2xl border border-white/10 relative group/video bg-black">
+                                                <iframe
+                                                    width="100%"
+                                                    height="100%"
+                                                    src="https://www.youtube.com/embed/qRXqMZTDgLE"
+                                                    title="Soundtrack Oficial Bicentenario"
+                                                    frameBorder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen
+                                                    className="absolute inset-0 w-full h-full"
+                                                ></iframe>
+                                            </div>
+                                        </div>
+
+                                        {/* Buttons */}
+                                        <p className="text-amber-400 font-serif italic mb-2 text-lg">¡Explora más nuestra historia y contenido exclusivo!</p>
+                                        <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                                            <Link
+                                                to="/videos"
+                                                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-amber-500 text-[#0B1520] font-bold rounded-full hover:bg-amber-400 hover:scale-105 transition-all duration-300 group/btn2 shadow-lg shadow-amber-500/20"
+                                            >
+                                                <Play size={20} className="fill-current" />
+                                                Descubre más contenido
+                                            </Link>
+                                            <Link
+                                                to="/"
+                                                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 border border-blue-400/50 text-blue-400 rounded-full hover:bg-blue-400 hover:text-white transition-all duration-300 group/btn"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 group-hover/btn:-translate-x-1 transition-transform">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                                                </svg>
+                                                Regresar al Inicio
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

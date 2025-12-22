@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
@@ -66,6 +66,14 @@ const Fireworks = () => {
 };
 
 export default function Hero() {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
     const { scrollY } = useScroll();
 
     // Parallax Interactions
@@ -108,7 +116,7 @@ export default function Hero() {
 
             {/* Background & Fireworks */}
             <div className="absolute inset-0 z-0 bg-gradient-to-b from-slate-900 to-feria-blue pointer-events-none">
-                <Fireworks />
+                {!isMobile && <Fireworks />}
             </div>
 
             {/* Logos */}
@@ -209,7 +217,7 @@ export default function Hero() {
                             animate="animate"
                             whileHover="hover"
                             src={`${import.meta.env.BASE_URL}ELEMENTOS/NICOLAS BRAVO_Mesa de trabajo 1.webp`}
-                            className="h-[26vh] md:h-[42vh] object-contain drop-shadow-2xl z-20 origin-bottom -mr-[25%] md:-mr-[12%] translate-x-4 translate-y-6 md:translate-y-0"
+                            className="h-[26vh] md:h-[42vh] object-contain md:drop-shadow-2xl z-20 origin-bottom -mr-[25%] md:-mr-[12%] translate-x-4 translate-y-6 md:translate-y-0"
                             alt="Nicolas Bravo"
                         />
 
@@ -219,7 +227,7 @@ export default function Hero() {
                             animate="animate"
                             whileHover="hover"
                             src={`${import.meta.env.BASE_URL}ELEMENTOS/ESCARAMUSA2_Mesa de trabajo 1.webp`}
-                            className="h-[36vh] md:h-[58vh] object-contain drop-shadow-2xl z-30 origin-bottom translate-y-6"
+                            className="h-[36vh] md:h-[58vh] object-contain md:drop-shadow-2xl z-30 origin-bottom translate-y-6"
                             alt="Escaramusa"
                         />
 
@@ -230,7 +238,7 @@ export default function Hero() {
                             animate="animate"
                             whileHover="hover"
                             src={`${import.meta.env.BASE_URL}ELEMENTOS/GUERRERO JAGUAR_Mesa de trabajo 1.webp`}
-                            className="h-[29vh] md:h-[44vh] object-contain drop-shadow-2xl z-20 origin-bottom -ml-[25%] md:-ml-[12%] -translate-x-4 translate-y-16 md:translate-y-20"
+                            className="h-[29vh] md:h-[44vh] object-contain md:drop-shadow-2xl z-20 origin-bottom -ml-[25%] md:-ml-[12%] -translate-x-4 translate-y-16 md:translate-y-20"
                             alt="Jaguar"
                         />
 
@@ -251,10 +259,10 @@ export default function Hero() {
                     </svg>
 
                     {/* Institutional Logos (Centered on white) */}
-                    <div className="absolute bottom-1 md:bottom-2 left-0 w-full flex justify-center items-center gap-4 md:gap-12 px-4 pb-2 z-50">
-                        <img src={`${import.meta.env.BASE_URL}LOGOS/H AYUNTAMIENTO .webp`} className="h-5 md:h-10 object-contain" alt="Ayuntamiento" />
-                        <img src={`${import.meta.env.BASE_URL}LOGOS/LOGO RENACE.webp`} className="h-4 md:h-8 object-contain" alt="Renace" />
-                        <img src={`${import.meta.env.BASE_URL}LOGOS/CONSEJO LOGO.webp`} className="h-5 md:h-10 object-contain" alt="Consejo" />
+                    <div className="absolute bottom-2 left-0 w-full flex justify-center items-center gap-4 md:gap-12 px-4 pb-3 z-50">
+                        <img src={`${import.meta.env.BASE_URL}LOGOS/H AYUNTAMIENTO .webp`} className="h-8 md:h-10 object-contain" alt="Ayuntamiento" />
+                        <img src={`${import.meta.env.BASE_URL}LOGOS/LOGO RENACE.webp`} className="h-6 md:h-8 object-contain" alt="Renace" />
+                        <img src={`${import.meta.env.BASE_URL}LOGOS/CONSEJO LOGO.webp`} className="h-8 md:h-10 object-contain" alt="Consejo" />
                     </div>
                 </div>
 

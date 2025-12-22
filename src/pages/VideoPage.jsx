@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Play, Info, ArrowLeft, X, ChevronRight, Home, Film, Mic2, Plus } from 'lucide-react';
+import { Play, Info, ArrowLeft, X, ChevronRight, Home, Film, Mic2, Plus, Music } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -9,7 +9,7 @@ const allVideos = [
         id: 'tfRy6nNFJxQ', // TLACOLOLERO - First position
         title: 'SOY TLACOLOLERO - BANDA HNOS MATEOS',
         description: 'Video oficial de la Banda Hermanos Mateos. Agradecimiento especial al presidente municipal Dr. Gustavo Alarcón Herrera. Tlacololeros Santa Cecilia.',
-        category: 'Entrevistas',
+        category: 'Videos musicales',
         duration: '03:02',
         year: '2025',
         date: '17 de Diciembre, 2025',
@@ -20,7 +20,7 @@ const allVideos = [
         id: 'qRXqMZTDgLE', // SOUNDTRACK (Logo de la feria)
         title: 'SOUNDTRACK OFICIAL BICENTENARIO',
         description: 'Con motivo de la celebración de los 200 años de la Feria de Chilpancingo, se creó la banda sonora original del video promocional de la edición número 200.',
-        category: 'Documentales',
+        category: 'Videos musicales',
         duration: '03:55',
         year: '2025',
         date: '18 de Diciembre, 2025',
@@ -70,11 +70,35 @@ const allVideos = [
         date: '20 de Diciembre, 2025',
         author: 'Feria de Chilpancingo',
         thumbnail: 'https://img.youtube.com/vi/4OsNkEMrkd8/maxresdefault.jpg'
+    },
+    {
+        id: 'local_tlacolol',
+        title: 'DOCUMENTAL: Hijos del Tlacolol',
+        description: 'Documental sobre la tradición de los Tlacololeros. Duración: 30 minutos.',
+        category: 'Documentales',
+        duration: '30:00',
+        year: '2025',
+        date: '21 de Diciembre, 2025',
+        author: 'Feria de Chilpancingo',
+        thumbnail: `${import.meta.env.BASE_URL}videos/HijosDelTlacolol.webp`,
+        videoSrc: `${import.meta.env.BASE_URL}videos/DOCUMENTAL. Hijos del Tlacolol 30min.m4v`
+    },
+    {
+        id: 'local_porrazo',
+        title: 'EL PORRAZO DEL TIGRE 2025',
+        description: 'Tradicional Porrazo del Tigre, edición Bicentenario 2025.',
+        category: 'Documentales',
+        duration: '10:00', // Estimado
+        year: '2025',
+        date: '21 de Diciembre, 2025',
+        author: 'Feria de Chilpancingo',
+        thumbnail: `${import.meta.env.BASE_URL}videos/Porrazo_2025.webp`,
+        videoSrc: `${import.meta.env.BASE_URL}videos/PORRAZO_2025.mp4`
     }
 ];
 
 // Reusable Video Row Component
-const VideoRow = ({ title, videos, onVideoClick }) => {
+const VideoRow = ({ title, videos, onVideoClick, onPlayClick }) => {
     if (videos.length === 0) return null;
 
     return (
@@ -90,16 +114,52 @@ const VideoRow = ({ title, videos, onVideoClick }) => {
                         whileHover={{ scale: 1.05, zIndex: 10 }}
                         className="flex-none w-[160px] md:w-[350px] aspect-video relative bg-[#0B2F55] rounded-sm md:rounded-md overflow-hidden cursor-pointer shadow-lg snap-start group border border-white/10 hover:border-amber-500/50"
                         onClick={() => onVideoClick(video)}
+                        onMouseEnter={(e) => {
+                            const videoEl = e.currentTarget.querySelector('video');
+                            if (videoEl) {
+                                videoEl.play().catch(err => console.log("Autoplay prevented", err));
+                            }
+                        }}
+                        onMouseLeave={(e) => {
+                            const videoEl = e.currentTarget.querySelector('video');
+                            if (videoEl) {
+                                videoEl.pause();
+                                videoEl.currentTime = 0;
+                            }
+                        }}
                     >
                         <img
                             src={video.thumbnail}
                             alt={video.title}
-                            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                            className="w-full h-full object-cover transition-opacity"
                         />
+
+                        {/* Video Preview (Overlay) */}
+                        {video.videoSrc && (
+                            <div className="absolute inset-0 w-full h-full z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <video
+                                    src={video.videoSrc}
+                                    className="w-full h-full object-cover"
+                                    muted
+                                    loop
+                                    playsInline
+                                    preload="metadata"
+                                    controlsList="nodownload"
+                                    onContextMenu={(e) => e.preventDefault()}
+                                />
+                            </div>
+                        )}
+
                         {/* Hover Overlay info (Desktop only mainly) */}
-                        <div className="hidden md:flex absolute inset-0 bg-gradient-to-t from-[#0B1520] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex-col justify-end p-4">
+                        <div className="hidden md:flex absolute inset-0 bg-gradient-to-t from-[#0B1520] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex-col justify-end p-4 z-10">
                             <div className="flex items-center gap-2 mb-2">
-                                <div className="w-8 h-8 bg-amber-500 text-[#0B1520] rounded-full flex items-center justify-center shadow-lg">
+                                <div
+                                    className="w-8 h-8 bg-amber-500 text-[#0B1520] rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        onPlayClick(video);
+                                    }}
+                                >
                                     <Play size={14} fill="currentColor" />
                                 </div>
                                 <span className="text-xs font-bold text-amber-500">Nuevo</span>
@@ -113,7 +173,7 @@ const VideoRow = ({ title, videos, onVideoClick }) => {
                             </div>
                         </div>
                         {/* Mobile Simple Label */}
-                        <div className="md:hidden absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/80 to-transparent">
+                        <div className="md:hidden absolute bottom-0 left-0 w-full p-2 bg-gradient-to-t from-black/80 to-transparent z-10">
                             <h4 className="text-[10px] text-white line-clamp-1">{video.title}</h4>
                         </div>
                     </motion.div>
@@ -128,7 +188,7 @@ export default function VideoPage() {
     const [infoVideo, setInfoVideo] = useState(null);
     const [featuredVideo, setFeaturedVideo] = useState(allVideos[0]);
     const [scrolled, setScrolled] = useState(false);
-    const [filter, setFilter] = useState('Inicio'); // 'Inicio', 'Documentales', 'Entrevistas'
+    const [filter, setFilter] = useState('Inicio'); // 'Inicio', 'Documentales', 'Entrevistas', 'Videos musicales'
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -151,6 +211,7 @@ export default function VideoPage() {
     const displayVideos = getFilteredVideos();
     const docVideos = allVideos.filter(v => v.category === 'Documentales');
     const interviewVideos = allVideos.filter(v => v.category === 'Entrevistas');
+    const musicVideos = allVideos.filter(v => v.category === 'Videos musicales');
 
     const handleFilterClick = (category) => {
         setFilter(category);
@@ -191,12 +252,23 @@ export default function VideoPage() {
                     >
                         Entrevistas
                     </button>
+                    <button
+                        onClick={() => handleFilterClick('Videos musicales')}
+                        className={`transition-colors hover:text-white ${filter === 'Videos musicales' ? 'text-amber-500 font-bold' : ''}`}
+                    >
+                        Videos musicales
+                    </button>
                 </div>
 
                 <div className="flex items-center gap-4">
                     {/* Mobile 'Volver' Icon only */}
                     <Link
                         to="/"
+                        onClick={() => {
+                            document.body.style.overflow = 'auto';
+                            document.documentElement.style.overflow = 'auto';
+                            document.body.style.position = 'static';
+                        }}
                         className="md:hidden text-white/90 bg-white/10 p-2 rounded-full backdrop-blur-sm border border-white/10"
                     >
                         <ArrowLeft size={16} />
@@ -235,10 +307,18 @@ export default function VideoPage() {
                     <Mic2 size={20} className={filter === 'Entrevistas' ? 'stroke-current' : 'opacity-70'} />
                     <span className={filter === 'Entrevistas' ? 'font-bold' : ''}>Entrevistas</span>
                 </button>
+                <button
+                    onClick={() => handleFilterClick('Videos musicales')}
+                    className={`flex flex-col items-center gap-1 transition-colors ${filter === 'Videos musicales' ? 'text-white' : 'hover:text-gray-200'}`}
+                >
+                    <Music size={20} className={filter === 'Videos musicales' ? 'stroke-current' : 'opacity-70'} />
+                    <span className={filter === 'Videos musicales' ? 'font-bold' : ''}>Musicales</span>
+                </button>
             </div>
 
             {/* Hero Section */}
             <header className="relative w-full h-[85vh] md:h-[95vh] min-h-[600px] overflow-hidden pt-16 md:pt-20">
+                {/* Background Image/Video */}
                 {/* Background Image/Video */}
                 <AnimatePresence mode="wait">
                     <motion.div
@@ -249,11 +329,22 @@ export default function VideoPage() {
                         transition={{ duration: 0.7 }}
                         className="absolute inset-0"
                     >
-                        <img
-                            src={featuredVideo.thumbnail}
-                            alt="Hero Background"
-                            className="w-full h-full object-cover object-top"
-                        />
+                        {featuredVideo.videoSrc ? (
+                            <video
+                                src={featuredVideo.videoSrc}
+                                className="w-full h-full object-cover object-top"
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                            />
+                        ) : (
+                            <img
+                                src={featuredVideo.thumbnail}
+                                alt="Hero Background"
+                                className="w-full h-full object-cover object-top"
+                            />
+                        )}
                         {/* Gradient Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-r from-[#0B1520]/40 via-[#0B1520]/60 to-[#0B1520]"></div>
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0B1520] via-transparent to-transparent"></div>
@@ -318,9 +409,10 @@ export default function VideoPage() {
             <main className="pt-12 md:pt-8 md:-mt-12 relative z-20">
                 {filter === 'Inicio' ? (
                     <>
-                        <VideoRow title="Tendencias de la Feria" videos={allVideos} onVideoClick={handleVideoSelect} />
-                        <VideoRow title="Documentales Exclusivos" videos={docVideos} onVideoClick={handleVideoSelect} />
-                        <VideoRow title="Entrevistas y Reportajes" videos={interviewVideos} onVideoClick={handleVideoSelect} />
+                        <VideoRow title="Tendencias de la Feria" videos={allVideos} onVideoClick={handleVideoSelect} onPlayClick={setSelectedVideo} />
+                        <VideoRow title="Documentales Exclusivos" videos={docVideos} onVideoClick={handleVideoSelect} onPlayClick={setSelectedVideo} />
+                        <VideoRow title="Entrevistas y Reportajes" videos={interviewVideos} onVideoClick={handleVideoSelect} onPlayClick={setSelectedVideo} />
+                        <VideoRow title="Videos Musicales" videos={musicVideos} onVideoClick={handleVideoSelect} onPlayClick={setSelectedVideo} />
                     </>
                 ) : (
                     <div className="pt-4 md:pt-12">
@@ -338,14 +430,49 @@ export default function VideoPage() {
                                         whileHover={{ scale: 1.02 }}
                                         className="aspect-video relative bg-[#0B2F55] rounded-sm md:rounded-lg overflow-hidden cursor-pointer shadow-lg group border border-white/10"
                                         onClick={() => handleVideoSelect(video)}
+                                        onMouseEnter={(e) => {
+                                            const videoEl = e.currentTarget.querySelector('video');
+                                            if (videoEl) {
+                                                videoEl.play().catch(err => console.log("Autoplay prevented", err));
+                                            }
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            const videoEl = e.currentTarget.querySelector('video');
+                                            if (videoEl) {
+                                                videoEl.pause();
+                                                videoEl.currentTime = 0;
+                                            }
+                                        }}
                                     >
                                         <img
                                             src={video.thumbnail}
                                             alt={video.title}
-                                            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+                                            className="w-full h-full object-cover transition-opacity"
                                         />
+
+                                        {video.videoSrc && (
+                                            <div className="absolute inset-0 w-full h-full z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                <video
+                                                    src={video.videoSrc}
+                                                    className="w-full h-full object-cover"
+                                                    muted
+                                                    loop
+                                                    playsInline
+                                                    preload="metadata"
+                                                    controlsList="nodownload"
+                                                    onContextMenu={(e) => e.preventDefault()}
+                                                />
+                                            </div>
+                                        )}
+
                                         <div className="hidden md:flex absolute inset-0 bg-black/40 group-hover:bg-black/20 items-center justify-center transition-colors">
-                                            <div className="w-12 h-12 bg-amber-500/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                                            <div
+                                                className="w-12 h-12 bg-amber-500/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setSelectedVideo(video);
+                                                }}
+                                            >
                                                 <Play size={20} fill="currentColor" className="text-[#0B1520] ml-1" />
                                             </div>
                                         </div>
@@ -371,16 +498,28 @@ export default function VideoPage() {
                         onClick={() => setSelectedVideo(null)}
                     >
                         <div className="relative w-full h-full md:h-auto md:max-w-6xl md:aspect-video bg-black rounded-none md:rounded-lg overflow-hidden shadow-2xl ring-1 ring-white/10 flex flex-col justify-center">
-                            <iframe
-                                width="100%"
-                                height="100%"
-                                src={`https://www.youtube.com/embed/${selectedVideo.id}?autoplay=1`}
-                                title={selectedVideo.title}
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                                className="aspect-video md:h-full"
-                            ></iframe>
+                            {selectedVideo.videoSrc ? (
+                                <video
+                                    src={selectedVideo.videoSrc}
+                                    className="w-full h-full object-contain"
+                                    controls
+                                    autoPlay
+                                    playsInline
+                                    controlsList="nodownload"
+                                    onContextMenu={(e) => e.preventDefault()}
+                                />
+                            ) : (
+                                <iframe
+                                    width="100%"
+                                    height="100%"
+                                    src={`https://www.youtube.com/embed/${selectedVideo.id}?autoplay=1`}
+                                    title={selectedVideo.title}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    className="aspect-video md:h-full"
+                                ></iframe>
+                            )}
                             <button
                                 className="absolute top-4 right-4 md:top-6 md:right-6 p-2 bg-[#181818]/80 text-white rounded-full transition-colors z-70"
                                 onClick={(e) => {

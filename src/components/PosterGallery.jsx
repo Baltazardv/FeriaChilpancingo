@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import ProfileCard from './ProfileCard';
 
 
@@ -146,7 +147,16 @@ export default function PosterGallery() {
                         ))}
                     </div>
                 </div>
+
+                {/* Historical Posters Button */}
+                <div className="mt-12 text-center relative z-20">
+                    <Link to="/carteles-historicos" className="inline-flex items-center gap-2 px-8 py-3 bg-amber-900/50 hover:bg-amber-800 text-amber-100 border border-amber-700/50 rounded-full transition-all duration-300 font-serif tracking-wide group">
+                        Ver Todos los Carteles Históricos
+                        <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    </Link>
+                </div>
             </div>
         </section>
     );
 }
+

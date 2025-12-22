@@ -43,11 +43,7 @@ export default function EventCalendar() {
                     ))}
                 </div>
 
-                <div className="text-center mt-12">
-                    <button className="bg-feria-blue text-white px-8 py-3 rounded-full font-bold hover:bg-feria-blue/90 transition-colors shadow-lg">
-                        Descargar Programa Completo (PDF)
-                    </button>
-                </div>
+
             </div>
         </section>
     );

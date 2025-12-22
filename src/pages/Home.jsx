@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -12,6 +12,13 @@ import MapSection from '../components/MapSection';
 
 export default function Home() {
     const location = useLocation();
+
+    // Use useLayoutEffect to fix scroll freeze issues immediately before paint
+    useLayoutEffect(() => {
+        document.body.style.overflow = 'auto';
+        document.documentElement.style.overflow = 'auto';
+        document.body.style.position = 'static'; // Ensure body isn't fixed
+    }, []);
 
     useEffect(() => {
         if (location.hash) {
@@ -28,6 +35,9 @@ export default function Home() {
                     });
                 }
             }, 100);
+        } else {
+            // Redundant safeguard
+            window.scrollTo(0, 0);
         }
     }, [location]);
 

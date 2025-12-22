@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Home, BookOpen, Image, Calendar, MapPin, Film, Palette } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Dock from './Dock';
+
 
 export default function Navigation({ scrolledBgClass, mobileDockClass }) {
     const [scrolled, setScrolled] = useState(false);
@@ -84,12 +84,10 @@ export default function Navigation({ scrolledBgClass, mobileDockClass }) {
 
     const links = [
         { name: 'Inicio', href: '#hero', icon: <Home size={isTimeline ? 16 : 22} className="text-white" /> },
-        { name: 'Carteles', href: '#posters', icon: <Palette size={isTimeline ? 16 : 22} className="text-white" /> },
         { name: 'Historia', href: '#history', icon: <BookOpen size={isTimeline ? 16 : 22} className="text-white" /> },
         { name: 'Contenido Histórico', href: '#historical-gallery', icon: <Image size={isTimeline ? 16 : 22} className="text-white" /> },
         { name: 'Cine Feria', href: '/videos', icon: <Film size={isTimeline ? 16 : 22} className="text-white" /> },
-        { name: 'Cartelera', href: '#program', icon: <Calendar size={isTimeline ? 16 : 22} className="text-white" /> },
-        { name: 'Mapa', href: '#location', icon: <MapPin size={isTimeline ? 16 : 22} className="text-white" /> },
+        { name: 'Programa y Sede', href: '#program', icon: <Calendar size={isTimeline ? 16 : 22} className="text-white" /> },
     ];
 
     const dockItems = links.map(link => ({
@@ -130,29 +128,37 @@ export default function Navigation({ scrolledBgClass, mobileDockClass }) {
             </nav>
 
             {/* Mobile Navigation */}
-            <div className="md:hidden mobile-nav-root">
-                {/* Mobile Dock - Only Visible when NOT in Hero */}
+            <div className="md:hidden">
                 <AnimatePresence>
                     {!isHero && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 100 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 100 }}
-                            transition={{ duration: 0.5, ease: "easeOut" }}
-                            className="fixed bottom-0 left-0 w-full z-50 pointer-events-none"
+                        <motion.nav
+                            initial={{ y: "100%" }}
+                            animate={{ y: 0 }}
+                            exit={{ y: "100%" }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="fixed bottom-0 left-0 w-full bg-[#0B1520]/95 backdrop-blur-xl border-t border-white/10 z-50 safe-area-pb"
                         >
-                            <div className="pointer-events-auto">
-                                <Dock
-                                    items={dockItems}
-                                    panelHeight={56}
-                                    baseItemSize={42}
-                                    magnification={60}
-                                    distance={150}
-                                    outerClassName=""
-                                    className={`transition-all duration-500 ease-in-out ${mobileDockClass || ''}`}
-                                />
+                            <div className="flex justify-around items-center w-full px-2 py-2">
+                                {links.map((link) => (
+                                    <a
+                                        key={link.name}
+                                        href={link.href}
+                                        onClick={(e) => handleNavClick(e, link.href)}
+                                        className="flex flex-col items-center justify-center gap-1 p-1 text-gray-400 hover:text-amber-500 active:text-amber-500 transition-colors group flex-1"
+                                    >
+                                        <div className="p-1 rounded-full group-active:bg-white/5 transition-colors">
+                                            {React.cloneElement(link.icon, {
+                                                size: 18,
+                                                className: "opacity-70 group-hover:opacity-100 group-active:stroke-amber-500 transition-all"
+                                            })}
+                                        </div>
+                                        <span className="text-[9px] font-medium tracking-wide text-center leading-none truncate max-w-full px-0.5">
+                                            {link.name.replace('Contenido Histórico', 'Histórico').replace('Programa y Sede', 'Programa')}
+                                        </span>
+                                    </a>
+                                ))}
                             </div>
-                        </motion.div>
+                        </motion.nav>
                     )}
                 </AnimatePresence>
             </div>

@@ -8,21 +8,31 @@ const historyEvents = [
         title: 'Origen',
         image: `${import.meta.env.BASE_URL}ELEMENTOS/NICOLAS BRAVO_Mesa de trabajo 1.webp`,
         secondaryImage: `${import.meta.env.BASE_URL}Decreto de creación de la feria.webp`,
-        description: `Nacida en la posguerra de 1825 para reactivar la economía local, la Feria fue impulsada por el General Nicolás Bravo para auxiliar a una población devastada. Oficializada mediante el Decreto n.º 40 el 26 de marzo, se estableció en diciembre como un medio de recuperación social, honrando el sacrificio de Chilpancingo en la causa insurgente.`
+        description: `Nacida en la posguerra de 1825 para reactivar la economía local, la Feria fue impulsada por el General Nicolás Bravo para auxiliar a una población devastada.
+        
+        *Documento Histórico: Decreto Número 40 del 26 de marzo de 1825, mediante el cual el Congreso del Estado concede una feria anual a la ciudad de Chilpancingo, estableciendo su celebración en diciembre.*`
     },
     {
         year: 'Siglo XIX',
         title: 'Consolidación',
-        image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`,
+        images: [
+            `${import.meta.env.BASE_URL}Linea_Tiempo/catedral.webp`,
+            `${import.meta.env.BASE_URL}Linea_Tiempo/catedral2.webp`
+        ],
         secondaryImage: `${import.meta.env.BASE_URL}escudopendon.webp`,
-        description: `Desde su inicio, la feria trascendió lo comercial para convertirse en el corazón cultural de la ciudad. Durante el siglo XIX, el 'Paseo del Pendón' emergió como el hilo conductor que unía a los barrios tradicionales. La festividad integró danzas y rituales, consolidándose como un símbolo de identidad que perdura hasta hoy.`
+        description: `Desde su inicio, la feria trascendió lo comercial para convertirse en el corazón cultural de la ciudad. Durante el siglo XIX, el 'Paseo del Pendón' emergió como el hilo conductor que unía a los barrios tradicionales. La festividad integró danzas y rituales, consolidándose como un símbolo de identidad que perdura hasta hoy.
+        
+        *Fotografías históricas: Zócalo y Catedral de la Asunción, testigos del corazón de la ciudad.*`
     },
     {
         year: '1900',
         title: 'La Cuelga de Petaquillas',
-        image: `${import.meta.env.BASE_URL}ELEMENTOS/IGLESIA DE SAN MATEO_Mesa de trabajo 1.webp`,
-        description: `Tradición emblemática de hermandad entre pueblos. Petaquillas enviaba una ofrenda o "cuelga" de mezcal y cadenas de cempasúchil a Chilpancingo, anunciada con música y cohetes. Aunque dejó de realizarse en 1936, permanece como un símbolo histórico de la solidaridad que cimentó nuestra feria.`
+        image: `${import.meta.env.BASE_URL}Linea_Tiempo/petaquillas.webp`,
+        description: `Tradición emblemática de hermandad entre pueblos. Petaquillas enviaba una ofrenda o "cuelga" de mezcal y cadenas de cempasúchil a Chilpancingo, anunciada con música y cohetes. Aunque dejó de realizarse en 1936, permanece como un símbolo histórico de la solidaridad que cimentó nuestra feria.
+        
+        *Fotografía representativa: Iglesia de San Agustín en el poblado de Petaquillas.*`
     },
+
     {
         year: 'Siglo XX',
         title: 'El Porrazo de Tigres',
@@ -34,15 +44,21 @@ const historyEvents = [
     {
         year: '1979',
         title: 'El Escudo del Pendón',
-        image: `${import.meta.env.BASE_URL}escudopendon.webp`,
+        images: [
+            `${import.meta.env.BASE_URL}escudopendon.webp`,
+            `${import.meta.env.BASE_URL}Linea_Tiempo/escudoedicion199.webp`
+        ],
+        secondaryImage: `${import.meta.env.BASE_URL}Linea_Tiempo/acta.webp`,
         description: `Establecido por el Cabildo el 21 de septiembre de 1979. Diseñado por Francisco Antonio Alarcón Tapia, representa a Chilpancingo como "lugar de avispas", con cadenas de cempasúchil que simbolizan festividad y bienvenida.
         
-        Al centro figuran los tlacololeros y el tigre, con la iglesia de la Asunción al fondo.`
+        Al centro figuran los tlacololeros y el tigre, con la iglesia de la Asunción al fondo.
+        
+        *Contexto Histórico: El diseño oficial se eligió mediante concurso y quedó asentado en el Acta de Cabildo mostrada abajo. También se aprecia una versión del pendón de fines del siglo XX utilizado en la festividad.*`
     },
     {
         year: 'Actualidad',
         title: 'Modernización y Sede',
-        image: `${import.meta.env.BASE_URL}ELEMENTOS/PLAZA DE TOROS_Mesa de trabajo 1.webp`,
+        image: `${import.meta.env.BASE_URL}Linea_Tiempo/Sede.webp`,
         description: `El crecimiento de la ciudad exigió un nuevo hogar para la fiesta. Tras un periodo itinerante, la feria se estableció definitivamente en los antiguos viveros del Barrio de San Antonio. Hoy, con instalaciones permanentes y un patronato oficial, la feria conjuga tradición y modernidad, manteniéndose como la celebración más importante de Guerrero.`
     }
 ];
@@ -70,54 +86,7 @@ export default function Timeline() {
             {/* Mobile View: Horizontal Carousel */}
             <div className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-12 w-full no-scrollbar relative z-10">
                 {historyEvents.map((event, index) => (
-                    <div key={index} className="snap-center shrink-0 w-[85vw] max-w-sm flex flex-col">
-                        <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-white/20 h-full flex flex-col">
-                            {/* Mobile Image */}
-                            <div className="h-56 relative group">
-                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-feria-gold to-feria-red z-10"></div>
-                                <img
-                                    src={event.image}
-                                    alt={event.title}
-                                    className="w-full h-full object-cover"
-                                    onError={(e) => e.target.style.display = 'none'}
-                                />
-                                <div className="absolute bottom-[-1px] left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
-                                <div className="absolute top-4 left-4 bg-feria-blue/90 text-white font-bold px-3 py-1 rounded-lg shadow-lg border border-feria-gold/50 backdrop-blur-md z-20">
-                                    <span className="text-xs text-feria-gold uppercase mr-1">Año</span>
-                                    {event.year}
-                                </div>
-                            </div>
-
-                            {/* Mobile Content */}
-                            <div className="p-6 pt-2 flex-1 flex flex-col text-feria-blue">
-                                <h3 className="text-2xl font-serif font-bold mb-3 leading-tight">{event.title}</h3>
-                                <div className="w-12 h-1 bg-feria-gold/50 rounded-full mb-4"></div>
-                                <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-1">
-                                    {event.description}
-                                </p>
-                                {event.secondaryImage && (
-                                    <div className="mt-auto pt-4 border-t border-gray-100">
-                                        <div
-                                            className="rounded-lg overflow-hidden border border-gray-200 bg-gray-50 p-1 relative group cursor-pointer"
-                                            onClick={() => setSelectedImage(event.secondaryImage)}
-                                        >
-                                            <img src={event.secondaryImage} className="w-full h-32 object-contain transition-transform duration-300 group-hover:scale-105" alt="Documento histórico" />
-                                            {/* Click Hint Overlay */}
-                                            <div className="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <ZoomIn className="text-feria-blue drop-shadow-md" size={32} />
-                                            </div>
-                                            <div className="absolute top-2 right-2 bg-white/90 rounded-full p-1 shadow-sm opacity-80">
-                                                <ZoomIn size={14} className="text-feria-blue" />
-                                            </div>
-                                            <p className="text-[10px] text-center text-feria-blue font-bold mt-1 uppercase tracking-wider flex items-center justify-center gap-1">
-                                                <span className="animate-pulse">●</span> Toca para ampliar
-                                            </p>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    </div>
+                    <TimelineMobileCard key={index} event={event} onImageClick={setSelectedImage} />
                 ))}
             </div>
 
@@ -165,8 +134,92 @@ export default function Timeline() {
     );
 }
 
+function TimelineMobileCard({ event, onImageClick }) {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const currentImage = event.images ? event.images[currentImageIndex] : event.image;
+
+    const toggleImage = (e) => {
+        e.stopPropagation();
+        if (event.images) {
+            setCurrentImageIndex((prev) => (prev + 1) % event.images.length);
+        }
+    };
+
+    return (
+        <div className="snap-center shrink-0 w-[85vw] max-w-sm flex flex-col">
+            <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-white/20 h-full flex flex-col">
+                {/* Mobile Image */}
+                <div className="h-56 relative group">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-feria-gold to-feria-red z-10"></div>
+                    <img
+                        src={currentImage}
+                        alt={event.title}
+                        className="w-full h-full object-cover"
+                        onError={(e) => e.target.style.display = 'none'}
+                    />
+
+                    {/* Toggle Button for Mobile */}
+                    {event.images && (
+                        <button
+                            onClick={toggleImage}
+                            className="absolute bottom-3 right-3 bg-red-600 text-white p-2 px-3 rounded-full shadow-lg hover:bg-red-700 transition-colors z-30 font-bold text-xs flex items-center gap-1 border border-white"
+                        >
+                            <span>↻</span> Alternar Foto
+                        </button>
+                    )}
+
+                    <div className="absolute bottom-[-1px] left-0 w-full h-24 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+                    <div className="absolute top-4 left-4 bg-feria-blue/90 text-white font-bold px-3 py-1 rounded-lg shadow-lg border border-feria-gold/50 backdrop-blur-md z-20">
+                        <span className="text-xs text-feria-gold uppercase mr-1">Año</span>
+                        {event.year}
+                    </div>
+                </div>
+
+                {/* Mobile Content */}
+                <div className="p-6 pt-2 flex-1 flex flex-col text-feria-blue">
+                    <h3 className="text-2xl font-serif font-bold mb-3 leading-tight">{event.title}</h3>
+                    <div className="w-12 h-1 bg-feria-gold/50 rounded-full mb-4"></div>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 flex-1 whitespace-pre-line">
+                        {event.description}
+                    </p>
+                    {event.secondaryImage && (
+                        <div className="mt-auto pt-4 border-t border-gray-100">
+                            <div
+                                className="rounded-lg overflow-hidden border border-gray-200 bg-gray-50 p-1 relative group cursor-pointer"
+                                onClick={() => onImageClick && onImageClick(event.secondaryImage)}
+                            >
+                                <img src={event.secondaryImage} className="w-full h-32 object-contain transition-transform duration-300 group-hover:scale-105" alt="Documento histórico" />
+                                {/* Click Hint Overlay */}
+                                <div className="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <ZoomIn className="text-feria-blue drop-shadow-md" size={32} />
+                                </div>
+                                <div className="absolute top-2 right-2 bg-white/90 rounded-full p-1 shadow-sm opacity-80">
+                                    <ZoomIn size={14} className="text-feria-blue" />
+                                </div>
+                                <p className="text-[10px] text-center text-feria-blue font-bold mt-1 uppercase tracking-wider flex items-center justify-center gap-1">
+                                    <span className="animate-pulse">●</span> Toca para ampliar
+                                </p>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+}
+
 function TimelineItem({ event, index, onImageClick }) {
     const isEven = index % 2 === 0;
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const currentImage = event.images ? event.images[currentImageIndex] : event.image;
+
+    const toggleImage = (e) => {
+        e.stopPropagation();
+        if (event.images) {
+            setCurrentImageIndex((prev) => (prev + 1) % event.images.length);
+        }
+    };
 
     return (
         <div className={`flex items-center justify-between w-full mb-24 relative ${isEven ? 'flex-row' : 'flex-row-reverse'}`}>
@@ -231,13 +284,24 @@ function TimelineItem({ event, index, onImageClick }) {
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 h-[300px] group relative cursor-pointer bg-black/20"
-                    onClick={() => onImageClick && onImageClick(event.image)}
+                    onClick={() => onImageClick && onImageClick(currentImage)}
                 >
                     <img
-                        src={event.image}
+                        src={currentImage}
                         alt={event.title}
                         className="w-full h-full object-contain p-2 transition-transform duration-700 group-hover:scale-105"
                     />
+
+                    {/* Image Toggle Button for events with multiple images */}
+                    {event.images && (
+                        <button
+                            onClick={toggleImage}
+                            className="absolute bottom-4 right-4 bg-red-600 text-white p-2 rounded-full shadow-lg hover:bg-red-700 transition-colors z-20 font-bold text-xs flex items-center gap-1 border-2 border-white"
+                        >
+                            <span>↻</span> Ver otra
+                        </button>
+                    )}
+
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                 </motion.div>
             </div>
