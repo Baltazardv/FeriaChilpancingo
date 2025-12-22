@@ -54,8 +54,7 @@ export default function MapSection() {
     return (
         <section id="location" className="py-8 md:py-16 bg-[#0B1520] relative overflow-hidden min-h-[700px] flex items-center">
             {/* Decorative Side Borders (Grecas) */}
-            <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-contain bg-repeat-y opacity-30 z-0 pointer-events-none" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}ELEMENTOS/GRECAS.webp)` }}></div>
-            <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-contain bg-repeat-y opacity-30 z-0 pointer-events-none" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}ELEMENTOS/GRECAS.webp)` }}></div>
+            {/* Decorative Side Borders (Grecas) removed - moved to Home.jsx global wrapper */}
 
             <div className="container mx-auto px-4 relative z-10">
 
@@ -87,7 +86,7 @@ export default function MapSection() {
                                 {/* 1. Green Piece (Plaza) - Left */}
                                 <motion.div
                                     whileHover={{ scale: 1.05, zIndex: 30, rotate: -2 }}
-                                    className="absolute top-[0%] left-[8%] w-[50%] h-[65%] cursor-pointer z-20"
+                                    className="absolute top-[0%] left-[5%] w-[55%] h-[65%] cursor-pointer z-20"
                                     onClick={() => setSelectedLocation(locations[0])}
                                 >
                                     <div className="relative w-full h-full">
@@ -104,7 +103,7 @@ export default function MapSection() {
                                 {/* 2. Pink Piece (Zócalo) - Top Right - Closer interaction */}
                                 <motion.div
                                     whileHover={{ scale: 1.05, zIndex: 30, rotate: 2 }}
-                                    className="absolute top-[5%] right-[2%] w-[50%] h-[60%] cursor-pointer z-10"
+                                    className="absolute top-[8%] right-[8%] w-[50%] h-[60%] cursor-pointer z-10"
                                     onClick={() => setSelectedLocation(locations[1])}
                                 >
                                     <div className="relative w-full h-full">
@@ -121,7 +120,7 @@ export default function MapSection() {
                                 {/* 3. Purple Piece (Feria) - Bottom - Tucked in */}
                                 <motion.div
                                     whileHover={{ scale: 1.05, zIndex: 30, translateY: -5 }}
-                                    className="absolute bottom-[5%] left-[25%] w-[50%] h-[50%] cursor-pointer z-0"
+                                    className="absolute bottom-[8%] left-[22%] w-[55%] h-[55%] cursor-pointer z-0"
                                     onClick={() => setSelectedLocation(locations[2])}
                                 >
                                     <div className="relative w-full h-full">

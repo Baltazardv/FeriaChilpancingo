@@ -49,6 +49,10 @@ export default function Home() {
 
                 {/* Content Wrapper for Sticky Reveal Effect */}
                 <div className="relative z-10 bg-slate-50">
+                    {/* Global Grecas Borders (Exclude Hero/Header/Footer) */}
+                    <div className="absolute left-0 top-0 bottom-0 w-8 md:w-12 bg-contain bg-repeat-y opacity-30 z-20 pointer-events-none" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}ELEMENTOS/GRECAS.webp)` }}></div>
+                    <div className="absolute right-0 top-0 bottom-0 w-8 md:w-12 bg-contain bg-repeat-y opacity-30 z-20 pointer-events-none" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}ELEMENTOS/GRECAS.webp)` }}></div>
+
                     <PosterGallery />
                     <Timeline />
                     <HistoricalGallery />
